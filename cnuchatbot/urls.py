@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from chatbotapp import views
 
 urlpatterns = [
+    path('library/', views.get_library_info),
     path('admin/', admin.site.urls),
 ]
