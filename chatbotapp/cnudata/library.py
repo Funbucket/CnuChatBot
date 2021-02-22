@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests, re
-from cnubot.kakaojsonformat.response import insert_text
+from chatbotapp.kakaojsonformat.response import insert_text
 
 
 def get_crawled_data():
