@@ -77,7 +77,7 @@ def each_get_library_image(floor):
     return answer
 
 def entire_floor_image():
-    answer = insert_text("🗺️지도를 보고싶은 층을 \n 아래에서 선택해주세요🗺️")
+    answer = insert_text("🗺지도를 보고싶은 층을 \n 아래에서 선택해주세요🗺\n👇👇👇👇👇👇👇👇👇")
     reply = make_reply("👉B2층 지도보기", "B2층 지도보기")
     answer = insert_replies(answer, reply)
     reply = make_reply("👉B1층 지도보기", "B1층 지도보기")
