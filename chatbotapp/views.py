@@ -7,7 +7,7 @@ from chatbotapp.cnudata.bus import get_bus_answer
 
 @csrf_exempt
 def get_library_info(request):
-    answer = request.body
+    answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
