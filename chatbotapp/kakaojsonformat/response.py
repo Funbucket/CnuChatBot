@@ -62,5 +62,5 @@ def insert_replies(new_response, reply):
 
 
 # 카카오톡 채널 - 하단 버튼 생성
-def make_reply(label, message, block_id):
-    return {'action': 'block', 'label': label, 'messageText': message, 'blockId': block_id}
+def make_reply(label, message):
+    return {'action': 'message', 'label': label, 'messageText': message}
