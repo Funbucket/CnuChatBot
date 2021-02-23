@@ -33,7 +33,7 @@ def get_library_answer():
     response_text = ""
 
     for key in library_info:
-        response_text += "\t\t👉" + key + "👈\n\t" + library_info[key] + "\n"
+        response_text += "      👉" + key + "👈\n\t" + library_info[key] + "\n"
         name.append(key)
     print(response_text)
     answer = insert_text(response_text)
