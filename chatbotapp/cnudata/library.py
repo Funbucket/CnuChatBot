@@ -19,7 +19,7 @@ def library_json_format():
     # value 값
     value = []
     for i in range(11):
-        value.append("🪑총 좌석:" + data[4 * i + 1] + " 잔여좌석:" + data[4 * i + 2] + " [" + data[4 * i + 3] + "]")
+        value.append("총 좌석:" + data[4 * i + 1] + " 잔여좌석:" + data[4 * i + 2] + " [" + data[4 * i + 3] + "]")
 
     # dict 생성
     library_info = {}
@@ -40,7 +40,7 @@ def get_library_answer():
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
     for room_name in name:
-        reply = make_reply("👉" + room_name,room_name)
+        reply = make_reply("🙏" + room_name,room_name)
         answer = insert_replies(answer,reply)
     return answer
 
