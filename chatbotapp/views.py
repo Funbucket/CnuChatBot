@@ -49,8 +49,6 @@ def get_library_info(request):
         return JsonResponse(response)
 
 
-
-
 @csrf_exempt
 def get_bus_info(request):
     answer = request.body.decode('utf-8')
@@ -58,8 +56,13 @@ def get_bus_info(request):
     return_str = return_json_str['userRequest']['utterance']
 
     if return_str == '셔틀':
-        response = get_bus_answer()
+        response = get_root_answer()
         return JsonResponse(response)
+
+    elif return_str == 'A노선':
+        response = get_aroot_stations_answer()
+        return JsonResponse(response)
+
 
 @csrf_exempt
 def get_cafeteria_info(request):
