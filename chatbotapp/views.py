@@ -63,6 +63,10 @@ def get_bus_info(request):
         response = get_aroot_stations_answer()
         return JsonResponse(response)
 
+    elif return_str == "B노선":
+        response = get_broot_stations_answer()
+        return  JsonResponse(response)
+
 
 @csrf_exempt
 def get_cafeteria_info(request):
