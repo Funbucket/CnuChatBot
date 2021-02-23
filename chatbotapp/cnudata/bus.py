@@ -21,5 +21,5 @@ def get_aroot_stations_answer():
     for i in range(len(aroot_stations)):
         reply = make_reply(aroot_stations[i], aroot_stations[i])
         answer = insert_replies(answer, reply)
-    
+
     return answer
