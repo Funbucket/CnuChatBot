@@ -20,5 +20,6 @@ from chatbotapp import views
 urlpatterns = [
     path('library/', views.get_library_info),
     path('admin/', admin.site.urls),
-    # path('bus/',views.get_bus_info)
+    path('bus/', views.get_bus_info),
+    path('cafeteria/', views.get_cafeteria_info)
 ]
