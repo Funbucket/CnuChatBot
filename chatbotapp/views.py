@@ -30,14 +30,19 @@ def get_library_info(request):
 
         response = each_get_library_answer(return_str)
         return JsonResponse(response)
-    elif return_str == "B2" \
-        or return_str == "B1" \
-        or return_str == "0" \
-        or return_str == "1"\
-        or return_str == "2"\
-        or return_str == "3"\
-        or return_str == "4"\
-        or return_str == "5":
+
+    elif return_str == "층별지도보기":
+        response = entire_floor_image()
+        return JsonResponse(response)
+
+    elif return_str == "B2층 지도보기" \
+        or return_str == "B1층 지도보기" \
+        or return_str == "별관1층 지도보기" \
+        or return_str == "1층 지도보기"\
+        or return_str == "2층 지도보기"\
+        or return_str == "3층 지도보기"\
+        or return_str == "4층 지도보기"\
+        or return_str == "5층 지도보기":
 
         response = each_get_library_image(return_str)
         return JsonResponse(response)

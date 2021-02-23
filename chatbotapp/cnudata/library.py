@@ -51,6 +51,9 @@ def each_get_library_answer(room):
     response_text = room + "\n\t" + library_info[room] + "\n"
     answer = insert_text(response_text)
 
+    reply = make_reply("층별지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)
+
     for room_name in name:
         reply = make_reply(room_name, room_name)
         answer = insert_replies(answer, reply)
@@ -59,9 +62,33 @@ def each_get_library_answer(room):
 
 
 def each_get_library_image(floor):
-
+    floor = floor[:-6]  # 뒤에 층별지도보기 글씨 자름 url 에 넣기위해
+    if len(floor) > 2:
+        floor = floor[2]
     answer = insert_image("https://library.cnu.ac.kr/image/ko/local/guide/floor{}.png".format(floor), floor)
-    print(answer)
+    reply = make_reply("열람실 좌석보기", "열람실")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("다른층 지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)
 
     return answer
+
+
+def entire_floor_image():
+    answer = insert_text("지도를 보고싶은 층을 아래에서 선택해주세요")
+    reply = make_reply("B2층 지도보기", "B2층 지도보기")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B1층 지도보기", "B1층 지도보기")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("별관1층 지도보기", "별관1층 지도보기")
+    answer = insert_replies(answer, reply)
+
+    for i in range(1,6):
+        reply = make_reply("{}층 지도보기".format(i), "{}층 지도보기".format(i))
+        answer = insert_replies(answer, reply)
+
+    return answer
+
+
+        
 
