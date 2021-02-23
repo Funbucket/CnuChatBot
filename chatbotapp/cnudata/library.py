@@ -42,12 +42,14 @@ def get_library_answer():
         answer = insert_replies(answer,reply)
     return answer
 
+
 def each_get_library_answer(room):
     library_info = library_json_format()
     for key in library_info:
         name.append(key)
     response_text = room + "\n\t" + library_info[room] + "\n"
     answer = insert_text(response_text)
+
     for room_name in name:
         reply = make_reply(room_name,room_name)
         answer = insert_replies(answer,reply)

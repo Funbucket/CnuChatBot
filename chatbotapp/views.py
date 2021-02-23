@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from chatbotapp.cnudata.library import get_library_answer , each_get_library_answer
 from chatbotapp.cnudata.bus import get_bus_answer
 
+
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')
