@@ -31,3 +31,11 @@ def get_library_info(request):
         return JsonResponse(response)
 
 
+@csrf_exempt
+def get_bus_info(request):
+    pass
+
+@csrf_exempt
+def get_cafeteria_info(request):
+    pass
+
