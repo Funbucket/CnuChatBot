@@ -36,7 +36,8 @@ def get_library_answer():
         response_text += key + "\n\t" + library_info[key] + "\n"
         name.append(key)
     answer = insert_text(response_text)
-
+    reply = make_reply("층별지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)  
     for room_name in name:
         reply = make_reply(room_name,room_name)
         answer = insert_replies(answer,reply)
