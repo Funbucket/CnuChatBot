@@ -30,10 +30,10 @@ def library_json_format():
 
 def get_library_answer():
     library_info = library_json_format()
-    response_text = ""
+    response_text = "😋 충남대학교 열람실 좌석 정보 😋"
 
     for key in library_info:
-        response_text += "      👉" + key + "👈\n\t" + library_info[key] + "\n"
+        response_text += "\n\t👉" + key + "👈\n\t" + library_info[key] + "\n"
         name.append(key)
     print(response_text)
     answer = insert_text(response_text)
