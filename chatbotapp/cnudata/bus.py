@@ -10,13 +10,14 @@ def get_root_answer():
     answer = insert_text("원하시는 노선을 선택해주세요.")
 
     for i in range(len(roots)):
+
         reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
 
     return answer
 
 
-aroot_image_url = "https://www.facebook.com/1638507039788764/photos/bc.Abq0WA0nlZ8S-MjE7X4Qfw69IwxyRN9YVL3oC8n8nj0ieH33mRksOTpiYvTDm-RaWKctLq6FnFk1l151wnhOxr3FAyZ_vjJ9y-XFl670e-Blzh6LE2C0Z0KNcexpsNWVKzWVW7o41BfZ8OxzM7YqpuUzReG3jMlxhwIoa0GELX1WmJWnk0u-Gyuh-1gBZmsBeXHj5ZqFdlC9Gu-Hia68ydb5/1762861957353271/?opaqueCursor=Abp9KMrGU16L9hXRjw9NsC5a39nkd6ToA7ePwblxfMHylq72X8GBsIwTdQLeQnzN2JGLc7H1a8LLiHLrlumzt_tBH5MX82CWOOpN0_EB8SDqdi15CY7Vkoi7ss9rI-ICo8CtCe6IIQoHxUsWrXTnKW1xoPIK1ExGeG1Gg4_rJaZmTYuzfRB2_FjYHgGNBfJHumspy8WNVGIE7MIIkYqtY3JedPUc8VeOQNm4R7o46auoI2xts8oe7QoNzdcO4wPVERd6UdQAggW0KvYKzEwj-1dbecB6zFjRXuDXzPCYjUpNEELttBvoMf43pS2XxE4risOxAHzuWW05UxfZ-LnmU6F66PUqEQTenmx5tWgrJgKpGbnCpBVYmwZ7CmCHzoxribx8S4WaHxOgi3n32b__EmVcNtbveC1me7Cax3h4f_6Vt5PQiyyTU-NhbFXfsYbB9B_djA4hp1CbmeZfA3vRdiVKIMJJdr8tKmudNrP7by_bUAvaWUD5_kE7a9qj35ucNleVZhpCT3W8uTD1-MvNU0n1dCfQ4j_Z_1945tWuigzcl2uIxO-eENwgJSaPVhNSNd2JoZvgUAko5L-L6chVQaM0PWVuLZK5XKrDQsscKW6hZA"
+aroot_image_url = "https://m.blog.naver.com/PostView.nhn?blogId=jhn5801&logNo=220670900645&proxyReferer=https:%2F%2Fwww.google.com%2F&view=img_1"
 
 
 def get_aroot_image(root):
