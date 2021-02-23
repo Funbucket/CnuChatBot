@@ -35,7 +35,6 @@ def get_library_answer():
     for key in library_info:
         response_text += "\n\t👉" + key + "\n\t" + library_info[key] + "\n"
         name.append(key)
-    print(response_text)
     answer = insert_text(response_text)
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
@@ -46,11 +45,12 @@ def get_library_answer():
 
 
 def each_get_library_answer(room):
-
+    response_text = "\n😋 선택하신 열람실 좌석 정보 😋 \n "
     library_info = library_json_format()
     for key in library_info:
         name.append(key)
-    response_text = "\t\t" + room + "\n\t" + library_info[room] + "\n"
+    response_text += "\t" + room + "\n" + library_info[room] + "\n"
+    print(response_text)
     answer = insert_text(response_text)
 
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
@@ -93,4 +93,4 @@ def entire_floor_image():
 
 
         
-get_library_answer()
+each_get_library_answer("2층 제 1열람실 B")
