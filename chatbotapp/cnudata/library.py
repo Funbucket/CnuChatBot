@@ -45,7 +45,7 @@ def get_library_answer():
 
 
 def each_get_library_answer(room):
-    response_text = "\n😋 선택하신 열람실 좌석 정보 😋 \n "
+    response_text = "\n😛 선택하신 열람실 좌석 정보 😛 \n "
     library_info = library_json_format()
     for key in library_info:
         name.append(key)
@@ -57,7 +57,7 @@ def each_get_library_answer(room):
     answer = insert_replies(answer, reply)
 
     for room_name in name:
-        reply = make_reply(room_name, room_name)
+        reply = make_reply("🙏" + room_name, room_name)
         answer = insert_replies(answer, reply)
 
     return answer
