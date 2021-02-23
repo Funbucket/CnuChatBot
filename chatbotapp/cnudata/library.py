@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests, re
-from chatbotapp.kakaojsonformat.response import insert_text , insert_replies ,make_reply
+from chatbotapp.kakaojsonformat.response import *
 name = []
 
 def get_crawled_data():
@@ -42,13 +42,25 @@ def get_library_answer():
         answer = insert_replies(answer,reply)
     return answer
 
+
 def each_get_library_answer(room):
+
     library_info = library_json_format()
     for key in library_info:
         name.append(key)
     response_text = room + "\n\t" + library_info[room] + "\n"
     answer = insert_text(response_text)
     for room_name in name:
-        reply = make_reply(room_name,room_name)
-        answer = insert_replies(answer,reply)
+        reply = make_reply(room_name, room_name)
+        answer = insert_replies(answer, reply)
+
     return answer
+
+
+def each_get_library_image(floor):
+
+    answer = insert_image("https://library.cnu.ac.kr/image/ko/local/guide/floor{}.png".format(floor), floor)
+    print(answer)
+
+    return answer
+
