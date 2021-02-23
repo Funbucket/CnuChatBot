@@ -59,7 +59,7 @@ def get_bus_info(request):
         response = get_root_answer()
         return JsonResponse(response)
 
-    elif return_str == 'A노선':
+    elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
 
