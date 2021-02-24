@@ -32,6 +32,8 @@ def ramen():
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
     answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    answer = insert_replies(answer, reply)
     return answer
 
 def gansik():
@@ -48,6 +50,8 @@ def gansik():
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
     answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    answer = insert_replies(answer, reply)
     return answer
 
 def america():
@@ -60,6 +64,8 @@ def america():
 
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -84,6 +90,8 @@ def snack():
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
     answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    answer = insert_replies(answer, reply)
     return answer
 
 def korea():
@@ -96,6 +104,8 @@ def korea():
 
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -110,6 +120,8 @@ def japan():
 
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -128,5 +140,7 @@ def china():
     
     answer = insert_text(response_text)
     reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
