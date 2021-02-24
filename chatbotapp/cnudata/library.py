@@ -55,7 +55,7 @@ def each_get_library_answer(room):
         response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     elif len(room) >= 14 :
         response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    elif len(room) > 10 :
+    elif len(room) > 0 :
         response_text += "\t\t\t\t" + room + "\n" + library_info[room] + "\n"
     print(response_text)
     answer = insert_text(response_text)
