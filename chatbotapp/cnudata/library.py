@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests, re
 from chatbotapp.kakaojsonformat.response import *
-name = []
 
 def get_crawled_data():
     url = "https://clicker.cnu.ac.kr/Clicker/k/"
@@ -29,6 +28,7 @@ def library_json_format():
 
 
 def get_library_answer():
+    name = []
     library_info = library_json_format()
     response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    "
 
@@ -45,6 +45,7 @@ def get_library_answer():
 
 
 def each_get_library_answer(room):
+    name = []
     response_text = "\n😛 선택하신 열람실 좌석 정보 😛 \n "
     library_info = library_json_format()
     for key in library_info:
@@ -61,7 +62,6 @@ def each_get_library_answer(room):
 
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
-
     for room_name in name:
         reply = make_reply("🌴" + room_name, room_name)
         answer = insert_replies(answer, reply)
@@ -98,4 +98,4 @@ def entire_floor_image():
     return answer
 
 
-        
+each_get_library_answer("1층 자유열람실")
