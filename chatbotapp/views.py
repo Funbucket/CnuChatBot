@@ -13,7 +13,7 @@ def get_library_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == '열람실':
+    if return_str == '열람실' or "✅열람실":
         response = get_library_answer()
         return JsonResponse(response)
 
@@ -79,7 +79,7 @@ def get_cafeteria_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == "학식":
+    if return_str == "학식" or "✅학식":
         response = get_entire_cafeteria_answer()
         return JsonResponse(response)
 
