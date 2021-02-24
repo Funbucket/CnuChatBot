@@ -9,7 +9,7 @@ def category():
     answer = insert_replies(answer, reply)
     reply = make_reply("🥩양식", "양식")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🥠스낵", "스낵")
+    reply = make_reply("🍔스낵", "스낵")
     answer = insert_replies(answer, reply)
     reply = make_reply("🥘한식", "한식")
     answer = insert_replies(answer, reply)
@@ -76,13 +76,11 @@ def snack():
                     \n\t 떡갈비추가 : 800 \
                     \n\t 수제 떡갈비 버거(단품) : 3,500 \
                     \n\t 수제 떡갈비 버거(세트) : 4,500 \
-                    \n\t\t <버거+감자튀김_콜라> \
-                    \n\t 콜라//사이다 : 600 \
+                    \n\t 콜라/사이다 : 600 \
                     \n\t 콜팝치킨 : 2,600 \
                     \n\t 치킨커리 샌드위치 : 3,000 \
                     \n\t 크리스피 치킨텐더(6PCS) : 3,700 \
                     \n\t 크리스피 치킨텐더(세트) : 4,700 \
-                    \n\t\t <치킨텐더+감자튀김+음료>  \
                     \n\t 순살 후라이드 치킨(세트) : 8,400 \
                     \n\t 순살 양념치킨(세트) : 9,400  \
                     \n\t 순살 반반치킨(세트) : 9,400 "
