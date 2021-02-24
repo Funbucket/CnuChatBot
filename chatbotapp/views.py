@@ -83,3 +83,8 @@ def get_cafeteria_info(request):
         response = get_studenthall1_answer()
         return JsonResponse(response)
 
+    elif return_str == "라면&우동":
+        response = get_ramen_answer()
+        return JsonResponse(response)
+
+

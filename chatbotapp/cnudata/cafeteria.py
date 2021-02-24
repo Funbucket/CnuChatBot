@@ -23,3 +23,7 @@ def get_studenthall1_answer():
     answer = category()
     return answer
 
+def get_ramen_answer():
+    answer = ramen()
+    return answer
+
