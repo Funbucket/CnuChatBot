@@ -70,12 +70,9 @@ def get_jungsimhwa_answer():
 
 def get_root_answer():
     answer = insert_text("원하시는 노선을 선택해주세요.")
-
     for i in range(len(roots)):
-
         reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
-
     return answer
 
 
