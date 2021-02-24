@@ -12,7 +12,6 @@ sqlparse==0.4.1
 urllib3~=1.22
 
 pip~=21.0.1
-numpy~=1.20.1
 six~=1.10.0
 selenium~=3.141.0
 setuptools~=49.2.1
