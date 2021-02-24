@@ -26,7 +26,7 @@ options = Options()
 options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 url = "http://cnuis.cnu.ac.kr/jsp/etc/weekMenuFrame.jsp"
-browser = webdriver.Chrome(r"C:\Users\woner\Desktop\coding\chatbot_cnu\real_chatbot_project\chatbotapp\cnudata\chromedriver", options=options)
+browser = webdriver.Chrome(r"/home/ubuntu/cnuchatbot/chatbotapp/cnudata/chromedriver", options=options)
 # 옵션 생성
 # options = webdriver.ChromeOptions()
 # # 대상거부 방지
