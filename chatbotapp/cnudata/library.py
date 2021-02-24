@@ -49,8 +49,14 @@ def each_get_library_answer(room):
     library_info = library_json_format()
     for key in library_info:
         name.append(key)
-    response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    print(response_text)
+    if len(room) > 18 :
+        response_text += "\t" + room + "\n" + library_info[room] + "\n"
+    elif len(room) > 16 :
+        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    elif len(room) >= 14 :
+        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    elif len(room) > 0 :
+        response_text += "\t\t\t\t" + room + "\n" + library_info[room] + "\n"
     answer = insert_text(response_text)
 
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
