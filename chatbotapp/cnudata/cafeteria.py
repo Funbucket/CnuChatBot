@@ -4,19 +4,19 @@ from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
 
 
 def get_entire_cafeteria_answer():
-    response_text = "\n😋 충남대학교 학식 정보 😋   \n\t\t  원하시는 식당을 \n\t\t\t 선택해주세요"
+    response_text = "\n😋 충남대학교 학식 정보 😋   \n\t\t  원하시는 식당을 \n\t\t\t선택해주세요"
     answer = insert_text(response_text)
-    reply = make_reply("제1학생회관", "제1학생회관")
+    reply = make_reply("☘️🍀제1학생회관", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("제2학생회관(인재개발원)", "제2학생회관(인재개발원)")
+    reply = make_reply("☘️🍀제2학생회관(인재개발원)", "제2학생회관(인재개발원)")
     answer = insert_replies(answer, reply)
-    reply = make_reply("제3학생회관", "제3학생회관")
+    reply = make_reply("☘️🍀제3학생회관", "제3학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("제4학생회관", "제4학생회관")
+    reply = make_reply("☘️🍀제4학생회관", "제4학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("생활과학대학", "생활과학대학")
+    reply = make_reply("☘️🍀생활과학대학", "생활과학대학")
     answer = insert_replies(answer, reply)
-    reply = make_reply("기숙사식당", "기숙사식당")
+    reply = make_reply("☘️🍀기숙사식당", "기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
