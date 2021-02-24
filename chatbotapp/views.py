@@ -69,6 +69,7 @@ def get_bus_info(request):
         return JsonResponse(response)
 
 
+
 @csrf_exempt
 def get_cafeteria_info(request):
     answer = request.body.decode('utf-8')
