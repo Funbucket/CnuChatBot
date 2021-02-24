@@ -28,25 +28,25 @@ def get_ramen_answer():
     return answer
 
 def get_gansik_answer():
-    answer = ramen()
+    answer = gansik()
     return answer
 
 def get_america_answer():
-    answer = ramen()
+    answer = america()
     return answer
 
 def get_snack_answer():
-    answer = ramen()
+    answer = snack()
     return answer
 
 def get_korea_answer():
-    answer = ramen()
+    answer = korea()
     return answer
 
 def get_japan_answer():
-    answer = ramen()
+    answer = japan()
     return answer
 
 def get_china_answer():
-    answer = ramen()
+    answer = china()
     return answer
