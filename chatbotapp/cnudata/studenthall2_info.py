@@ -23,7 +23,7 @@ class Cafeteria(Enum):
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
-# options.add_argument("--headless")
+options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 url = "http://cnuis.cnu.ac.kr/jsp/etc/weekMenuFrame.jsp"
 browser = webdriver.Chrome(r"C:\Users\woner\Desktop\coding\chatbot_cnu\real_chatbot_project\chatbotapp\cnudata\chromedriver", options=options)
