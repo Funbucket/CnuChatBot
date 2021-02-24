@@ -64,6 +64,9 @@ def get_bus_info(request):
     elif return_str == "A노선" or "A노선보기":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
+    elif return_str == "정심화국제문화회관":
+        response = get_jungsimhwa_answer()
+        return JsonResponse(response)
     elif return_str == "B노선":
         response = get_broot_stations_answer()
         return JsonResponse(response)

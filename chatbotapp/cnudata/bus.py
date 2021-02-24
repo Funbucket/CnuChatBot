@@ -6,67 +6,66 @@ aroot_stations = ["정심화국제문화회관", "경상대학앞", "도서관 �
 broot_stations =["정심화국제문화회관", "사회과학대학입구(한누리회관뒤)", "서문(공동실험실습관앞)", "(임시정차)예술대학 앞", "음악2호관앞", "공동동물실험센터입구(회차)", "체육관입구", "예술대학앞", "도서관앞(대학본부옆농대방향)", "농업생명과학대학 앞", "동문주차장", "농업생명과학대학앞",  "학생생활관3거리", "도서관앞(도서관삼거리 방향)", "공과대학앞", "산학연교육연구관앞"]
 
 
-year = date.today().year
-month = date.today().month
-day = date.today().day
-arriving_time = datetime(year=year, month=month, day=day, hour=8, minute=30)
+def get_jungsimhwa_times():
+    year = date.today().year
+    month = date.today().month
+    day = date.today().day
+    arriving_time = datetime(year=year, month=month, day=day, hour=8, minute=30)
 
-junsimhwa = []
-am_departure_time = arriving_time
-junsimhwa.append(am_departure_time)
+    jungsimhwa = []
+    am_departure_time = arriving_time
+    jungsimhwa.append(am_departure_time)
 
-for i in range(7):
-    arriving_time += timedelta(minutes=15)
-    str_time = arriving_time
-    junsimhwa.append(str_time)
+    for i in range(7):
+        arriving_time += timedelta(minutes=15)
+        str_time = arriving_time
+        jungsimhwa.append(str_time)
 
-arriving_time += timedelta(minutes=45)
-junsimhwa.append(arriving_time)
+    arriving_time += timedelta(minutes=45)
+    jungsimhwa.append(arriving_time)
 
-for i in range(2):
-    arriving_time += timedelta(minutes=15)
-    str_time = arriving_time
-    junsimhwa.append(str_time)
+    for i in range(2):
+        arriving_time += timedelta(minutes=15)
+        str_time = arriving_time
+        jungsimhwa.append(str_time)
 
+    arriving_time += timedelta(hours=1, minutes=30)
+    jungsimhwa.append(arriving_time)
 
-arriving_time += timedelta(hours=1, minutes=30)
-junsimhwa.append(arriving_time)
+    for i in range(3):
+        arriving_time += timedelta(minutes=15)
+        jungsimhwa.append(arriving_time)
 
-for i in range(3):
-    arriving_time += timedelta(minutes=15)
-    junsimhwa.append(arriving_time)
+    arriving_time += timedelta(minutes=45)
+    jungsimhwa.append(arriving_time)
 
-arriving_time += timedelta(minutes=45)
-junsimhwa.append(arriving_time)
+    for i in range(12):
+        arriving_time += timedelta(minutes=15)
+        jungsimhwa.append(arriving_time)
 
-for i in range(12):
-    arriving_time += timedelta(minutes=15)
-    junsimhwa.append(arriving_time)
+    arriving_time += timedelta(minutes=25)
+    jungsimhwa.append(arriving_time)
 
-arriving_time += timedelta(minutes=25)
-junsimhwa.append(arriving_time)
-print(junsimhwa[1])
-
-# print(junsimhwa[0])
-# current_time = datetime.now()
-current_time = datetime(year=year, month=month, day=day, hour=8, minute=55)
-print(current_time)
+    return jungsimhwa
 
 
+def get_jungsimhwa_answer():
+    jungsimhwa = get_jungsimhwa_times()
+    current_time = datetime.now()
 
-for i in range(len(junsimhwa)):
-    if junsimhwa[len(junsimhwa) - 1] <= current_time:
-        print("운행이 종료되었습니다.")
-        break
-    elif junsimhwa[10] <= current_time <= junsimhwa[11]:
-        print("휴식(중식)")
-    elif current_time <= junsimhwa[i]:
-        difference_time = junsimhwa[i] - current_time
-        print(difference_time)
-        answer = str(difference_time)
-        break
-
-
+    for i in range(len(jungsimhwa)):
+        if jungsimhwa[len(jungsimhwa) - 1] <= current_time:
+            answer = insert_text("운행이 종료되었습니다.")
+            return answer
+        elif jungsimhwa[10] <= current_time <= jungsimhwa[11]:
+            answer = insert_text("휴식(중식)")
+            return answer
+        elif current_time <= jungsimhwa[i]:
+            difference_time = jungsimhwa[i] - current_time
+            times = str(difference_time).split(":")
+            answer_time = str(int(times[0]) * 60 + int(times[1])) + "분후 도착"
+            answer = insert_text(answer_time)
+            return answer
 
 
 def get_root_answer():
