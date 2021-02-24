@@ -24,12 +24,10 @@ class Cafeteria(Enum):
 # 옵션 생성
 options = webdriver.ChromeOptions()
 # 대상거부 방지
-# headers = 'User -Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36'
 # options.add_argument(headers)
 # 창 숨기는 옵션 추가
 options.add_argument("headless")
 # driver 실행
-browser = webdriver.Chrome('chromedriver',options=options)
 # choose frame "menu" or "bottom"
 browser = webdriver.Chrome("./chromedriver.exe", options=options)
 
