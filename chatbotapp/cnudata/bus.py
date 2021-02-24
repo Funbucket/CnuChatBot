@@ -56,17 +56,20 @@ def get_jungsimhwa_answer():
     for i in range(len(jungsimhwa)):
         if jungsimhwa[len(jungsimhwa) - 1] <= current_time:
             answer = insert_text("운행이 종료되었습니다.")
-            return answer
+            break
         elif jungsimhwa[10] <= current_time <= jungsimhwa[11]:
             answer = insert_text("휴식(중식)")
-            return answer
+            break
         elif current_time <= jungsimhwa[i]:
             difference_time = jungsimhwa[i] - current_time
             times = str(difference_time).split(":")
             answer_time = str(int(times[0]) * 60 + int(times[1])) + "분후 도착"
             answer = insert_text(answer_time)
-            return answer
+            break
 
+    return answer
+
+print(get_jungsimhwa_answer())
 
 def get_root_answer():
     answer = insert_text("원하시는 노선을 선택해주세요.")
