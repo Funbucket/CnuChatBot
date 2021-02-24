@@ -111,3 +111,9 @@ def get_cafeteria_info(request):
         response = get_china_answer()
         return JsonResponse(response)
 
+    elif return_str == "제2학생회관" \
+            or return_str == "제3학생회관" \
+            or return_str == "제4학생회관" \
+            or return_str == "생활과학대학" :
+        response = get_studenthall2345_answer(return_str)
+        return JsonResponse(response)
