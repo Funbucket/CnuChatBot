@@ -1,7 +1,7 @@
 from chatbotapp.kakaojsonformat.response import *
 
 def category():
-    response_text = "🍽제 1학생회관은🍽\n 푸드코드로 운영되고 있습니다🍽\n\t🍴원하시는 식사 종류를🍴\n\t\t 선택해주세요"
+    response_text = "😋제 1학생회관을 선택하셨습니다😋 \n\t제 1학생회관은\n 푸드코드로 운영되고 있습니다🍽\n\t🍴원하시는 식사 종류를🍴\n\t\t 선택해주세요"
     answer = insert_text(response_text)
     reply = make_reply("🍜라면", "라면")
     answer = insert_replies(answer, reply)
