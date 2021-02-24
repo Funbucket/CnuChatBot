@@ -7,6 +7,7 @@ from chatbotapp.cnudata.bus import *
 from chatbotapp.cnudata.cafeteria import *
 
 
+
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')

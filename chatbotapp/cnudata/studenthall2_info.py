@@ -159,6 +159,7 @@ def make_answer_food_menu(user_answer=''):
     cafeteria = cafeterias[user_answer]
     answer = get_recipe(cafeteria)
 
+
     return answer
 
 
