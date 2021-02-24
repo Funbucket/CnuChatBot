@@ -66,7 +66,7 @@ def get_bus_info(request):
         return JsonResponse(response)
     elif return_str == "B노선":
         response = get_broot_stations_answer()
-        return  JsonResponse(response)
+        return JsonResponse(response)
 
 
 @csrf_exempt
@@ -75,7 +75,11 @@ def get_cafeteria_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == "제1학생회관":
+    if return_str == "학식":
+        response = get_entire_cafeteria_answer()
+        return JsonResponse(response)
+
+    elif return_str == "제1학생회관":
         response = get_studenthall1_answer()
-        return  JsonResponse(response)
+        return JsonResponse(response)
 
