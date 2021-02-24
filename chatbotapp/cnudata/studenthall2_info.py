@@ -25,7 +25,7 @@ chrome_options.headless = True
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
-browser = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
+browser = webdriver.Chrome("chromedriver", chrome_options=chrome_options)
 # 옵션 생성
 # options = webdriver.ChromeOptions()
 # # 대상거부 방지
@@ -34,7 +34,7 @@ browser = webdriver.Chrome("./chromedriver.exe", chrome_options=chrome_options)
 # options.add_argument("headless")
 # # driver 실행
 # # choose frame "menu" or "bottom"
-# browser = webdriver.Chrome("./chromedriver.exe", options=options)
+# browser = webdriver.Chrome("./chromedriver", options=options)
 
 
 def get_soup(frame):
