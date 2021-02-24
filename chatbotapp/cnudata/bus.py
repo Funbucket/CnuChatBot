@@ -81,15 +81,15 @@ def get_root_answer():
 
 
 
-aroot_image_url = "https://m.blog.naver.com/PostView.nhn?blogId=jhn5801&logNo=220670900645&proxyReferer=https:%2F%2Fwww.google.com%2F&view=img_1"
+# aroot_image_url = "https://m.blog.naver.com/PostView.nhn?blogId=jhn5801&logNo=220670900645&proxyReferer=https:%2F%2Fwww.google.com%2F&view=img_1"
 
 
-def get_aroot_image(root):
-    answer = insert_image(aroot_image_url, root)
-    reply = make_reply("A노선보기", "A노선")
-    answer = insert_replies(answer, reply)
-
-    return answer
+# def get_aroot_image(root):
+#     answer = insert_image(aroot_image_url, root)
+#     reply = make_reply("A노선보기", "A노선")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
 
 
 def get_broot_image():
