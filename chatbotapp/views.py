@@ -7,15 +7,15 @@ from chatbotapp.cnudata.bus import *
 from chatbotapp.cnudata.cafeteria import *
 
 
-
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     print("return_str : {}".format(return_str))
-    if return_str == '열람실' or "✅열람실":
+    if return_str == '열람실':
         response = get_library_answer()
+        print("열람실")
         return JsonResponse(response)
 
     elif return_str == "B2 Learning Commons" \
@@ -31,6 +31,8 @@ def get_library_info(request):
         or return_str == "2층 제 3열람실 노트북실":
 
         response = each_get_library_answer(return_str)
+        print("열람실")
+
         return JsonResponse(response)
 
     elif return_str == "층별지도보기":
@@ -80,7 +82,7 @@ def get_cafeteria_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == "학식" or "✅학식":
+    if return_str == "학식":
         response = get_entire_cafeteria_answer()
         return JsonResponse(response)
 
