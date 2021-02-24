@@ -69,7 +69,7 @@ def each_get_library_image(floor):
         floor = int(floor[2]) - 1
 
     answer = insert_image("https://library.cnu.ac.kr/image/ko/local/guide/floor{}.png".format(floor), floor)
-    reply = make_reply("🪑열람실 좌석보기", "열람실")
+    reply = make_reply("📖📚열람실 좌석보기", "열람실")
     answer = insert_replies(answer, reply)
     reply = make_reply("🗺️다른층 지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
@@ -77,7 +77,7 @@ def each_get_library_image(floor):
     return answer
 
 def entire_floor_image():
-    answer = insert_text("🗺보고싶은 층을🗺 \n\t 선택해주세요\n")
+    answer = insert_text("🗺보고싶은 층을🗺 \n\t  선택해주세요\n")
     reply = make_reply("👉B2층 지도보기", "B2층 지도보기")
     answer = insert_replies(answer, reply)
     reply = make_reply("👉B1층 지도보기", "B1층 지도보기")
