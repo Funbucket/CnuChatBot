@@ -69,7 +69,6 @@ def get_jungsimhwa_answer():
 
     return answer
 
-print(get_jungsimhwa_answer())
 
 def get_root_answer():
     answer = insert_text("원하시는 노선을 선택해주세요.")
