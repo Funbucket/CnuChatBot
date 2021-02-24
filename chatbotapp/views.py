@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from chatbotapp.cnudata.library import *
 from chatbotapp.cnudata.bus import *
-
+from chatbotapp.cnudata.cafeteria import *
 
 
 @csrf_exempt
@@ -71,5 +71,11 @@ def get_bus_info(request):
 
 @csrf_exempt
 def get_cafeteria_info(request):
-    pass
+    answer = request.body.decode('utf-8')
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == "제1학생회관":
+        response = get_studenthall1_answer()
+        return  JsonResponse(response)
 

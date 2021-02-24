@@ -93,4 +93,3 @@ def entire_floor_image():
 
 
         
-each_get_library_answer("2층 제 1열람실 B")
