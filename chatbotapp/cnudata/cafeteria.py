@@ -21,37 +21,46 @@ def get_entire_cafeteria_answer():
 
     return answer
 
+
 def get_studenthall1_answer():
     answer = category()
     return answer
+
 
 def get_ramen_answer():
     answer = ramen()
     return answer
 
+
 def get_gansik_answer():
     answer = gansik()
     return answer
+
 
 def get_america_answer():
     answer = america()
     return answer
 
+
 def get_snack_answer():
     answer = snack()
     return answer
+
 
 def get_korea_answer():
     answer = korea()
     return answer
 
+
 def get_japan_answer():
     answer = japan()
     return answer
 
+
 def get_china_answer():
     answer = china()
     return answer
+
 
 def get_studenthall2345_answer(name):
     response_text = f"\n😋 충남대학교 {name} 메뉴 😋    \n "

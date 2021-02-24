@@ -1,5 +1,6 @@
 from chatbotapp.kakaojsonformat.response import *
 
+
 def category():
     response_text = "😋제 1학생회관을 선택하셨습니다😋 \n\t\t\t\t제 1학생회관은\n\t 푸드코드로 운영되고 있습니다\n\t\t🍴원하시는 식사 종류를🍴\n\t\t\t\t 선택해주세요"
     answer = insert_text(response_text)
@@ -19,6 +20,7 @@ def category():
     answer = insert_replies(answer, reply)
     return answer
 
+
 def ramen():
     response_text = "😋   라면&우동 메뉴입니다   😋\n\n\t\t 일반라면 : 2,000 \
                     \n\t\t 떡만두라면 : 2,500 \
@@ -35,6 +37,7 @@ def ramen():
     reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
+
 
 def gansik():
     response_text = "😋   간식 메뉴입니다   😋\n\n\t 고기만두 : 1,500 \
@@ -54,6 +57,7 @@ def gansik():
     answer = insert_replies(answer, reply)
     return answer
 
+
 def america():
     response_text = "😋   양식 메뉴입니다   😋\n\n\t 돈까스 : 4,000 \
                     \n\t 치즈돈까스 : 4,500 \
@@ -68,7 +72,6 @@ def america():
     reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
-
 
 
 def snack():
@@ -92,6 +95,7 @@ def snack():
     answer = insert_replies(answer, reply)
     return answer
 
+
 def korea():
     response_text = "😋   한식 메뉴입니다   😋\n\n\t 바지락된장찌개 : 4,000 \
                     \n\t 불고기비빔밥 : 4,700 \
@@ -106,6 +110,7 @@ def korea():
     reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
+
 
 def japan():
     response_text = "😋   일식 메뉴입니다   😋\n\n 치킨마요덮밥(미니우동) : 3,900 \
@@ -122,6 +127,7 @@ def japan():
     reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
     answer = insert_replies(answer, reply)
     return answer
+
 
 def china():
     response_text = "😋   중식 메뉴입니다   😋\n\n\t 옛날짜장 : 3,900 \

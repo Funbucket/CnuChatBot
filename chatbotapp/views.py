@@ -12,7 +12,7 @@ def get_library_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-
+    print("return_str : {}".format(return_str))
     if return_str == '열람실' or "✅열람실":
         response = get_library_answer()
         return JsonResponse(response)
