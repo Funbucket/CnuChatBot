@@ -87,4 +87,27 @@ def get_cafeteria_info(request):
         response = get_ramen_answer()
         return JsonResponse(response)
 
+    elif return_str == "간식":
+        response = get_gansik_answer()
+        return JsonResponse(response)
+
+    elif return_str == "양식":
+        response = get_america_answer()
+        return JsonResponse(response)
+
+    elif return_str == "스낵":
+        response = get_snack_answer()
+        return JsonResponse(response)
+
+    elif return_str == "한식":
+        response = get_korea_answer()
+        return JsonResponse(response)
+
+    elif return_str == "일식":
+        response = get_japan_answer()
+        return JsonResponse(response)
+
+    elif return_str == "중식":
+        response = get_china_answer()
+        return JsonResponse(response)
 

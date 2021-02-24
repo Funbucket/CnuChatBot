@@ -27,3 +27,26 @@ def get_ramen_answer():
     answer = ramen()
     return answer
 
+def get_gansik_answer():
+    answer = ramen()
+    return answer
+
+def get_america_answer():
+    answer = ramen()
+    return answer
+
+def get_snack_answer():
+    answer = ramen()
+    return answer
+
+def get_korea_answer():
+    answer = ramen()
+    return answer
+
+def get_japan_answer():
+    answer = ramen()
+    return answer
+
+def get_china_answer():
+    answer = ramen()
+    return answer
