@@ -57,7 +57,7 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
 
 
 def get_root_answer():
-    answer = insert_text("😋 충남대학교 셔틀 정보 😋\n\t원하시는 노선을선택해주세요.")
+    answer = insert_text("😋 충남대학교 셔틀 정보 😋\n원하시는 노선을선택해주세요")
     for i in range(len(roots)):
         reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
@@ -65,17 +65,17 @@ def get_root_answer():
 
 
 def get_aroot_stations_answer():
-    answer = insert_text("원하시는 정류장을 선택해주세요.")
+    answer = insert_text("원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(aroot_stations)):
-        reply = make_reply(aroot_stations[i], "A" + aroot_stations[i])
+        reply = make_reply("🪐💫⭐️🌟 ✨ 🌏 🐬" + aroot_stations[i], "A" + aroot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer
 
 
 def get_broot_stations_answer():
-    answer = insert_text("원하시는 정류장을 선택해주세요.")
+    answer = insert_text("원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(broot_stations)):
         reply = make_reply(broot_stations[i], "B" + broot_stations[i])
