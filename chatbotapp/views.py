@@ -58,6 +58,7 @@ def get_bus_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     print("return_str: {} ".format(return_str))
+    print("type : {}".format(type(return_str)))
 
     if return_str == "셔틀":
         response = get_root_answer()
