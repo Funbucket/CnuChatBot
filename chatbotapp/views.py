@@ -279,11 +279,6 @@ def get_cafeteria_info(request):
     elif return_str == "월[아침]":
         response = get_monday_breakfast_menu()
         return JsonResponse(response)
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 86756ea2f3e13e38cce213f90baf73d7205e5fd7
 
 
 @csrf_exempt
