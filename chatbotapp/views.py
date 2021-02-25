@@ -13,11 +13,9 @@ def get_library_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     print("return_str : {}".format(return_str))
-    if return_str == "열람실" or "✅열람실":
-        response = get_library_answer()
-        return JsonResponse(response)
 
-    elif return_str == "B2 Learning Commons" \
+
+    if return_str == "B2 Learning Commons" \
         or return_str == "B2 Carrel Zone" \
         or return_str == "1층 자유열람실" \
         or return_str == "2층 제 1열람실 A"\
@@ -48,6 +46,10 @@ def get_library_info(request):
         or return_str == "5층 지도보기":
 
         response = each_get_library_image(return_str)
+        return JsonResponse(response)
+
+    elif return_str == "열람실" or "✅열람실":
+        response = get_library_answer()
         return JsonResponse(response)
 
 
