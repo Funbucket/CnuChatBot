@@ -18,11 +18,11 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
-            answer = insert_text("🌌🌠🎇🎆⏰⏱운행이 종료되었습니다")
+            answer = insert_text("⏰운행이 종료되었습니다⏰")
             break
         # 11:30 ~ 13:00 일 때
         elif station_times[10] <= current_time <= station_times[11]:
-            answer = insert_text("🍽휴식(중식)🍽")
+            answer = insert_text("🍽휴식(중식)🍽🛸✈️🚀🕛")
             break
         elif current_time <= station_times[i]:
             difference_time = station_times[i] - current_time
@@ -41,7 +41,7 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
-            answer = insert_text("운행이 종료되었습니다.")
+            answer = insert_text("⏰운행이 종료되었습니다⏰")
             break
         # 11:30 ~ 13:00 일 때
         elif station_times[16] <= current_time <= station_times[17]:
