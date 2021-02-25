@@ -2,7 +2,7 @@ from chatbotapp.kakaojsonformat.response import *
 from chatbotapp.cnudata.studenthall1_info import *
 from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
 from chatbotapp.cnudata.food_court_time import *
-
+from chatbotapp.cnudata.dorm_info import *
 
 def get_entire_cafeteria_answer():
     response_text = "\n😋 충남대학교 학식 정보 😋   \n\t\t  원하시는 식당을 \n\t\t\t선택해주세요"
@@ -64,7 +64,7 @@ def get_china_answer():
 
 
 def get_studenthall2345_answer(name):
-    response_text = f"\n😋 충남대학교 {name} 메뉴 😋    \n "
+    response_text = f"\n😋 충남대학교 {name} 메뉴 😋    \n"
     response_text += make_answer_food_menu(name)
     answer = insert_text(response_text)
     reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
@@ -104,5 +104,6 @@ def get_china_time():
     answer = china_time()
     return answer
 
-
-
+def get_entire_dorm():
+    answer = dorm_time()
+    return answer

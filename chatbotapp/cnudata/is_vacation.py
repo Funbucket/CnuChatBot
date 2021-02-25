@@ -9,9 +9,6 @@ def is_weekend(d):
     return d.weekday() > 4
 
 
-
-
-
 def print_whichday(year, month, day):
     r = ['월요일', '화요일', '수요일', '목요일', '금요일', '토요일', '일요일']
     aday = datetime.date(year, month, day)

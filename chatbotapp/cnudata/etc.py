@@ -27,7 +27,7 @@ def get_error_answer():
 
 def get_information_answer():
 
-    our_information = "😎 \t충남대백마봇 공동개발자 \t😎\n🥳 \t\t\t\t조해창\t\t\t\t\t 🥳\n\t\t\touchc@icloud.com\t\n🤩 \t\t\t\t박찬혁\t\t\t\t\t 🤩\n\tchanhyuk-tech@kakao.com\t\n"
+    our_information = "😎 \t충남대백마봇 공동개발자 \t😎\n\n🥳 \t\t\t\t조해창\t\t\t\t\t 🥳\n\t\t\touchc@icloud.com\t\n\n🤩 \t\t\t\t박찬혁\t\t\t\t\t 🤩\n\tchanhyuk-tech@kakao.com\t\n"
     answer = insert_text(our_information)
     reply = make_reply("🏡홈으로", "홈")
     answer = insert_replies(answer, reply)

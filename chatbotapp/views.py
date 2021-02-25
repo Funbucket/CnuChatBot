@@ -167,6 +167,9 @@ def get_cafeteria_info(request):
         response = get_china_time()
         return JsonResponse(response)
 
+    elif return_str == "기숙사식당":
+        response = get_entire_dorm()
+        return JsonResponse(response)
 
 @csrf_exempt
 def get_etc_info(request):
