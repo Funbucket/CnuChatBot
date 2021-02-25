@@ -162,4 +162,6 @@ def get_cafeteria_info(request):
         return JsonResponse(response)
 
 
-
+@csrf_exempt
+def get_etc_info(request):
+    pass
