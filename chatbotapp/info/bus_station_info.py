@@ -9,7 +9,7 @@ def get_departure_time(hour, minute):
     return departure_time
 
 
-def get_station_times(hour, minute):
+def get_aline_times(hour, minute):
     arriving_time = get_departure_time(hour, minute)
     station_times = [arriving_time]
 
@@ -45,5 +45,42 @@ def get_station_times(hour, minute):
 
     return station_times
 
-# print(get_station_times(8, 31))
+
+def get_bline_times(hour, minute):
+    arriving_time = get_departure_time(hour, minute)
+    station_times = [arriving_time]
+
+    for i in range(11):
+        arriving_time += timedelta(minutes=10)
+        str_time = arriving_time
+        station_times.append(str_time)
+
+    arriving_time += timedelta(minutes=40)
+    station_times.append(arriving_time)
+
+    for i in range(3):
+        arriving_time += timedelta(minutes=10)
+        str_time = arriving_time
+        station_times.append(str_time)
+
+    arriving_time += timedelta(minutes=20)
+    station_times.append(arriving_time)
+
+    arriving_time += timedelta(hours=1)
+
+    for i in range(6):
+        arriving_time += timedelta(minutes=10)
+        station_times.append(arriving_time)
+
+    arriving_time += timedelta(minutes=40)
+    station_times.append(arriving_time)
+
+    for i in range(19):
+        arriving_time += timedelta(minutes=10)
+        station_times.append(arriving_time)
+
+    arriving_time += timedelta(minutes=15)
+    station_times.append(arriving_time)
+
+    return station_times
 
