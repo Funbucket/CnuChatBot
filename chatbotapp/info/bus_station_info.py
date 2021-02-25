@@ -84,3 +84,4 @@ def get_bline_times(hour, minute):
 
     return station_times
 
+# print(len(get_bline_times(8, 30)))

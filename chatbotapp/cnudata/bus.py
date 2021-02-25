@@ -36,8 +36,7 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
 
 def get_bline_arriving_time_answer(departure_hour, departure_minute):
     station_times = info.get_bline_times(departure_hour, departure_minute)
-    # current_time = datetime.now()
-    current_time = datetime.now
+    current_time = datetime.now()
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
