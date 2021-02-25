@@ -30,10 +30,10 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
             print(station_times[i])
             answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
             answer = insert_text(answer_time)
-            answer = insert_text(answer_time)
             reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
-            answer = insert_replies(reply)
-            reply = make_reply("🍽🛸✈️🚀🕛다른정류장보기", "(A)다른정류장보기")
+            answer = insert_replies(answer, reply)
+            reply = make_reply("🍽🛸✈️🚀🕛다른정류장보기", "(B)다른정류장보기")
+            answer = insert_replies(answer, reply)
             break
     return answer
 
@@ -58,8 +58,9 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
             answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
             answer = insert_text(answer_time)
             reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
-            answer = insert_replies(reply)
+            answer = insert_replies(answer, reply)
             reply = make_reply("🍽🛸✈️🚀🕛다른정류장보기", "(B)다른정류장보기")
+            answer = insert_replies(answer, reply)
             break
     return answer
 
