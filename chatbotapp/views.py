@@ -164,4 +164,14 @@ def get_cafeteria_info(request):
 
 @csrf_exempt
 def get_etc_info(request):
-    pass
+    answer = request.body.decode('utf-8')
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+
+    if return_str == "📬오류 제보 / 기능 건의📬" or return_str == "오류 제보/기능 건의":
+        response = get_error_answer()
+        return JsonResponse(response)
+
+    elif return_str == "ℹ️개발자 정보" or return_str == "개발자 정보":
+        response = get_information_answer()
+        return JsonResponse(response)
