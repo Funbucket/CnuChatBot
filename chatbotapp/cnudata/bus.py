@@ -13,8 +13,8 @@ broot_stations = ["정심화국제문화회관", "사회과학대학입구(한�
 
 def get_aline_arriving_time_answer(departure_hour, departure_minute):
     station_times = info.get_aline_times(departure_hour, departure_minute)
-    # current_time = datetime.now()
-    current_time = datetime(year=2021, month=2, day=26, hour=19, minute=00)
+    current_time = datetime.now()
+    # current_time = datetime(year=2021, month=2, day=26, hour=19, minute=00)
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
@@ -36,8 +36,8 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
 
 def get_bline_arriving_time_answer(departure_hour, departure_minute):
     station_times = info.get_bline_times(departure_hour, departure_minute)
-    # current_time = datetime.now()
-    current_time = datetime(year=2021, month=2, day=26, hour=12, minute=00)
+    current_time = datetime.now()
+    # current_time = datetime(year=2021, month=2, day=26, hour=12, minute=00)
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
