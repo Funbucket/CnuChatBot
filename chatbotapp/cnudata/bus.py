@@ -61,7 +61,7 @@ def get_aroot_stations_answer():
     answer = insert_text("원하시는 정류장을 선택해주세요.")
 
     for i in range(len(aroot_stations)):
-        reply = make_reply("A" + aroot_stations[i], "A" + aroot_stations[i])
+        reply = make_reply(aroot_stations[i], "A" + aroot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer
