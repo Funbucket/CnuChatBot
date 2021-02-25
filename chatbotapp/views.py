@@ -75,22 +75,22 @@ def get_bus_info(request):
     elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
-    elif return_str == "A정심화국제문화회관":
+    elif return_str == "(A노선)정심화국제문화회관":
         response = get_aline_arriving_time_answer(8, 30)
         return JsonResponse(response)
-    elif return_str == "A경상대학앞":
+    elif return_str == "(A노선)경상대학앞":
         response = get_aline_arriving_time_answer(8, 31)
         return JsonResponse(response)
-    elif return_str == "A도서관 앞(농대방향)":
+    elif return_str == "(A노선)도서관 앞(농대방향)":
         response = get_aline_arriving_time_answer(8, 32)
         return JsonResponse(response)
-    elif return_str == "A학생생활관3거리":
+    elif return_str == "(A노선)학생생활관3거리":
         response = get_aline_arriving_time_answer(8, 33)
         return JsonResponse(response)
-    elif return_str == "A농업생명과학대학 앞(동문주자창 방향)":
+    elif return_str == "(A노선)농업생명과학대학 앞(동문주자창 방향)":
         response = get_aline_arriving_time_answer(8, 34)
         return JsonResponse(response)
-    elif return_str == "A동문주차장":
+    elif return_str == "(A노선)동문주차장":
         response = get_aline_arriving_time_answer(8, 35)
         return JsonResponse(response)
     elif return_str == "A농업생명과학대학 앞":
