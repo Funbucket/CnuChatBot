@@ -3,7 +3,7 @@ from datetime import datetime
 from chatbotapp.info import bus_station_info as info
 
 roots = ["A노선", "B노선", "A노선표보기", "B노선표보기"]
-aroot_stations = ["정심화국제문화회관", "경상대학앞", "도서관 앞(농대방향)", "학생생활관3거리", "농업생명과학대학 앞", "동문주차장", "농업생명과학대학 앞",
+aroot_stations = ["정심화국제문화회관", "경상대학앞", "도서관 앞(농대방향)", "학생생활관3거리", "농업생명과학대학 앞(동문주자창 방향)", "동문주차장", "농업생명과학대학 앞",
                   "도서관앞(도서관 삼거리 방향)",
                   "예술대학앞", "음악2호관앞", "공동동물실험센터 입구(회차)", "체육관 입구", "서문(공동실험실습관앞)", "사회과학대학 입구(한누리회관뒤)", "산학연교육연구관앞"]
 broot_stations = ["정심화국제문화회관", "사회과학대학입구(한누리회관뒤)", "서문(공동실험실습관앞)", "음악2호관앞", "공동동물실험센터입구(회차)", "체육관입구",
@@ -36,8 +36,8 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
 
 def get_bline_arriving_time_answer(departure_hour, departure_minute):
     station_times = info.get_bline_times(departure_hour, departure_minute)
-    current_time = datetime.now()
-
+    # current_time = datetime.now()
+    current_time = datetime.now
     for i in range(len(station_times)):
         # 17:55 이후 일 때
         if station_times[len(station_times) - 1] <= current_time:
