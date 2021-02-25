@@ -121,8 +121,35 @@ def get_cafeteria_info(request):
         response = get_studenthall2345_answer(return_str)
         return JsonResponse(response)
 
+    elif return_str == "운영시간":
+        response = get_entire_time()
+        return JsonResponse(response)
     elif return_str == "라면코너 운영 시간":
         response = get_ramen_time()
+        return JsonResponse(response)
+
+    elif return_str == "간식코너 운영 시간":
+        response = get_gansik_time()
+        return JsonResponse(response)
+
+    elif return_str == "양식코너 운영 시간":
+        response = get_america_time()
+        return JsonResponse(response)
+
+    elif return_str == "스낵코너 운영 시간":
+        response = get_snack_time()
+        return JsonResponse(response)
+
+    elif return_str == "한식코너 운영 시간":
+        response = get_korea_time()
+        return JsonResponse(response)
+
+    elif return_str == "일식코너 운영 시간":
+        response = get_japan_time()
+        return JsonResponse(response)
+
+    elif return_str == "중식코너 운영 시간":
+        response = get_china_time()
         return JsonResponse(response)
 
     elif return_str == "학식" or "✅학식":

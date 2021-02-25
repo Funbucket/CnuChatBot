@@ -72,8 +72,37 @@ def get_studenthall2345_answer(name):
 
     return answer
 
+def get_entire_time():
+    answer = entire_time()
+    return answer
 
 def get_ramen_time():
     answer = ramen_time()
     return answer
+
+def get_gansik_time():
+    answer = gansik_time()
+    return answer
+
+def get_america_time():
+    answer = america_time()
+    return answer
+
+def get_snack_time():
+    answer = snack_time()
+    return answer
+
+def get_korea_time():
+    answer = korea_time()
+    return answer
+
+def get_japan_time():
+    answer = japan_time()
+    return answer
+
+def get_china_time():
+    answer = china_time()
+    return answer
+
+
 
