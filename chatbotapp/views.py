@@ -47,7 +47,7 @@ def get_library_info(request):
         response = each_get_library_image(return_str)
         return JsonResponse(response)
 
-    elif return_str == "열람실" or "✅열람실":
+    elif return_str == "열람실":
         response = get_library_answer()
         return JsonResponse(response)
 
@@ -153,6 +153,6 @@ def get_cafeteria_info(request):
         response = get_china_time()
         return JsonResponse(response)
 
-    elif return_str == "학식" or "✅학식":
+    elif return_str == "학식":
         response = get_entire_cafeteria_answer()
         return JsonResponse(response)   
