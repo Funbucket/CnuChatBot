@@ -32,7 +32,7 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
             answer = insert_text(answer_time)
             reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
             answer = insert_replies(answer, reply)
-            reply = make_reply("🌈다른정류장보기🌈", "(A)다른정류장보기")
+            reply = make_reply("🌈다른정류장보기🌈", "(A노선)다른정류장보기")
             answer = insert_replies(answer, reply)
             break
     return answer
@@ -59,7 +59,7 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
             answer = insert_text(answer_time)
             reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
             answer = insert_replies(answer, reply)
-            reply = make_reply("🌈다른정류장보기🌈", "(B)다른정류장보기")
+            reply = make_reply("🌈다른정류장보기🌈", "(B노선)다른정류장보기")
             answer = insert_replies(answer, reply)
             break
     return answer
