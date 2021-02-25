@@ -93,80 +93,80 @@ def get_bus_info(request):
     elif return_str == "(A노선)동문주차장":
         response = get_aline_arriving_time_answer(8, 35)
         return JsonResponse(response)
-    elif return_str == "A농업생명과학대학 앞":
+    elif return_str == "(A노선)농업생명과학대학 앞":
         response = get_aline_arriving_time_answer(8, 36)
         return JsonResponse(response)
-    elif return_str == "A도서관앞(도서관 삼거리 방향)":
+    elif return_str == "(A노선)도서관앞(도서관 삼거리 방향)":
         response = get_aline_arriving_time_answer(8, 37)
         return JsonResponse(response)
-    elif return_str == "A예술대학앞":
+    elif return_str == "(A노선)예술대학앞":
         response = get_aline_arriving_time_answer(8, 38)
         return JsonResponse(response)
-    elif return_str == "A음악2호관앞":
+    elif return_str == "(A노선)음악2호관앞":
         response = get_aline_arriving_time_answer(8, 39)
         return JsonResponse(response)
-    elif return_str == "A공동동물실험센터 입구(회차)":
+    elif return_str == "(A노선)공동동물실험센터 입구(회차)":
         response = get_aline_arriving_time_answer(8, 40)
         return JsonResponse(response)
-    elif return_str == "A체육관 입구":
+    elif return_str == "(A노선)체육관 입구":
         response = get_aline_arriving_time_answer(8, 41)
         return JsonResponse(response)
-    elif return_str == "A서문(공동실험실습관앞)":
+    elif return_str == "(A노선)서문(공동실험실습관앞)":
         response = get_aline_arriving_time_answer(8, 42)
         return JsonResponse(response)
-    elif return_str == "A사회과학대학 입구(한누리회관뒤)":
+    elif return_str == "(A노선)사회과학대학 입구(한누리회관뒤)":
         response = get_aline_arriving_time_answer(8, 43)
         return JsonResponse(response)
-    elif return_str == "A산학연교육연구관앞":
+    elif return_str == "(A노선)산학연교육연구관앞":
         response = get_aline_arriving_time_answer(8, 44)
         return JsonResponse(response)
 
     elif return_str == "B노선":
         response = get_broot_stations_answer()
         return JsonResponse(response)
-    elif return_str == "B정심화국제문화회관":
+    elif return_str == "(B노선)정심화국제문화회관":
         response = get_bline_arriving_time_answer(8, 30)
         return JsonResponse(response)
-    elif return_str == "B사회과학대학입구(한누리회관뒤)":
+    elif return_str == "(B노선)사회과학대학입구(한누리회관뒤)":
         response = get_bline_arriving_time_answer(8, 31)
         return JsonResponse(response)
-    elif return_str == "B서문(공동실험실습관앞)":
+    elif return_str == "(B노선)서문(공동실험실습관앞)":
         response = get_bline_arriving_time_answer(8, 32)
         return JsonResponse(response)
-    elif return_str == "B음악2호관앞":
+    elif return_str == "(B노선)음악2호관앞":
         response = get_bline_arriving_time_answer(8, 33)
         return JsonResponse(response)
-    elif return_str == "B공동동물실험센터입구(회차)":
+    elif return_str == "(B노선)공동동물실험센터입구(회차)":
         response = get_bline_arriving_time_answer(8, 34)
         return JsonResponse(response)
-    elif return_str == "B체육관입구":
+    elif return_str == "(B노선)체육관입구":
         response = get_bline_arriving_time_answer(8, 35)
         return JsonResponse(response)
-    elif return_str == "B예술대학앞":
+    elif return_str == "(B노선)예술대학앞":
         response = get_bline_arriving_time_answer(8, 36)
         return JsonResponse(response)
-    elif return_str == "B도서관앞(대학본부옆농대방향)":
+    elif return_str == "(B노선)도서관앞(대학본부옆농대방향)":
         response = get_bline_arriving_time_answer(8, 37)
         return JsonResponse(response)
-    elif return_str == "B농업생명과학대학 앞":
+    elif return_str == "(B노선)농업생명과학대학 앞":
         response = get_bline_arriving_time_answer(8, 38)
         return JsonResponse(response)
-    elif return_str == "B동문주차장":
+    elif return_str == "(B노선)동문주차장":
         response = get_bline_arriving_time_answer(8, 39)
         return JsonResponse(response)
-    elif return_str == "B농업생명과학대학앞":
+    elif return_str == "(B노선)농업생명과학대학앞":
         response = get_bline_arriving_time_answer(8, 40)
         return JsonResponse(response)
-    elif return_str == "B학생생활관3거리":
+    elif return_str == "(B노선)학생생활관3거리":
         response = get_bline_arriving_time_answer(8, 41)
         return JsonResponse(response)
-    elif return_str == "B도서관앞(도서관삼거리 방향)":
+    elif return_str == "(B노선)도서관앞(도서관삼거리 방향)":
         response = get_bline_arriving_time_answer(8, 42)
         return JsonResponse(response)
-    elif return_str == "B공과대학앞":
+    elif return_str == "(B노선)공과대학앞":
         response = get_bline_arriving_time_answer(8, 43)
         return JsonResponse(response)
-    elif return_str == "B산학연교육연구관앞":
+    elif return_str == "(B노선)산학연교육연구관앞":
         response = get_bline_arriving_time_answer(8, 44)
         return JsonResponse(response)
 
