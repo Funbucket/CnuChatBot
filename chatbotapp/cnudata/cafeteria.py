@@ -107,3 +107,43 @@ def get_china_time():
 def get_entire_dorm():
     answer = dorm_time()
     return answer
+
+def monday_dorm():
+    answer = monday()
+    return answer
+
+def tuesday_dorm():
+    answer = tuesday()
+    return answer
+
+def wednesday_dorm():
+    answer = wednesday()
+    return answer
+
+def thursday_dorm():
+    answer = thursday()
+    return answer
+
+def friday_dorm():
+    answer = friday()
+    return answer
+
+def saturday_dorm():
+    answer = saturday()
+    return answer
+
+def sunday_dorm():
+    answer = sunday()
+    return answer
+
+def get_monday_breakfast_menu():
+    text = monday_dorm_menu("breakfast")
+    answer = insert_text(text)
+    reply = make_reply("💒다른식당보기💒", "학식")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른요일보기🌈", "기숙사식당")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("⏰다른시간보기⏰", "월요일기숙사식당")
+    answer = insert_replies(answer, reply)
+
+    return answer
