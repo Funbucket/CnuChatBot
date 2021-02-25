@@ -5,7 +5,7 @@ is_vacation = get_vacation()
 
 
 def entire_time():
-    response_text = "🍜\t푸드코트 운영 시간 안내\t🍜\n토요일은 사정에 따라 \n코너별 운영이 변동 될 수 있습니다"
+    response_text = "🍜\t푸드코트 운영 시간 안내\t🍜\n\t\t\t토요일은 사정에 따라 \n코너별 운영이 변동 될 수 있습니다"
     answer = insert_text(response_text)
     reply = make_reply("🍜라면", "라면코너 운영 시간")
     answer = insert_replies(answer, reply)
