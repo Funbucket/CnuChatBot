@@ -253,6 +253,37 @@ def get_cafeteria_info(request):
         response = get_entire_dorm()
         return JsonResponse(response)
 
+    elif return_str == "월요일기숙사식당":
+        response = monday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "화요일기숙사식당":
+        response = tuesday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "수요일기숙사식당":
+        response = wednesday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "목요일기숙사식당":
+        response = thursday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "금요일기숙사식당":
+        response = friday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "토요일기숙사식당":
+        response = saturday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "일요일기숙사식당":
+        response = sunday_dorm()
+        return JsonResponse(response)
+
+    elif return_str == "월[아침]":
+        response = get_monday_breakfast_menu()
+        return JsonResponse(response)
 @csrf_exempt
 def get_etc_info(request):
     answer = request.body.decode('utf-8')
