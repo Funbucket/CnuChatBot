@@ -1,4 +1,4 @@
-from is_vacation import get_vacation
+from chatbotapp.cnudata.is_vacation import get_vacation
 from chatbotapp.kakaojsonformat.response import *
 
 is_vacation = get_vacation()
