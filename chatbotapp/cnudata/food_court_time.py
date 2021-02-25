@@ -11,6 +11,8 @@ def entire_time():
     answer = insert_replies(answer, reply)
     reply = make_reply("🍙간식", "간식코너 운영 시간")
     answer = insert_replies(answer, reply)
+    reply = make_reply("🍙양식", "양식코너 운영 시간")
+    answer = insert_replies(answer, reply)
     reply = make_reply("🍔스낵", "스낵코너 운영 시간")
     answer = insert_replies(answer, reply)
     reply = make_reply("🥘한식", "한식코너 운영 시간")
@@ -33,7 +35,7 @@ def ramen_time():
 
     reply = make_reply("⏰다른코너 운영 시간", "운영시간")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🍜라면코너 메뉴 보기", "라면&우동")
+    reply = make_reply("🍜라면코너 메뉴 보기", "라면")
     answer = insert_replies(answer, reply)
     reply = make_reply("🌈푸드코트 메뉴 보기", "제1학생회관")
     answer = insert_replies(answer, reply)
@@ -41,6 +43,7 @@ def ramen_time():
     answer = insert_replies(answer, reply)
 
     return answer
+
 
 def gansik_time():
 
