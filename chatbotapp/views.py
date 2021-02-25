@@ -60,8 +60,6 @@ def get_bus_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    # print("return_str: {} ".format(return_str))
-    # print("type : {}".format(type(return_str)))
 
     if return_str == "셔틀" or return_str == "✅셔틀":
         response = get_root_answer()
@@ -252,6 +250,7 @@ def get_cafeteria_info(request):
     elif return_str == "기숙사식당":
         response = get_entire_dorm()
         return JsonResponse(response)
+
 
 @csrf_exempt
 def get_etc_info(request):
