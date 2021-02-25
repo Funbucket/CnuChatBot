@@ -68,7 +68,7 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
 def get_root_answer():
     answer = insert_text("😋 충남대학교 셔틀 정보 😋\n원하시는 노선을선택해주세요")
     for i in range(len(roots)):
-        reply = make_reply(roots[i], roots[i])
+        reply = make_reply("✈️" + roots[i], roots[i])
         answer = insert_replies(answer, reply)
     return answer
 
