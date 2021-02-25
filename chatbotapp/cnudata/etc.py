@@ -7,6 +7,7 @@ def get_entire_etc_answer():
     reply = make_reply("🏡홈으로", "홈")
     answer = insert_replies(answer, reply)
     reply = make_reply("ℹ️개발자 정보", "ℹ️개발자 정보")
+    answer = insert_replies(answer, reply)
     reply = make_reply("📬오류 제보 / 기능 건의📬", "📬오류 제보 / 기능 건의📬")
     answer = insert_replies(answer, reply)
     return answer
