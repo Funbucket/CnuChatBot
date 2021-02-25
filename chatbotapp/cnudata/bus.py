@@ -10,7 +10,8 @@ broot_stations = ["정심화국제문화회관", "사회과학대학입구(한�
                   "예술대학앞", "도서관앞(대학본부옆농대방향)", "농업생명과학대학 앞", "동문주차장", "농업생명과학대학앞", "학생생활관3거리", "도서관앞(도서관삼거리 방향)",
                   "공과대학앞", "산학연교육연구관앞"]
 
-
+print(len(aroot_stations))
+print(len(broot_stations))
 def get_arriving_time_answer(departure_hour, departure_minute):
     station_times = info.get_station_times(departure_hour, departure_minute)
     current_time = datetime.now()
