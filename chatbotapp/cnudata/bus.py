@@ -50,14 +50,14 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
             difference_time = station_times[i] - current_time
             times = str(difference_time).split(":")
             print(station_times[i])
-            answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다.⌛️"
+            answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다.😃"
             answer = insert_text(answer_time)
             break
     return answer
 
 
 def get_root_answer():
-    answer = insert_text("원하시는 노선을 선택해주세요.")
+    answer = insert_text("😋 충남대학교 셔틀 정보 😋\n\t원하시는 노선을\n\t선택해주세요.")
     for i in range(len(roots)):
         reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
