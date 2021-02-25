@@ -22,7 +22,7 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
             break
         # 11:30 ~ 13:00 일 때
         elif station_times[10] <= current_time <= station_times[11]:
-            answer = insert_text("🍽휴식(중식)🍽🛸✈️🚀🕛")
+            answer = insert_text("🍽휴식(중식)🍽")
             break
         elif current_time <= station_times[i]:
             difference_time = station_times[i] - current_time
@@ -30,6 +30,10 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
             print(station_times[i])
             answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
             answer = insert_text(answer_time)
+            answer = insert_text(answer_time)
+            reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
+            answer = insert_replies(reply)
+            reply = make_reply("🍽🛸✈️🚀🕛다른정류장보기", "(A)다른정류장보기")
             break
     return answer
 
@@ -53,6 +57,9 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
             print(station_times[i])
             answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
             answer = insert_text(answer_time)
+            reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
+            answer = insert_replies(reply)
+            reply = make_reply("🍽🛸✈️🚀🕛다른정류장보기", "(B)다른정류장보기")
             break
     return answer
 
@@ -69,7 +76,7 @@ def get_aroot_stations_answer():
     answer = insert_text("🚦원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(aroot_stations)):
-        reply = make_reply("🌈" + aroot_stations[i], "A" + aroot_stations[i])
+        reply = make_reply("🌈" + aroot_stations[i], "(A)" + aroot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer
@@ -79,7 +86,7 @@ def get_broot_stations_answer():
     answer = insert_text("🚦원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(broot_stations)):
-        reply = make_reply("🌈" + broot_stations[i], "B" + broot_stations[i])
+        reply = make_reply("🌈" + broot_stations[i], "(B)" + broot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer
