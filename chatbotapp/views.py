@@ -64,9 +64,6 @@ def get_bus_info(request):
     if return_str == "셔틀" or return_str == "✅셔틀":
         response = get_root_answer()
         return JsonResponse(response)
-    # elif return_str == "A노선표보기":
-    #     response = get_aroot_image("A노선표")
-    #     return JsonResponse(response)
     elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
