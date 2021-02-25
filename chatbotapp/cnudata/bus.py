@@ -66,9 +66,9 @@ def get_jungsimhwa_answer():
             answer_time = str(int(times[0]) * 60 + int(times[1])) + "분후 도착"
             answer = insert_text(answer_time)
             break
-
     return answer
 
+print(get_jungsimhwa_answer())
 
 def get_root_answer():
     answer = insert_text("원하시는 노선을 선택해주세요.")

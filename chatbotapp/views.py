@@ -57,8 +57,8 @@ def get_bus_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    print("return_str: {} ".format(return_str))
-    print("type : {}".format(type(return_str)))
+    # print("return_str: {} ".format(return_str))
+    # print("type : {}".format(type(return_str)))
 
     if return_str == "셔틀":
         response = get_root_answer()
@@ -66,7 +66,7 @@ def get_bus_info(request):
     # elif return_str == "A노선표보기":
     #     response = get_aroot_image("A노선표")
     #     return JsonResponse(response)
-    elif return_str == "A노선" or "A노선보기":
+    elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
     elif return_str == "정심화국제문화회관":
