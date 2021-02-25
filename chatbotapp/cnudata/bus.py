@@ -95,7 +95,7 @@ def get_broot_image():
 
 
 def get_broot_stations_answer():
-    answer = insert_text("원하시는 B정류장을 선택해주세요.")
+    answer = insert_text("원하시는 정류장을 선택해주세요.")
 
     for i in range(len(broot_stations)):
         reply = make_reply(broot_stations[i], broot_stations[i])
@@ -105,7 +105,7 @@ def get_broot_stations_answer():
 
 
 def get_aroot_stations_answer():
-    answer = insert_text("원하시는 A정류장을 선택해주세요.")
+    answer = insert_text("원하시는 정류장을 선택해주세요.")
 
     for i in range(len(aroot_stations)):
         reply = make_reply(aroot_stations[i], aroot_stations[i])
