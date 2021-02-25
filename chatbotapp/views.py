@@ -32,7 +32,6 @@ def get_library_info(request):
         or return_str == "2층 제 3열람실 노트북실":
 
         response = each_get_library_answer(return_str)
-        print("열람실")
 
         return JsonResponse(response)
 

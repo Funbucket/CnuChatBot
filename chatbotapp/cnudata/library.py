@@ -57,7 +57,7 @@ def each_get_library_answer(room):
     elif len(room) >= 14 :
         response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     elif len(room) > 0 :
-        response_text += "\t\t\t\t" + room + "\n" + library_info[room] + "\n"
+        response_text += "\t\t\t" + room + "\n" + library_info[room] + "\n"
     answer = insert_text(response_text)
 
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
@@ -67,8 +67,7 @@ def each_get_library_answer(room):
         answer = insert_replies(answer, reply)
 
     return answer
-
-
+print(len("2층 제 3열람실 노트북실"))
 def each_get_library_image(floor):
     floor = floor[:-6]  # 뒤에 층별지도보기 글씨 자름 url 에 넣기위해
     if len(floor) > 2:
