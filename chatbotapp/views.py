@@ -171,7 +171,7 @@ def get_etc_info(request):
         response = get_entire_etc_answer()
         return JsonResponse(response)
 
-    if return_str == "📬오류 제보 / 기능 건의📬" or return_str == "오류 제보/기능 건의":
+    elif return_str == "📬오류 제보 / 기능 건의📬" or return_str == "오류 제보/기능 건의":
         response = get_error_answer()
         return JsonResponse(response)
 
