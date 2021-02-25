@@ -147,3 +147,15 @@ def get_monday_breakfast_menu():
     answer = insert_replies(answer, reply)
 
     return answer
+
+def get_monday_lunch_menu():
+    text = monday_dorm_menu("lunch")
+    answer = insert_text(text)
+    reply = make_reply("💒다른식당보기💒", "학식")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🌈다른요일보기🌈", "기숙사식당")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("⏰다른시간보기⏰", "월요일기숙사식당")
+    answer = insert_replies(answer, reply)
+
+    return answer
