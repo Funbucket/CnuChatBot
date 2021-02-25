@@ -57,7 +57,7 @@ def each_get_library_answer(room):
     elif len(room) >= 14 :
         response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     elif len(room) > 0 :
-        response_text += "\t\t\t" + room + "\n" + library_info[room] + "\n"
+        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     answer = insert_text(response_text)
 
     reply = make_reply("🗺️층별지도보기", "층별지도보기")
