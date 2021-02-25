@@ -2,7 +2,7 @@ from chatbotapp.kakaojsonformat.response import *
 from datetime import datetime
 from chatbotapp.info import bus_station_info as info
 
-roots = ["A노선", "B노선", "A노선표보기", "B노선표보기"]
+roots = ["A노선", "B노선"]
 aroot_stations = ["정심화국제문화회관", "경상대학앞", "도서관 앞(농대방향)", "학생생활관3거리", "농업생명과학대학 앞(동문주자창 방향)", "동문주차장", "농업생명과학대학 앞",
                   "도서관앞(도서관 삼거리 방향)",
                   "예술대학앞", "음악2호관앞", "공동동물실험센터 입구(회차)", "체육관 입구", "서문(공동실험실습관앞)", "사회과학대학 입구(한누리회관뒤)", "산학연교육연구관앞"]
@@ -82,17 +82,6 @@ def get_broot_stations_answer():
         answer = insert_replies(answer, reply)
 
     return answer
-
-
-# aroot_image_url = "https://m.blog.naver.com/PostView.nhn?blogId=jhn5801&logNo=220670900645&proxyReferer=https:%2F%2Fwww.google.com%2F&view=img_1"
-
-
-# def get_aroot_image(root):
-#     answer = insert_image(aroot_image_url, root)
-#     reply = make_reply("A노선보기", "A노선")
-#     answer = insert_replies(answer, reply)
-#
-#     return answer
 
 
 

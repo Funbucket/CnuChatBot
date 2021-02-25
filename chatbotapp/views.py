@@ -64,9 +64,6 @@ def get_bus_info(request):
     if return_str == "셔틀" or return_str == "✅셔틀":
         response = get_root_answer()
         return JsonResponse(response)
-    # elif return_str == "A노선표보기":
-    #     response = get_aroot_image("A노선표")
-    #     return JsonResponse(response)
     elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
@@ -281,74 +278,6 @@ def get_cafeteria_info(request):
 
     elif return_str == "월[아침]":
         response = get_monday_breakfast_menu()
-        return JsonResponse(response)
-
-    elif return_str == "월[점심]":
-        response = get_monday_lunch_menu()
-        return JsonResponse(response)
-
-    elif return_str == "월[저녁]":
-        response = get_monday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "화[아침]":
-        response = get_tuesday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "화[점심]":
-        response = get_tuesday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "화[저녁]":
-        response = get_tuesday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "수[아침]":
-        response = get_wednesday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "수[점심]":
-        response = get_wednesday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "수[저녁]":
-        response = get_wednesday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "목[아침]":
-        response = get_thursday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "목[점심]":
-        response = get_thursday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "목[저녁]":
-        response = get_thursday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "금[아침]":
-        response = get_friday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "금[점심]":
-        response = get_friday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "금[저녁]":
-        response = get_friday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "토[아침]":
-        response = get_saturday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "토[점심]":
-        response = get_saturday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "토[저녁]":
-        response = get_saturday_dinner_menu()
-        return JsonResponse(response)
-
-    elif return_str == "일[아침]":
-        response = get_sunday_breakfast_menu()
-        return JsonResponse(response)
-    elif return_str == "일[점심]":
-        response = get_sunday_lunch_menu()
-        return JsonResponse(response)
-    elif return_str == "일[저녁]":
-        response = get_sunday_dinner_menu()
         return JsonResponse(response)
 
 
