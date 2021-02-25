@@ -11,8 +11,7 @@ def get_departure_time(hour, minute):
 
 def get_station_times(hour, minute):
     arriving_time = get_departure_time(hour, minute)
-    station_times = []
-    station_times.append(arriving_time)
+    station_times = [arriving_time]
 
     for i in range(7):
         arriving_time += timedelta(minutes=15)

@@ -71,12 +71,12 @@ def get_bus_info(request):
     elif return_str == "A노선":
         response = get_aroot_stations_answer()
         return JsonResponse(response)
-    elif return_str == "정심화국제문화회관":
-        response = get_arriving_time_answer(8, 30)
-        return JsonResponse(response)
-    elif return_str == "경상대학앞":
-        response = get_arriving_time_answer(8, 31)
-        return JsonResponse(response)
+        if return_str == "정심화국제문화회관":
+            response = get_arriving_time_answer(8, 30)
+            return JsonResponse(response)
+        elif return_str == "경상대학앞":
+            response = get_arriving_time_answer(8, 31)
+            return JsonResponse(response)
     elif return_str == "B노선":
         response = get_broot_stations_answer()
         return JsonResponse(response)
