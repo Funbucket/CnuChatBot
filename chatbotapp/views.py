@@ -167,6 +167,9 @@ def get_etc_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
+    if return_str == "기타" or return_str == "✅기타":
+        response = get_entire_etc_answer()
+        return JsonResponse(response)
 
     if return_str == "📬오류 제보 / 기능 건의📬" or return_str == "오류 제보/기능 건의":
         response = get_error_answer()

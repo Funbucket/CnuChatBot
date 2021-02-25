@@ -1,5 +1,13 @@
 # 기타에 대한 정보
 from chatbotapp.kakaojsonformat.response import *
+def get_entire_etc_answer():
+    text = "🎸기타 페이지 입니다🎸"
+    answer = insert_text(text)
+    reply = make_reply("🏡홈으로", "홈")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("ℹ️개발자 정보", "ℹ️개발자 정보")
+    reply = make_reply("📬오류 제보 / 기능 건의📬", "📬오류 제보 / 기능 건의📬")
+    answer = insert_replies(answer, reply)
 
 def get_error_answer():
     openurl = "https://open.kakao.com/o/sm0C6bZc"
