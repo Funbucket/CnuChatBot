@@ -73,4 +73,3 @@ def get_vacation():
     return is_vacation_today
 
 
-print(get_vacation())

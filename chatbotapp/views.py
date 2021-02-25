@@ -124,6 +124,7 @@ def get_cafeteria_info(request):
     elif return_str == "운영시간":
         response = get_entire_time()
         return JsonResponse(response)
+
     elif return_str == "라면코너 운영 시간":
         response = get_ramen_time()
         return JsonResponse(response)
