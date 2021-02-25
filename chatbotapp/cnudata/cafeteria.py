@@ -1,6 +1,7 @@
 from chatbotapp.kakaojsonformat.response import *
 from chatbotapp.cnudata.studenthall1_info import *
 from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
+from food_court_time import *
 
 
 def get_entire_cafeteria_answer():
@@ -71,4 +72,8 @@ def get_studenthall2345_answer(name):
 
     return answer
 
+
+def get_ramen_time():
+    answer = ramen_time()
+    return answer
 

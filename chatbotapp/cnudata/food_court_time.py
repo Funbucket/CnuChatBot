@@ -1,37 +1,23 @@
-import datetime
-import requests
-import xmltodict
-import json
+from is_vacation import get_vacation
+from chatbotapp.kakaojsonformat.response import *
 
-# 날짜를 요일로 변환
-class Solution:
-    def dayOfTheWeek(self, day: int, month: int, year: int) -> str:
-        week_dict = {0:"Monday", 1:"Tuesday", 2:"Wednesday", 3:"Thursday", 4:"Friday", 5:"Saturday", 6:"Sunday"}
-        weekday = datetime.datetime(year, month, day).weekday()
-        return week_dict[weekday]
+is_vacation = get_vacation()
 
-import requests
+def ramen_time():
 
-def get_request_query(url, operation, params, serviceKey):
-    import urllib.parse as urlparse
-    params = urlparse.urlencode(params)
-    request_query = url + '/' + operation + '?' + params + '&' + 'serviceKey' + '=' + serviceKey
-    return request_query
+    if not is_vacation:
+        response_text = "🍜라면코너 운영 시간 안내🍜\n\t평일 중식 : 08:20 ~ 19:00\n\t평일 석식 : 08:20 ~ 19:00"
+        answer = insert_text(response_text)
+    else :
+        response_text = "🍜라면코너 운영 시간 안내🍜\n\t토요일 11:00 ~ 14:30 \n\t 토요일은 사정에 따라 코너별 운영이 변동 될 수 있습니다."
+        answer = insert_text(response_text)
+    reply = make_reply("👉다른코너 운영 시간", "운영시간")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("👉푸드코트 메뉴 보기", "제1학생회관")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("👉다른식당 메뉴 보기", "학식")
+    answer = insert_replies(answer, reply)
 
-
-# 요청 URL과 오퍼레이션
-URL = 'http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService'
-OPERATION = 'getHoliDeInfo' # 국경일 + 공휴일 정보 조회 오퍼레이션
-
-# 파라미터
-SERVICEKEY = 'FsSEbKLvuyBOw8JjAFaUVdG61eh6gVwOgNq7K5HNcEomRYOr2p4w%2BmI0TE4wEbYs0uR50fr4wMmhTE0sNsFq4g%3D%3D'
-solYear  = '2018'  # 연도
-solMonth = '09'   # 월
-PARAMS = {'solYear':solYear, 'solMonth':solMonth}
+    return answer
 
 
-request_query = get_request_query(URL, OPERATION, PARAMS, SERVICEKEY)
-print('request_query:', request_query)
-response = requests.get(url=request_query)
-print(response)
-print('status_code:' + str(response.status_code))
