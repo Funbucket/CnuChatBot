@@ -73,15 +73,25 @@ def get_arcademic_answer():
                                 "link": {
                                     "web": get_urls()[2]
                                 }
+                            },
+                            {
+                                "title": get_subtitles()[3],
+                                "description": get_days()[3],
+                                "imageUrl": None,
+                                "link": {
+                                    "web": get_urls()[3]
+                                }
+                            },
+                            {
+                                "title": get_subtitles()[4],
+                                "description": get_days()[4],
+                                "imageUrl": None,
+                                "link": {
+                                    "web": get_urls()[4]
+                                }
                             }
                         ],
-                        "buttons": [
-                            {
-                                "label": "구경가기",
-                                "action": "webLink",
-                                "webLinkUrl": "https://namu.wiki/w/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%94%84%EB%A0%8C%EC%A6%88"
-                            }
-                        ]
+                        "buttons": None
                     }
                 }
             ]
