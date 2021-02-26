@@ -374,10 +374,11 @@ def get_etc_info(request):
         return JsonResponse(response)
 
 
+@csrf_exempt
 def get_arcademic_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    urls = get_urls_list()
-    # if return_str == "학사정보" or "✅학사정보":
-    #     response =
+    if return_str == "학사일정" or return_str == "✅학사일정":
+        response = get_arcademic_answer()
+        return JsonResponse(response)
