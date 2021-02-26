@@ -379,6 +379,6 @@ def get_arcademic_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    if return_str == "학사일정" or return_str == "✅학사일정":
+    if return_str == "학사공지" or return_str == "✅학사공지":
         response = get_arcademic_answer()
         return JsonResponse(response)
