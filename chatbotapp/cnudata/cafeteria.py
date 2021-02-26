@@ -9,7 +9,7 @@ def get_entire_cafeteria_answer():
     answer = insert_text(response_text)
     reply = make_reply("🌼 제1학생회관", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌼 제2학생회관(인재개발원)", "제2학생회관(인재개발원)")
+    reply = make_reply("🌼 제2학생회관", "제2학생회관")
     answer = insert_replies(answer, reply)
     reply = make_reply("🌼 제3학생회관", "제3학생회관")
     answer = insert_replies(answer, reply)
@@ -67,7 +67,7 @@ def get_studenthall2345_answer(name):
     response_text = f"\n😋 충남대학교 {name} 메뉴 😋    \n"
     response_text += make_answer_food_menu(name)
     answer = insert_text(response_text)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
 
     return answer
