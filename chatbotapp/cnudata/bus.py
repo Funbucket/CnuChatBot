@@ -28,11 +28,11 @@ def get_aline_arriving_time_answer(departure_hour, departure_minute):
             difference_time = station_times[i] - current_time
             times = str(difference_time).split(":")
             print(station_times[i])
-            answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
+            answer_time = "🚌" + "[" + str(int(times[0]) * 60 + int(times[1])) + "]" + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😆"
             answer = insert_text(answer_time)
-            reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
+            reply = make_reply("다른노선보기", "다른노선보기")
             answer = insert_replies(answer, reply)
-            reply = make_reply("🌈다른정류장보기🌈", "(A노선)다른정류장보기")
+            reply = make_reply("다른정류장보기", "(A노선)다른정류장보기")
             answer = insert_replies(answer, reply)
             break
     return answer
@@ -55,11 +55,11 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
             difference_time = station_times[i] - current_time
             times = str(difference_time).split(":")
             print(station_times[i])
-            answer_time = "🚌" + str(int(times[0]) * 60 + int(times[1])) + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
+            answer_time = "🚌" + "[" + str(int(times[0]) * 60 + int(times[1])) + "]" + "분후 도착🚌 \n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😃"
             answer = insert_text(answer_time)
-            reply = make_reply("🌈다른노선보기🌈", "다른노선보기")
+            reply = make_reply("다른노선보기", "다른노선보기")
             answer = insert_replies(answer, reply)
-            reply = make_reply("🌈다른정류장보기🌈", "(B노선)다른정류장보기")
+            reply = make_reply("다른정류장보기", "(B노선)다른정류장보기")
             answer = insert_replies(answer, reply)
             break
     return answer
@@ -68,7 +68,7 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
 def get_root_answer():
     answer = insert_text("😋 충남대학교 셔틀 정보 😋\n원하시는 노선을선택해주세요")
     for i in range(len(roots)):
-        reply = make_reply("🚂" + roots[i], roots[i])
+        reply = make_reply("🌼" + roots[i], roots[i])
         answer = insert_replies(answer, reply)
     return answer
 
@@ -77,7 +77,7 @@ def get_aroot_stations_answer():
     answer = insert_text("🚦원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(aroot_stations)):
-        reply = make_reply("🌈" + aroot_stations[i], "(A노선)" + aroot_stations[i])
+        reply = make_reply(aroot_stations[i], "(A노선)" + aroot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer
@@ -87,7 +87,7 @@ def get_broot_stations_answer():
     answer = insert_text("🚦원하시는 정류장을 선택해주세요🚦")
 
     for i in range(len(broot_stations)):
-        reply = make_reply("🌈" + broot_stations[i], "(B노선)" + broot_stations[i])
+        reply = make_reply(broot_stations[i], "(B노선)" + broot_stations[i])
         answer = insert_replies(answer, reply)
 
     return answer

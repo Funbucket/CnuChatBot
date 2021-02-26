@@ -259,7 +259,7 @@ def dorm_time():
 
     return answer
 def monday():
-    text = "⏱️[월요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "월[아침]")
     answer = insert_replies(answer, reply)
@@ -271,7 +271,7 @@ def monday():
     return answer
 
 def tuesday():
-    text = "⏱️[화요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "화[아침]")
     answer = insert_replies(answer, reply)
@@ -283,7 +283,7 @@ def tuesday():
     return answer
 
 def wednesday():
-    text = "⏱️[수요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "수[아침]")
     answer = insert_replies(answer, reply)
@@ -295,7 +295,7 @@ def wednesday():
     return answer
 
 def thursday():
-    text = "⏱️[목요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "목[아침]")
     answer = insert_replies(answer, reply)
@@ -307,7 +307,7 @@ def thursday():
     return answer
 
 def friday():
-    text = "⏱️[금요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "금[아침]")
     answer = insert_replies(answer, reply)
@@ -319,7 +319,7 @@ def friday():
     return answer
 
 def saturday():
-    text = "⏱️[토요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "토[아침]")
     answer = insert_replies(answer, reply)
@@ -331,7 +331,7 @@ def saturday():
     return answer
 
 def sunday():
-    text = "⏱️[일요일]시간을 골라주세요⏱️"
+    text = "⏱️시간을 골라주세요⏱️"
     answer = insert_text(text)
     reply = make_reply("🌅아침", "일[아침]")
     answer = insert_replies(answer, reply)

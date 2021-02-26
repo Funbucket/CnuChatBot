@@ -26,7 +26,7 @@ def library_json_format():
         library_info[data[4 * i]] = value[i]
     return library_info
 
-
+# 열람실처음 눌럿을때
 def get_library_answer():
     name = []
     library_info = library_json_format()
@@ -36,14 +36,14 @@ def get_library_answer():
         response_text += "\n\t👉" + key + "\n\t" + library_info[key] + "\n"
         name.append(key)
     answer = insert_text(response_text)
-    reply = make_reply("🗺️층별지도보기", "층별지도보기")
+    reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
     answer = insert_replies(answer, reply)
     for room_name in name:
-        reply = make_reply("🌴" + room_name,room_name)
+        reply = make_reply(room_name,room_name)
         answer = insert_replies(answer,reply)
     return answer
 
-
+# 한개씩 눌렀을때
 def each_get_library_answer(room):
     name = []
     response_text = "\n😛 선택하신 열람실 좌석 정보 😛 \n "
@@ -60,10 +60,10 @@ def each_get_library_answer(room):
         response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     answer = insert_text(response_text)
 
-    reply = make_reply("🗺️층별지도보기", "층별지도보기")
+    reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
     answer = insert_replies(answer, reply)
     for room_name in name:
-        reply = make_reply("🌴" + room_name, room_name)
+        reply = make_reply(room_name, room_name)
         answer = insert_replies(answer, reply)
 
     return answer
@@ -74,9 +74,9 @@ def each_get_library_image(floor):
         floor = int(floor[2]) - 1
 
     answer = insert_image("https://library.cnu.ac.kr/image/ko/local/guide/floor{}.png".format(floor), floor)
-    reply = make_reply("📚열람실 좌석보기", "열람실")
+    reply = make_reply("열람실 좌석보기", "열람실")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🗺️다른층 지도보기", "층별지도보기")
+    reply = make_reply("다른층 지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -84,15 +84,15 @@ def each_get_library_image(floor):
 
 def entire_floor_image():
     answer = insert_text("🗺보고싶은 층을🗺 \n\t  선택해주세요\n")
-    reply = make_reply("👉B2층 지도보기", "B2층 지도보기")
+    reply = make_reply("B2층", "B2층 지도보기")
     answer = insert_replies(answer, reply)
-    reply = make_reply("👉B1층 지도보기", "B1층 지도보기")
+    reply = make_reply("B1층", "B1층 지도보기")
     answer = insert_replies(answer, reply)
-    reply = make_reply("👉별관1층 지도보기", "별관1층 지도보기")
+    reply = make_reply("별관1층", "별관1층 지도보기")
     answer = insert_replies(answer, reply)
 
     for i in range(1,6):
-        reply = make_reply("👉{}층 지도보기".format(i), "{}층 지도보기".format(i))
+        reply = make_reply("{}층".format(i), "{}층 지도보기".format(i))
         answer = insert_replies(answer, reply)
 
     return answer
