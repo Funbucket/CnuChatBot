@@ -239,27 +239,25 @@ def dorm_time():
     req = requests.get(url)
     req.raise_for_status()
     date_soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
-    term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text()
-
-    text = f"[{term}]\n🌅[아침]\n07:30~09:00\n(토/일요일 및 공휴일은 07:30~09:00)\n☀️[점심]\n11:30~13:30\n🌙[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n\t원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
+    term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
+    text = f"[{term}]\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
     answer = insert_text(text)
-    reply = make_reply("✔️월", "월요일기숙사식당")
+    reply = make_reply("월", "월요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️화", "화요일기숙사식당")
+    reply = make_reply("화", "화요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️수", "수요일기숙사식당")
+    reply = make_reply("수", "수요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️목", "목요일기숙사식당")
+    reply = make_reply("목", "목요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️금", "금요일기숙사식당")
+    reply = make_reply("금", "금요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️토", "토요일기숙사식당")
+    reply = make_reply("토", "토요일기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("✔️일", "일요일기숙사식당")
+    reply = make_reply("일", "일요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
-
 def monday():
     text = "⏱️[월요일]시간을 골라주세요⏱️"
     answer = insert_text(text)
