@@ -64,3 +64,33 @@ def insert_replies(new_response, reply):
 # 카카오톡 채널 - 하단 버튼 생성
 def make_reply(label, message):
     return {'action': 'message', 'label': label, 'messageText': message}
+
+
+#카카오톡 채널 - ListCard 생성
+'''def list_card(title, sub_title, description, imageUrl=None, weburl=None, label=None, antion=None, action=None, webLinkUrl=None):
+    new_response = deepcopy(base_response)
+    new_response['template']['outputs'] = [{"listCard": {
+                "header": {
+                    "title": title
+                },
+                "items": [
+                    {
+                        "title": sub_title,
+                        "description": description,
+                        "imageUrl": imageUrl,
+                        "link":{
+                            "web": weburl
+                        }
+                    }
+                ],
+                "buttons": [
+                    {
+                        "label": label,
+                        "action": action,
+                        "webLinkUrl": webLinkUrl
+                    }
+                ]
+            }
+        }
+    ]
+    return new_response'''

@@ -6,6 +6,7 @@ from chatbotapp.cnudata.library import *
 from chatbotapp.cnudata.bus import *
 from chatbotapp.cnudata.cafeteria import *
 from chatbotapp.cnudata.etc import *
+from chatbotapp.cnudata.arcademic_info import *
 
 
 @csrf_exempt
@@ -50,7 +51,6 @@ def get_library_info(request):
 
         response = each_get_library_image(return_str)
         return JsonResponse(response)
-
 
 
 
@@ -355,6 +355,7 @@ def get_cafeteria_info(request):
         response = get_sunday_dinner_menu()
         return JsonResponse(response)
 
+
 @csrf_exempt
 def get_etc_info(request):
     answer = request.body.decode('utf-8')
@@ -371,3 +372,12 @@ def get_etc_info(request):
     elif return_str == "ℹ️개발자 정보" or return_str == "개발자 정보":
         response = get_information_answer()
         return JsonResponse(response)
+
+
+def get_arcademic_info(request):
+    answer = request.body.decode('utf-8')
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+    urls = get_urls_list()
+    # if return_str == "학사정보" or "✅학사정보":
+    #     response =
