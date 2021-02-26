@@ -16,7 +16,7 @@ def get_library_info(request):
     return_str = return_json_str['userRequest']['utterance']
     print("return_str : {}".format(return_str))
 
-    if return_str == "열람실" or return_str == "📚열람실" :
+    if return_str == "열람실" or return_str == "📚 열람실" :
         response = get_library_answer()
         return JsonResponse(response)
 
@@ -60,7 +60,7 @@ def get_bus_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    if return_str == "셔틀" or return_str == "🚌셔틀":
+    if return_str == "셔틀" or return_str == "🚌 셔틀":
         response = get_root_answer()
         return JsonResponse(response)
     elif return_str == "(A노선)다른정류장보기":
@@ -361,7 +361,7 @@ def get_etc_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    if return_str == "기타" or return_str == "🎸기타":
+    if return_str == "기타" or return_str == "🎸 기타":
         response = get_entire_etc_answer()
         return JsonResponse(response)
 
