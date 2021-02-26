@@ -27,9 +27,9 @@ from selenium.webdriver.chrome.options import Options
 options = Options()
 options.add_argument("--headless")
 options.add_argument("--no-sandbox")
-# driver_path = os.path.join(os.path.dirname(__file__), 'chromedriver') # Chromedriver Path 가져오기 아마존
-# browser = webdriver.Chrome(driver_path, options=options)  #아마존
-browser = webdriver.Chrome(options=options) #구름
+driver_path = os.path.join(os.path.dirname(__file__), 'chromedriver') # Chromedriver Path 가져오기 아마존
+browser = webdriver.Chrome(driver_path, options=options)  #아마존
+# browser = webdriver.Chrome(options=options) #구름
 # browser = webdriver.Chrome(r"C:\Users\woner\Desktop\coding\chatbot_cnu\real_chatbot_project\chatbotapp\cnudata\chromedriver", options=options)
 url = "http://cnuis.cnu.ac.kr/jsp/etc/weekMenuFrame.jsp"
 
@@ -150,7 +150,7 @@ def get_recipe(cafeteria):
 
 def make_answer_food_menu(user_answer=''):
     cafeterias = {
-        "제2학생회관(인재개발원)": Cafeteria.student_hall_2,
+        "제2학생회관": Cafeteria.student_hall_2,
         "제3학생회관": Cafeteria.student_hall_3,
         "제4학생회관": Cafeteria.sangrok_student_hall,
         "생활과학대학": Cafeteria.college_of_domestic_science
