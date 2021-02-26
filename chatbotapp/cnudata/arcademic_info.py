@@ -53,7 +53,7 @@ def get_arcademic_answer():
                             {
                                 "title": get_subtitles()[0],
                                 "description": get_days()[0],
-                                "imageUrl": "https://plus.cnu.ac.kr//images/kr/sub01/ci_19_cnu1.png",
+                                "imageUrl": None,
                                 "link": {
                                     "web": get_urls()[0]
                                 }
@@ -61,7 +61,7 @@ def get_arcademic_answer():
                             {
                                 "title": get_subtitles()[1],
                                 "description": get_days()[1],
-                                "imageUrl": "https://plus.cnu.ac.kr//images/kr/sub01/ci_19_cnu1.png",
+                                "imageUrl": None,
                                 "link": {
                                     "web": get_urls()[1]
                                 }
@@ -69,7 +69,7 @@ def get_arcademic_answer():
                             {
                                 "title": get_subtitles()[2],
                                 "description": get_days()[2],
-                                "imageUrl": "https://plus.cnu.ac.kr//images/kr/sub01/ci_19_cnu1.png",
+                                "imageUrl": None,
                                 "link": {
                                     "web": get_urls()[2]
                                 }
@@ -77,7 +77,7 @@ def get_arcademic_answer():
                             {
                                 "title": get_subtitles()[3],
                                 "description": get_days()[3],
-                                "imageUrl": "https://plus.cnu.ac.kr//images/kr/sub01/ci_19_cnu1.png",
+                                "imageUrl": None,
                                 "link": {
                                     "web": get_urls()[3]
                                 }
@@ -85,7 +85,7 @@ def get_arcademic_answer():
                             {
                                 "title": get_subtitles()[4],
                                 "description": get_days()[4],
-                                "imageUrl": "https://plus.cnu.ac.kr//images/kr/sub01/ci_19_cnu1.png",
+                                "imageUrl": None,
                                 "link": {
                                     "web": get_urls()[4]
                                 }
