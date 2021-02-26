@@ -34,9 +34,9 @@ def ramen():
                     \n\t\t 꼬치어묵 : 1,500 \
                     \n\t\t 공기밥 : 500 "
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -53,9 +53,9 @@ def gansik():
                     \n\t 돈까스김밥 : 3,000 \
                     \n\t 추억의도시락 : 3,000 "
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -69,9 +69,9 @@ def america():
                     \n\t 토마토 해물 파스타 : 4,000 "
 
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -91,9 +91,9 @@ def snack():
                     \n\t 순살 반반치킨(세트) : 9,400 "
 
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -107,9 +107,9 @@ def korea():
                     \n\t 뚝불고기 : 4,500 "
 
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -124,9 +124,9 @@ def japan():
                     \n 카츠카레(미니우동) : 4,700 "
 
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -145,8 +145,8 @@ def china():
                     \n\t 공기밥(중식) : 500 "
     
     answer = insert_text(response_text)
-    reply = make_reply("🌟다른메뉴보기🌟", "제1학생회관")
+    reply = make_reply("다른메뉴보기", "제1학생회관")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌈다른 식당 메뉴보기🌈", "학식")
+    reply = make_reply("다른 식당 메뉴보기", "학식")
     answer = insert_replies(answer, reply)
     return answer

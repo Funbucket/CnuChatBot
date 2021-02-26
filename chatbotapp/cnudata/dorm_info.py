@@ -240,7 +240,7 @@ def dorm_time():
     req.raise_for_status()
     date_soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
     term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
-    text = f"[{term}]\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
+    text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n\n원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
     answer = insert_text(text)
     reply = make_reply("월", "월요일기숙사식당")
     answer = insert_replies(answer, reply)
