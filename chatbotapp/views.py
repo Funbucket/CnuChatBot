@@ -173,6 +173,10 @@ def get_bus_info(request):
         response = get_aroot_image()
         return JsonResponse(response)
 
+    elif return_str == "B노선표":
+        response = get_broot_image()
+        return JsonResponse(response)
+
 
 @csrf_exempt
 def get_cafeteria_info(request):

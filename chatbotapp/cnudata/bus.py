@@ -97,7 +97,22 @@ def get_broot_stations_answer():
     return answer
 
 def get_aroot_image():
-    answer = insert_image("https://i.ibb.co/Hn8mzyt/Aroot.png","aroot")
+    answer = insert_image("https://ifh.cc/g/SrvuLE.jpg","aroot")
+    for i in range(len(roots)):
+        reply = make_reply("🌼" + roots[i], roots[i])
+        answer = insert_replies(answer, reply)
+    reply = make_reply("🌼B노선표", "B노선표")
+    answer = insert_replies(answer, reply)
+    return answer
+
+
+def get_broot_image():
+    answer = insert_image("https://ifh.cc/g/IZN7A2.jpg","broot")
+    for i in range(len(roots)):
+        reply = make_reply("🌼" + roots[i], roots[i])
+        answer = insert_replies(answer, reply)
+    reply = make_reply("🌼A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
     return answer
 
 
