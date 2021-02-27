@@ -216,7 +216,6 @@ def get_cafeteria_info(request):
     elif return_str == "제2학생회관" \
             or return_str == "제3학생회관":
         response = get_studenthall23_answer(return_str)
-        answer(return_str)
         return JsonResponse(response)
 
     elif return_str == "운영시간":
