@@ -1,6 +1,6 @@
 from chatbotapp.kakaojsonformat.response import *
 from chatbotapp.cnudata.studenthall1_info import *
-from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
+# from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
 from chatbotapp.cnudata.food_court_time import *
 from chatbotapp.cnudata.dorm_info import *
 from chatbotapp.cnudata.new_studenthall2_info import *
