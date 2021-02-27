@@ -169,6 +169,9 @@ def get_bus_info(request):
     elif return_str == "(B노선)산학연교육연구관앞":
         response = get_bline_arriving_time_answer(8, 44)
         return JsonResponse(response)
+    elif return_str == "A노선표":
+        response = get_aroot_image()
+        return JsonResponse(response)
 
 
 @csrf_exempt
