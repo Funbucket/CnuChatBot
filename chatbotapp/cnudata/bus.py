@@ -77,6 +77,11 @@ def get_root_answer():
     return answer
 
 
+def get_croot_answer():
+    answer = insert_replies("운행간격: 1일 왕복 2회 운행(오전, 오후)\n노선표: 대덕캠퍼스 골프연습장 주차장 ➜ 보운캠퍼스(문화동) ➜ 대덕캠퍼스 골프연습장 주차장")
+    return answer
+
+
 def get_aroot_stations_answer():
     answer = insert_text("🚦원하시는 정류장을 선택해주세요🚦")
 
