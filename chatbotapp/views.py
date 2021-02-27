@@ -171,6 +171,12 @@ def get_bus_info(request):
     elif return_str == "C노선":
         response = get_croot_answer()
         return JsonResponse(response)
+    elif return_str == "오전":
+        response = get_croot_am_answer()
+        return JsonResponse(response)
+    elif return_str == "오후":
+        response = get_croot_pm_answer()
+        return JsonResponse(response)
     elif return_str == "A노선표":
         response = get_aroot_image()
         return JsonResponse(response)
