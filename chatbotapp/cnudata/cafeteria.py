@@ -74,7 +74,7 @@ def get_china_answer():
 #     return answer
 
 def get_studenthall23_answer(name):
-    answer = get_studenthall23_answer_info()
+    answer = get_studenthall23_answer_info(name)
     return answer
 
 def get_entire_time():
