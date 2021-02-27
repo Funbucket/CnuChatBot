@@ -26,10 +26,10 @@ def get_studenthall23_answer_info(name):
         teacher_menu = teacher.find_all("td")[2].get_text().strip()
         student_special_menu = student_special.find_all("td")[2].get_text().strip()
 
-    response_text = f"😚{name} 중식메뉴😚\n"
+    response_text = f"😚{name} 중식메뉴😚\n\n"
     response_text += "👉학생식당\n" + student_menu + "\n"
-    response_text += "👉교직원식당\n" + teacher_menu + "\n"
-    response_text += "👉학생식당(일품)\n" + student_special_menu
+    response_text += "\n👉교직원식당\n" + teacher_menu + "\n"
+    response_text += "\n👉학생식당(일품)\n" + student_special_menu
 
     answer = insert_text(response_text)
     reply = make_reply("다른 식당 메뉴보기", "학식")
