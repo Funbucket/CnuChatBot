@@ -179,7 +179,7 @@ def friday_dorm_menu(when , day_of_week ="금"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week, when) + menu
 
     return answer
 

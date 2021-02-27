@@ -147,7 +147,6 @@ def get_recipe(cafeteria):
     return answer
 
 
-
 def make_answer_food_menu(user_answer=''):
     cafeterias = {
         "제2학생회관": Cafeteria.student_hall_2,
@@ -158,9 +157,6 @@ def make_answer_food_menu(user_answer=''):
 
     cafeteria = cafeterias[user_answer]
     answer = get_recipe(cafeteria)
-
-
-
     return answer
 
 
