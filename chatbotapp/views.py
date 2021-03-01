@@ -7,6 +7,7 @@ from chatbotapp.cnudata.bus import *
 from chatbotapp.cnudata.cafeteria import *
 from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.arcademic_info import *
+from chatbotapp.cnudata.cultureyard_info import *
 
 
 @csrf_exempt
@@ -387,10 +388,22 @@ def get_etc_info(request):
 
 
 @csrf_exempt
-def get_arcademic_info(request):
+def get_cnunews(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    if return_str == "학사공지" or return_str == "🗣️ 학사공지":
+    if return_str == "CNU알뜰정보" or return_str == "📰CNU알뜰정보":
+        response = insert_text("😋 충남대학교 알뜰 정보 😋")
+        reply = make_reply("🗣️학사공지", "학사공지")
+        response = insert_replies(response, reply)
+        reply = make_reply("🤹문화광장", "문화광장")
+        response = make_reply(response, reply)
+        return response
+    elif return_str == "학사공지":
         response = get_arcademic_answer()
         return JsonResponse(response)
+    elif return_str == "문화광장":
+        response = get_cultureyard_answer()
+        return JsonResponse(response)
+
+

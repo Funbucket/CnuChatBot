@@ -18,7 +18,7 @@ from django.urls import path
 from chatbotapp import views
 
 urlpatterns = [
-    path('arcademic/', views.get_arcademic_info),
+    path('cnunews/', views.get_cnunews),
     path('library/', views.get_library_info),
     path('admin/', admin.site.urls),
     path('bus/', views.get_bus_info),
