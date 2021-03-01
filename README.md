@@ -69,11 +69,11 @@
 
 
 
-## 🖋 Author
+## 🖋 co-development
 
-👤 **박인효**
+👤 Chanhyuk Park
 
-* Mail: [inhyopark122@gmail.com](mailto:inhyopark122@gmail.com)
+* Mail: [chanhyuk-tech@kakao.com](mailto:inhyopark122@gmail.com)
 * GitHub: [@PARKINHYO](https://github.com/PARKINHYO)
 
 
