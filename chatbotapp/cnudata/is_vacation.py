@@ -68,5 +68,5 @@ def get_vacation():
         is_vacation_today = True
 
     return is_vacation_today
-
+print(get_vacation())
 

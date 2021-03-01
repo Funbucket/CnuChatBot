@@ -18,7 +18,7 @@ def library_json_format_total():
     # value 값
     value = []
     for i in range(11):
-        value.append("잔여좌석:" + data[4 * i + 2])
+        value.append(" 잔여좌석:" + data[4 * i + 2])
 
     # dict 생성
     library_info = {}
@@ -43,7 +43,7 @@ def library_json_format_each():
 def get_library_answer():
     name = []
     library_info = library_json_format_total()
-    response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    "
+    response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
 
     for key in library_info:
         response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"

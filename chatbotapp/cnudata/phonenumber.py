@@ -2,7 +2,7 @@ from chatbotapp.kakaojsonformat.response import *
 
 
 def get_phone_number_answer():
-    text = "\t☎️충남대학교 전화번호☎️\t\n"
+    text = "\t☎️충남대학교 전화번호☎️\t\n\n"
     text += "[학사지원과: 수업]\n042-821-5031\n042-821-5032\n042-821-5033\n"
     text += "\n[학사지원과: 학적]\n042-821-5042\n042-821-5043\n042-821-5044\n"
     text += "\n[중앙도서관]\n042-821-6023\n"
@@ -15,7 +15,7 @@ def get_phone_number_answer():
     text += "\n[총무과(주차)]\n042-821-5113\n"
     text += "\n[입학본부]\n1644-8433\n"
     text += "\n[교내서점]\n042-821-5187\n"
-    text += "\n[국제교류본부]\n042-821-5013\n"
+    text += "\n[국제교류본부]\n042-821-5013"
 
     answer = insert_text(text)
 
