@@ -8,7 +8,7 @@ from chatbotapp.cnudata.cafeteria import *
 from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.arcademic_info import *
 from chatbotapp.cnudata.cultureyard_info import *
-
+from chatbotapp.cnudata.phonenumber import *
 
 @csrf_exempt
 def get_library_info(request):
@@ -405,5 +405,7 @@ def get_cnunews(request):
     elif return_str == "문화마당":
         response = get_cultureyard_answer()
         return JsonResponse(response)
-
+    elif return_str == "각종전화번호":
+        response = get_phone_number_answer()
+        return JsonResponse(response)
 
