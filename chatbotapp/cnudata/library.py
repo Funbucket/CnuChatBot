@@ -26,6 +26,7 @@ def library_json_format_total():
         library_info[data[4 * i]] = value[i]
     return library_info
 
+
 def library_json_format_each():
     data = get_crawled_data()
     # value 값
@@ -38,6 +39,7 @@ def library_json_format_each():
     for i in range(11):
         library_info[data[4 * i]] = value[i]
     return library_info
+
 
 # 열람실처음 눌럿을때
 def get_library_answer():
@@ -56,6 +58,7 @@ def get_library_answer():
         answer = insert_replies(answer,reply)
     return answer
 
+
 # 한개씩 눌렀을때
 def each_get_library_answer(room):
     name = []
@@ -63,14 +66,17 @@ def each_get_library_answer(room):
     library_info = library_json_format_each()
     for key in library_info:
         name.append(key)
-    if len(room) > 18 :
-        response_text += "\t" + room + "\n" + library_info[room] + "\n"
-    elif len(room) > 16 :
-        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    elif len(room) >= 14 :
-        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    elif len(room) > 0 :
-        response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    # if len(room) > 18 :
+    #     response_text += "\t" + room + "\n" + library_info[room] + "\n"
+    # elif len(room) > 16 :
+    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    # elif len(room) >= 14 :
+    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    # elif len(room) > 0 :
+    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
+    if len(room) > 0:
+        response_text += "\n" + room + "\n" + library_info[room]
+
     answer = insert_text(response_text)
 
     reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
@@ -80,7 +86,8 @@ def each_get_library_answer(room):
         answer = insert_replies(answer, reply)
 
     return answer
-print(len("2층 제 3열람실 노트북실"))
+
+
 def each_get_library_image(floor):
     floor = floor[:-6]  # 뒤에 층별지도보기 글씨 자름 url 에 넣기위해
     if len(floor) > 2:
