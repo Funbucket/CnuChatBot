@@ -1,6 +1,6 @@
-<h1 align="center">Welcome to Corona Kakao Bot 👋</h1>
+<h1 align="center">Welcome to CNU(츠누) Bot 👋</h1>
 <p align="center">
-  <img alt="Version" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/%EC%B5%9C%EC%A2%85%EB%B4%87%EC%82%AC%EC%A7%84.jpg" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/README.md" target="_blank">
   </a>
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE" target="_blank">
@@ -72,7 +72,7 @@
 👤 Haechang Joe
 
 * Mail: [ouchc@icloud.com](mailto:ouchc@icloud.com)
-* GitHub: [@JOEJAECHANG](https://github.com/Funbucket)
+* GitHub: [@JOEHAECHANG](https://github.com/Funbucket)
 
 
 
