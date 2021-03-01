@@ -24,7 +24,7 @@
 
 ## 📜 사용방법
 
-<img alt="사용방법" height="500" src="https://github.com/Funbucket/cnuchatbot"/>
+<img alt="사용방법" height="500" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/KakaoTalk_20210301_223747528.gif"/>
 
 
 
