@@ -402,7 +402,7 @@ def get_cnunews(request):
     elif return_str == "학사공지":
         response = get_arcademic_answer()
         return JsonResponse(response)
-    elif return_str == "문화광장":
+    elif return_str == "문화마당":
         response = get_cultureyard_answer()
         return JsonResponse(response)
 
