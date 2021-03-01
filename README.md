@@ -45,7 +45,7 @@
 
 * 1번 공휴일 판별 
   * [공공데이터포털](https://www.data.go.kr/data/15012690/openapi.do)
-* 2번 카카오Jsonformat
+* 2번 KaKao OpenBuilder i JsonFormat
   * [jil8885](https://github.com/jil8885/django-kakao-i-hanyang/blob/gcloud/common/sender.py)
 
 
