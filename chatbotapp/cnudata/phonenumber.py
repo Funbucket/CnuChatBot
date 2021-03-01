@@ -18,7 +18,6 @@ def get_phone_number_answer():
     text += "[국제교류본부]\n042-821-5013\n"
 
     answer = insert_text(text)
-    reply = make_reply("다른정보보로가기","📰 알뜰정보")
-    answer = insert_replies(answer, reply)
+
     return answer
 

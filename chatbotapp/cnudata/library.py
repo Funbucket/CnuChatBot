@@ -13,7 +13,20 @@ def get_crawled_data():
     return data
 
 
-def library_json_format():
+def library_json_format_total():
+    data = get_crawled_data()
+    # value 값
+    value = []
+    for i in range(11):
+        value.append("잔여좌석:" + data[4 * i + 2])
+
+    # dict 생성
+    library_info = {}
+    for i in range(11):
+        library_info[data[4 * i]] = value[i]
+    return library_info
+
+def library_json_format_each():
     data = get_crawled_data()
     # value 값
     value = []
@@ -29,11 +42,11 @@ def library_json_format():
 # 열람실처음 눌럿을때
 def get_library_answer():
     name = []
-    library_info = library_json_format()
+    library_info = library_json_format_total()
     response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    "
 
     for key in library_info:
-        response_text += "\n\t👉" + key + "\n\t" + library_info[key] + "\n"
+        response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
         name.append(key)
     answer = insert_text(response_text)
     reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
@@ -47,7 +60,7 @@ def get_library_answer():
 def each_get_library_answer(room):
     name = []
     response_text = "\n😛 선택하신 열람실 좌석 정보 😛 \n "
-    library_info = library_json_format()
+    library_info = library_json_format_each()
     for key in library_info:
         name.append(key)
     if len(room) > 18 :
