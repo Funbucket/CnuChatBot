@@ -24,7 +24,7 @@
 
 ## 📜 사용방법
 
-<img alt="사용방법" height="500" src="https://user-images.githubusercontent.com/47745785/105128866-3ff7f900-5b27-11eb-895e-b9f6c3a0a1ac.gif"/>
+<img alt="사용방법" height="500" src="https://github.com/Funbucket/cnuchatbot"/>
 
 
 
