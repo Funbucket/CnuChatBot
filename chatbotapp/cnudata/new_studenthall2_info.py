@@ -22,7 +22,12 @@ def get_studenthall23_answer_info(name):
         student_menu = student.find_all("td")[3].get_text().strip()
         teacher_menu = teacher.find_all("td")[2].get_text().strip()
         student_special_menu = student_special.find_all("td")[2].get_text().strip()
-
+    student_menu = ' '.join(student_menu.split())
+    student_menu = student_menu.replace(" ", "\n")
+    teacher_menu = ' '.join(teacher_menu.split())
+    teacher_menu = teacher_menu.replace(" ", "\n")
+    student_special_menu = ' '.join(student_special_menu.split())
+    student_special_menu = student_special_menu.replace(" ", "\n")
     response_text = f"😚{name} 중식메뉴😚\n\n"
     response_text += "👉학생식당\n" + student_menu + "\n"
     response_text += "\n👉교직원식당\n" + teacher_menu + "\n"
@@ -33,4 +38,5 @@ def get_studenthall23_answer_info(name):
     answer = insert_replies(answer, reply)
 
     return answer
+
 
