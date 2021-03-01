@@ -396,7 +396,7 @@ def get_cnunews(request):
         response = insert_text("😋 충남대학교 알뜰 정보 😋")
         reply = make_reply("🗣️학사공지", "학사공지")
         response = insert_replies(response, reply)
-        reply = make_reply("🤹문화광장", "문화광장")
+        reply = make_reply("🤹문화마당", "문화마당")
         response = make_reply(response, reply)
         return JsonResponse(response)
     elif return_str == "학사공지":

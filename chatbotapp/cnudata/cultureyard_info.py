@@ -47,7 +47,7 @@ def get_cultureyard_answer():
                 {
                     "listCard": {
                         "header": {
-                            "title": "충남대학교 학사정보"
+                            "title": "대학문화마당"
                         },
                         "items": [
                             {
