@@ -35,7 +35,7 @@
 
   * <b>👉학식 :  [기숙사식당 , 제1학생회관, 제2학생회관, 제3학생회관] 식단 및 운영 시간 </b>
   * <b>👉셔틀 : [A노선 , B노선 , C노선] 정류장별 버스 잔여시간 및 노선표</b>
-  * <b>👉열람실 : ㅁㄴㅇ
+  * <b>👉열람실 : 도서관 층별지도보기 및 열람실 총 좌석 , 잔여좌석 운영여부 </b>
 
     * <b>지역 검색</b>
 
@@ -47,14 +47,7 @@
 * <b>후원하기</b>
 
 
-## 📌 Service Flow Chart
- <img alt="Service Flow Chart" src="https://user-images.githubusercontent.com/47745785/104889496-a65b0b00-59b1-11eb-947e-f82649cb4623.jpg" />
 
-
-## 📌 AWS
-<p align="center">
- <img alt="Service Flow Chart" height="450" width="650" src="https://user-images.githubusercontent.com/47745785/104889499-a824ce80-59b1-11eb-93eb-ec9b80f7536a.png" />
-</p>
 
 
 ## 📚 출처
@@ -73,13 +66,20 @@
 
 👤 Chanhyuk Park
 
-* Mail: [chanhyuk-tech@kakao.com](mailto:inhyopark122@gmail.com)
-* GitHub: [@PARKINHYO](https://github.com/PARKINHYO)
+* Mail: [chanhyuk-tech@kakao.com](mailto:chanhyuk-tech@kakao.com)
+* GitHub: [@PARKCHANHYUK](https://github.com/ChanhyukPark-Tech)
+
+👤 Haechang Joe
+
+* Mail: [ouchc@icloud.com](mailto:ouchc@icloud.com)
+* GitHub: [@JOEJAECHANG](https://github.com/Funbucket)
+
+
 
 
 ## 📝 License
 
-Copyright © 2021 [박인효](https://github.com/parkinhyo).<br/>
+Copyright © 2021 [조해창,박찬혁](https://github.com/Funbucket).<br/>
 This project is [MIT](https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE) licensed.
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
