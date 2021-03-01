@@ -17,7 +17,7 @@ def get_studenthall23_answer_info(name):
     if name == "제2학생회관":
         student_menu = student.find_all("td")[2].get_text().strip()
         teacher_menu = teacher.find_all("td")[1].get_text().strip()
-        student_special_menu = student_special.find_all("td")[1].get_text().strip()
+        student_special_menu = student_special.find_all("table" ,attrs={"width":"100%"})[0].find("td").get_text().strip()
     elif name == "제3학생회관":
         student_menu = student.find_all("td",attrs={"colspan":"2"})[1].get_text().strip()
         teacher_menu = teacher.find_all("table" ,attrs={"width":"100%"})[1].get_text().strip()
@@ -41,5 +41,5 @@ def get_studenthall23_answer_info(name):
     return answer
 
 
-print(get_studenthall23_answer_info("제3학생회관"))
 
+print(get_studenthall23_answer_info("제2학생회관"))
