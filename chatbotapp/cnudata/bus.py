@@ -68,11 +68,11 @@ def get_bline_arriving_time_answer(departure_hour, departure_minute):
 def get_root_answer():
     answer = insert_text("😋 충남대학교 셔틀 정보 😋\n원하시는 노선을선택해주세요")
     for i in range(len(roots)):
-        reply = make_reply("🌼" + roots[i], roots[i])
+        reply = make_reply(+ roots[i], roots[i])
         answer = insert_replies(answer, reply)
-    reply = make_reply("🌼A노선표", "A노선표")
+    reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌼B노선표", "B노선표")
+    reply = make_reply("B노선표", "B노선표")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -117,9 +117,9 @@ def get_broot_stations_answer():
 def get_aroot_image():
     answer = insert_image("https://ifh.cc/g/SrvuLE.jpg","aroot")
     for i in range(len(roots)):
-        reply = make_reply("🌼" + roots[i], roots[i])
+        reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
-    reply = make_reply("🌼B노선표", "B노선표")
+    reply = make_reply("B노선표", "B노선표")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -127,9 +127,9 @@ def get_aroot_image():
 def get_broot_image():
     answer = insert_image("https://ifh.cc/g/IZN7A2.jpg","broot")
     for i in range(len(roots)):
-        reply = make_reply("🌼" + roots[i], roots[i])
+        reply = make_reply(roots[i], roots[i])
         answer = insert_replies(answer, reply)
-    reply = make_reply("🌼A노선표", "A노선표")
+    reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
     return answer
 
