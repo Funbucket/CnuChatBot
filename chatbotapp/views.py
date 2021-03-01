@@ -398,6 +398,8 @@ def get_cnunews(request):
         response = insert_replies(response, reply)
         reply = make_reply("🤹문화마당", "문화마당")
         response = insert_replies(response, reply)
+        reply = make_reply("☎️각종전화번호", "각종전화번호")
+        response = insert_replies(response, reply)
         return JsonResponse(response)
     elif return_str == "학사정보":
         response = get_arcademic_answer()
