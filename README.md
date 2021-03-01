@@ -18,7 +18,7 @@
 
 ### 📷 Qr 코드
 
-<img alt="Qr코드" width="200" height="200" src="https://user-images.githubusercontent.com/47745785/104895108-d22dbf00-59b8-11eb-8af9-d1c3d25af5d5.png"/>
+<img alt="Qr코드" width="200" height="200" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/qrcode.png"/>
 
 <br><br>
 
