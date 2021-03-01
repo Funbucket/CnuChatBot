@@ -397,7 +397,7 @@ def get_cnunews(request):
         reply = make_reply("🗣️학사공지", "학사공지")
         response = insert_replies(response, reply)
         reply = make_reply("🤹문화마당", "문화마당")
-        response = make_reply(response, reply)
+        response = insert_replies(response, reply)
         return JsonResponse(response)
     elif return_str == "학사공지":
         response = get_arcademic_answer()
