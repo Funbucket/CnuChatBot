@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-<img alt="character" width="300" src="https://user-images.githubusercontent.com/47745785/105130533-8f8bf400-5b2a-11eb-9b33-27e4d68b5736.png" />
+<img alt="character" width="300" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/bot_image.jpg" />
 
 </p>
 
