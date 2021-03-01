@@ -36,29 +36,17 @@
   * <b>👉학식 :  [기숙사식당 , 제1학생회관, 제2학생회관, 제3학생회관] 식단 및 운영 시간 </b>
   * <b>👉셔틀 : [A노선 , B노선 , C노선] 정류장별 버스 잔여시간 및 노선표</b>
   * <b>👉열람실 : 도서관 층별지도보기 및 열람실 총 좌석 , 잔여좌석 운영여부 </b>
-
-    * <b>지역 검색</b>
-
-    * <b>주요 지역 바로 연결</b>
-    * <b>검색 창 나가기</b>
-* <b>안내 사항</b>
-
-* <b>공유하기</b>
-* <b>후원하기</b>
-
+  * <b>👉알뜰정보 : 최신 학사정보, 최신 문화정보 , 각종 충남대학교 전화번호 </b>
 
 
 
 
 ## 📚 출처
 
-* 1번 0시 기준 총 확진자 외 정보 확인하기
-  * [공공데이터포털](https://www.data.go.kr/tcs/dss/selectApiDataDetailView.do?publicDataPk=15043376)
-* 2번 금일 실시간 확진자 수 확인하기
-  * [코로나라이브](https://corona-live.com/)
-* 3번 금일 지역별 코로나 재난 문자 확인하기
-  * [국민재난안전포털](https://www.safekorea.go.kr/idsiSFK/neo/sfk/cs/sfc/dis/disasterMsgList.jsp?menuSeq=679)
-  * ![img_opentype04](https://user-images.githubusercontent.com/47745785/105054890-d7bcff00-5ab5-11eb-94d3-e9b32a776a9d.png)
+* 1번 공휴일 판별 
+  * [공공데이터포털](https://www.data.go.kr/data/15012690/openapi.do)
+* 2번 카카오Jsonformat
+  * [jil8885](https://github.com/jil8885/django-kakao-i-hanyang/blob/gcloud/common/sender.py)
 
 
 
@@ -80,6 +68,7 @@
 ## 📝 License
 
 Copyright © 2021 [조해창,박찬혁](https://github.com/Funbucket).<br/>
+FeedBack ---- > https://open.kakao.com/o/sm0C6bZc
 This project is [MIT](https://github.com/Funbucket/cnuchatbot/blob/master/LICENSE) licensed.
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
