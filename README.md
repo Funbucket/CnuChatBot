@@ -80,6 +80,6 @@
 ## 📝 License
 
 Copyright © 2021 [조해창,박찬혁](https://github.com/Funbucket).<br/>
-This project is [MIT](https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE) licensed.
+This project is [MIT](https://github.com/Funbucket/cnuchatbot/LICENSE) licensed.
 ***
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
