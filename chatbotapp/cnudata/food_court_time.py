@@ -11,8 +11,8 @@ def entire_time():
     answer = insert_replies(answer, reply)
     reply = make_reply("🍙간식", "간식코너 운영 시간")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🍝양식", "양식코너 운영 시간")
-    answer = insert_replies(answer, reply)
+    # reply = make_reply("🍝양식", "양식코너 운영 시간")
+    # answer = insert_replies(answer, reply)
     reply = make_reply("🍔스낵", "스낵코너 운영 시간")
     answer = insert_replies(answer, reply)
     reply = make_reply("🥘한식", "한식코너 운영 시간")
@@ -150,7 +150,7 @@ def japan_time():
 def china_time():
 
     if not is_vacation:
-        response_text = "🥟중식코너 운영 시간 안내🥟\n평일 중식 : 11:00 ~ 14:30\n"
+        response_text = "🥟중식코너 운영 시간 안내🥟\n평일 : 11:00 ~ 14:30\n"
         answer = insert_text(response_text)
     else:
         response_text = "🥟중식코너 운영 시간 안내🥟\n토요일 : 11:00 ~ 14:30\n\t토요일은 사정에 따라 코너별 운영이 \n\t변동 될 수 있습니다."

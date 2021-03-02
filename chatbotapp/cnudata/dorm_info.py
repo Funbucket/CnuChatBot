@@ -171,7 +171,7 @@ def thursday_dorm_menu(when , day_of_week ="목"):
     menu = menu.replace("메인", "-------------\n메인")
     index = menu.find("메인A", 50)
     menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
 
     return answer
 
