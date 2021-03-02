@@ -141,7 +141,7 @@ def get_b2_who_how():
 # 8시30 < who  8분 < how 8시38분에 찍는다면
 
 
-def get_b1_answer():
+def get_b2_answer():
     who = get_b2_who_how()[0]
     how = get_b2_who_how()[1]
     # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
