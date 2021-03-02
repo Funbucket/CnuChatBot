@@ -3,7 +3,7 @@ import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from chatbotapp.cnudata.library import *
-from chatbotapp.cnudata.bus import *
+# from chatbotapp.cnudata.bus import *
 from chatbotapp.cnudata.cafeteria import *
 from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.arcademic_info import *

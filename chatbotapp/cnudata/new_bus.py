@@ -5,6 +5,21 @@ from chatbotapp.cnudata.b_line_location import get_b1_answer
 from chatbotapp.cnudata.b_line_2_location import get_b2_answer
 from chatbotapp.cnudata.b_line_3_location import get_b3_answer
 
+
+def get_root_answer():
+    answer = insert_text("😋 충남대학교 셔틀 정보 😋\n원하시는 노선을선택해주세요\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😆\n")
+
+    reply = make_reply("A노선", "A노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선표", "B노선표")
+    answer = insert_replies(answer, reply)
+    return answer
+
+
 def get_aroot_answer():
     text = get_a1_answer() + "\n\n"
     text += get_a2_answer()
@@ -22,7 +37,7 @@ def get_aroot_answer():
 def get_broot_answer():
     text = get_b1_answer() + "\n\n"
     text += get_b2_answer()  + "\n\n"
-    text += get_b3_answer() 
+    text += get_b3_answer()
 
     answer = insert_text(text)
 
