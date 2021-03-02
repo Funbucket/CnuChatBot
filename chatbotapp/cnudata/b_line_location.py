@@ -23,7 +23,7 @@ def get_make_time(hour, minute, second):
     # 현재 가장 최근 출발한 놈과 , 그 놈이 얼마만큼 시간경과했는지 알려줌
     # who 랑 how 16:07 분에 찍는다 그럼 who = 16:00  how = 00:07
 def get_b1_who_how():
-    now = get_departure_time(8,31,41)
+    now = datetime.now()
 
     start_time_1 = get_departure_time(8,30,0)
     start_time_2 = get_departure_time(9,00,0)
@@ -41,21 +41,21 @@ def get_b1_who_how():
     start_time_14 = get_departure_time(17,00,0)
     start_time_15 = get_departure_time(17,30,0)
 
-    processed_start_time_1 = start_time_1 + timedelta(minutes=16,seconds=20)
-    processed_start_time_2 = start_time_2 + timedelta(minutes=16,seconds=20)
-    processed_start_time_3 = start_time_3 + timedelta(minutes=16,seconds=20)
-    processed_start_time_4 = start_time_4 + timedelta(minutes=16,seconds=20)
-    processed_start_time_5 = start_time_5 + timedelta(minutes=16,seconds=20)
-    processed_start_time_6 = start_time_6 + timedelta(minutes=16,seconds=20)
-    processed_start_time_7 = start_time_7 + timedelta(minutes=16,seconds=20)
-    processed_start_time_8 = start_time_8 + timedelta(minutes=16,seconds=20)
-    processed_start_time_9 = start_time_9 + timedelta(minutes=16,seconds=20)
-    processed_start_time_10 = start_time_10 + timedelta(minutes=16,seconds=20)
-    processed_start_time_11 = start_time_11 + timedelta(minutes=16,seconds=20)
-    processed_start_time_12 = start_time_12 + timedelta(minutes=16,seconds=20)
-    processed_start_time_13 = start_time_13 + timedelta(minutes=16,seconds=20)
-    processed_start_time_14 = start_time_14 + timedelta(minutes=16,seconds=20)
-    processed_start_time_15 = start_time_15 + timedelta(minutes=16,seconds=20)
+    processed_start_time_1 = start_time_1 + timedelta(minutes=15,seconds=25)
+    processed_start_time_2 = start_time_2 + timedelta(minutes=15,seconds=25)
+    processed_start_time_3 = start_time_3 + timedelta(minutes=15,seconds=25)
+    processed_start_time_4 = start_time_4 + timedelta(minutes=15,seconds=25)
+    processed_start_time_5 = start_time_5 + timedelta(minutes=15,seconds=25)
+    processed_start_time_6 = start_time_6 + timedelta(minutes=15,seconds=25)
+    processed_start_time_7 = start_time_7 + timedelta(minutes=15,seconds=25)
+    processed_start_time_8 = start_time_8 + timedelta(minutes=15,seconds=25)
+    processed_start_time_9 = start_time_9 + timedelta(minutes=15,seconds=25)
+    processed_start_time_10 = start_time_10 + timedelta(minutes=15,seconds=25)
+    processed_start_time_11 = start_time_11 + timedelta(minutes=15,seconds=25)
+    processed_start_time_12 = start_time_12 + timedelta(minutes=15,seconds=25)
+    processed_start_time_13 = start_time_13 + timedelta(minutes=15,seconds=25)
+    processed_start_time_14 = start_time_14 + timedelta(minutes=15,seconds=25)
+    processed_start_time_15 = start_time_15 + timedelta(minutes=15,seconds=25)
 
     if start_time_1 <= now <= processed_start_time_1:
         return start_time_1 , (now - start_time_1).total_seconds()
@@ -138,4 +138,4 @@ def get_b1_answer():
         answer = "B-1호차현재운행차없습니다 다음차 {} 까지 {}남았습니다.".format(who,how)
         return answer
 
-print(get_b1_answer())
+# print(get_b1_answer())
