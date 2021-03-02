@@ -9,7 +9,7 @@ from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.arcademic_info import *
 from chatbotapp.cnudata.cultureyard_info import *
 from chatbotapp.cnudata.phonenumber import *
-
+from chatbotapp.cnudata.new_bus import *
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')
@@ -73,7 +73,7 @@ def get_bus_info(request):
     #     response = get_root_answer()
     #     return JsonResponse(response)
     elif return_str == "A노선":
-        response = get_aroot_stations_answer()
+        response = get_aroot_answer()
         return JsonResponse(response)
     # elif return_str == "(A노선)정심화국제문화회관":
     #     response = get_aline_arriving_time_answer(8, 30)
@@ -122,8 +122,7 @@ def get_bus_info(request):
     #     return JsonResponse(response)
 
     elif return_str == "B노선":
-        response = get_broot_stations_answer()
-        return JsonResponse(response)
+        pass
     # elif return_str == "(B노선)정심화국제문화회관":
     #     response = get_bline_arriving_time_answer(8, 30)
     #     return JsonResponse(response)
