@@ -411,3 +411,11 @@ def get_cnunews(request):
         response = get_phone_number_answer()
         return JsonResponse(response)
 
+
+@csrf_exempt
+def get_bus_gui(request):
+    answer = request.body.decode('utf-8')
+    return_json_str = json.loads(answer)
+    return_str = return_json_str['userRequest']['utterance']
+    if return_str == "버스위치":
+        pass
