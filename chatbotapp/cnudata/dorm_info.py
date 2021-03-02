@@ -34,6 +34,19 @@ def when_numbering(when):
     elif when == "dinner":
         return 3
 
+
+def english_to_korea_when(when):
+    if when == "breakfast":
+        answer = "아침"
+    elif when == "lunch":
+        answer = "점심"
+    elif when == "dinner":
+        answer = "저녁"
+    return answer
+
+
+
+
 def day_of_week_numbering(day_of_week):
     if day_of_week == "월":
         return 0
@@ -73,7 +86,9 @@ def monday_dorm_menu(when , day_of_week ="월"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
 
     return answer
 
@@ -98,11 +113,11 @@ def tuesday_dorm_menu(when , day_of_week ="화"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A",50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
 
     return answer
-
-
 
 
 def wednesday_dorm_menu(when , day_of_week ="수"):
@@ -126,7 +141,9 @@ def wednesday_dorm_menu(when , day_of_week ="수"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
 
     return answer
 
@@ -152,7 +169,9 @@ def thursday_dorm_menu(when , day_of_week ="목"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
 
     return answer
 
@@ -179,7 +198,9 @@ def friday_dorm_menu(when , day_of_week ="금"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week, when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
 
     return answer
 
@@ -205,7 +226,9 @@ def saturday_dorm_menu(when , day_of_week ="토"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
 
     return answer
 
@@ -230,7 +253,9 @@ def sunday_dorm_menu(when , day_of_week ="일"):
     menu = menu.replace(" 메인", "\n메인")
     menu = menu.replace(" ", "\n")
     menu = menu.replace("메인", "-------------\n메인")
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,when) + menu
+    index = menu.find("메인A", 50)
+    menu = menu[0:index]
+    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
 
     return answer
 
