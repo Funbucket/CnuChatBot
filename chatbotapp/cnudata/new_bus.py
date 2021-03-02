@@ -13,6 +13,8 @@ def get_root_answer():
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")
     answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
+    answer = insert_replies(answer, reply)
     reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선표", "B노선표")
