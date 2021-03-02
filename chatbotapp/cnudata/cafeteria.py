@@ -185,7 +185,7 @@ def get_tuesday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "화요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -197,7 +197,7 @@ def get_tuesday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "화요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -209,7 +209,7 @@ def get_tuesday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "화요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -221,7 +221,7 @@ def get_wednesday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "수요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -233,7 +233,7 @@ def get_wednesday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "수요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -245,7 +245,7 @@ def get_wednesday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "수요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -257,7 +257,7 @@ def get_thursday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "목요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -269,7 +269,7 @@ def get_thursday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "목요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -281,7 +281,7 @@ def get_thursday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "목요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -293,7 +293,7 @@ def get_friday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "금요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -305,7 +305,7 @@ def get_friday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "금요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -317,7 +317,7 @@ def get_friday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "금요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -329,7 +329,7 @@ def get_saturday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "토요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -341,7 +341,7 @@ def get_saturday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "토요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -353,7 +353,7 @@ def get_saturday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "토요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -365,7 +365,7 @@ def get_sunday_breakfast_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "일요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -377,7 +377,7 @@ def get_sunday_lunch_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "일요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
@@ -389,7 +389,7 @@ def get_sunday_dinner_menu():
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
-    reply = make_reply("다른시간보기", "월요일기숙사식당")
+    reply = make_reply("다른시간보기", "일요일기숙사식당")
     answer = insert_replies(answer, reply)
 
     return answer
