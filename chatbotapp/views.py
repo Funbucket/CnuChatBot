@@ -59,7 +59,6 @@ def get_bus_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-
     if return_str == "셔틀" or return_str == "🚌 셔틀":
         response = get_root_answer()
         return JsonResponse(response)
@@ -411,10 +410,10 @@ def get_cnunews(request):
         return JsonResponse(response)
 
 
-@csrf_exempt
-def get_bus_gui(request):
-    answer = request.body.decode('utf-8')
-    return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
-    if return_str == "버스위치":
-        pass
+# @csrf_exempt
+# def get_bus_gui(request):
+#     answer = request.body.decode('utf-8')
+#     return_json_str = json.loads(answer)
+#     return_str = return_json_str['userRequest']['utterance']
+#     if return_str == "버스위치":
+#         pass
