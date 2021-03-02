@@ -22,7 +22,7 @@ def get_make_time(hour, minute, second):
     # 현재 가장 최근 출발한 놈과 , 그 놈이 얼마만큼 시간경과했는지 알려줌
     # who 랑 how 16:07 분에 찍는다 그럼 who = 16:00  how = 00:07
 def get_a1_who_how():
-    now = get_departure_time(8,46,21)
+    now = get_departure_time(8,46,26)
 
     start_time_1 = get_departure_time(8,30,0)
     start_time_2 = get_departure_time(9,00,0)
@@ -58,6 +58,8 @@ def get_a1_who_how():
 
     if start_time_1 <= now <= processed_start_time_1:
         return start_time_1 , (now - start_time_1).total_seconds()
+    if processed_start_time_1 < now <= start_time_2:
+        return start_time_2 , start_time_2 - now
     if start_time_2 < now <= processed_start_time_2:
         return start_time_2 , (now - start_time_2).total_seconds()
     if start_time_3 < now <= processed_start_time_3:
@@ -94,39 +96,44 @@ def get_a1_who_how():
 def get_a1_answer():
     who = get_a1_who_how()[0]
     how = get_a1_who_how()[1]
+    # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
+    if(type(how) == float):
+        if 0<how<30:
+            where_now = "정심화국제문화회관에서 출발"
+        elif 30<=how<60:
+            where_now = " 경상대학 앞"
+        elif 60<=how<105:
+            where_now = "도서관 앞(농대 방향)"
+        elif 105<=how<200:
+            where_now = "학생생활관 3거리"
+        elif 200<=how<360:
+            where_now = "농업생명과학대학 앞"
+        elif 360<=how<405:
+            where_now = "동문 주차장"
+        elif 405<=how<495:
+            where_now = "농업생명과학대학 앞"
+        elif 495<=how<605:
+            where_now = "도서관 앞(도서관 삼거리방향)"
+        elif 605<=how<650:
+            where_now = "예술대학 앞"
+        elif 650<=how<715:
+            where_now = "음악2호관 앞"
+        elif 715<=how<780:
+            where_now = "동물실험센터입구(회차)"
+        elif 780<=how<870:
+            where_now = "체육관 입구"
+        elif 870<=how<930:
+            where_now = "서문(공동실험실습관 앞)"
+        elif 930<=how<970:
+            where_now = "사회과학대학입구"
+        elif how>=970:
+            where_now = "산학연구교육연구원 앞"
 
-    if 0<how<30:
-        where_now = "정심화국제문화회관에서 출발"
-    elif 30<=how<60:
-        where_now = " 경상대학 앞"
-    elif 60<=how<105:
-        where_now = "도서관 앞(농대 방향)"
-    elif 105<=how<200:
-        where_now = "학생생활관 3거리"
-    elif 200<=how<360:
-        where_now = "농업생명과학대학 앞"
-    elif 360<=how<405:
-        where_now = "동문 주차장"
-    elif 405<=how<495:
-        where_now = "농업생명과학대학 앞"
-    elif 495<=how<605:
-        where_now = "도서관 앞(도서관 삼거리방향)"
-    elif 605<=how<650:
-        where_now = "예술대학 앞"
-    elif 650<=how<715:
-        where_now = "음악2호관 앞"
-    elif 715<=how<780:
-        where_now = "동물실험센터입구(회차)"
-    elif 780<=how<870:
-        where_now = "체육관 입구"
-    elif 870<=how<930:
-        where_now = "서문(공동실험실습관 앞)"
-    elif 930<=how<970:
-        where_now = "사회과학대학입구"
-    elif how>=970:
-        where_now = "산학연구교육연구원 앞"
-
-    answer = "A-1호차\n{}에 출발한 버스입니다\n현재 예상위치 \n {}".format(who,where_now)
-    return answer
+        answer = "A-1호차\n{}에 출발한 버스입니다\n현재 예상위치 \n {}".format(who,where_now)
+        return answer
+    #현재시간이 배차가 없는시간이라면 다음차 남은시간을 알려준다
+    else:
+        answer = "A-1호차현재운행차없스빈다 다음차 {} 까지 {}남았습니다.".format(who,how)
+        return answer
 
 print(get_a1_answer())
