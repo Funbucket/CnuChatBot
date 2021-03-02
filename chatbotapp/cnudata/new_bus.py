@@ -29,6 +29,8 @@ def get_aroot_answer():
 
     reply = make_reply("B노선","B노선")
     answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
+    answer = insert_replies(answer, reply)
     reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선표", "B노선표")
@@ -44,6 +46,8 @@ def get_broot_answer():
     answer = insert_text(text)
 
     reply = make_reply("A노선","A노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
