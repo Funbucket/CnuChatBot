@@ -6,7 +6,7 @@ from chatbotapp.cnudata.b_line_2_location import get_b2_answer
 from chatbotapp.cnudata.b_line_3_location import get_b3_answer
 
 def get_aroot_answer():
-    text = get_a1_answer() + "\n"
+    text = get_a1_answer() + "\n\n"
     text += get_a2_answer()
     answer = insert_text(text)
 
@@ -20,9 +20,9 @@ def get_aroot_answer():
     return answer
 
 def get_broot_answer():
-    text = get_b1_answer() + "\n"
-    text += get_b2_answer()  + "\n"
-    text += get_b3_answer()  + "\n"
+    text = get_b1_answer() + "\n\n"
+    text += get_b2_answer()  + "\n\n"
+    text += get_b3_answer() 
 
     answer = insert_text(text)
 

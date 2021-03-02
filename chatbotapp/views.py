@@ -124,7 +124,7 @@ def get_bus_info(request):
     elif return_str == "B노선":
         response = get_broot_answer()
         return JsonResponse(response)
-    
+
     # elif return_str == "(B노선)정심화국제문화회관":
     #     response = get_bline_arriving_time_answer(8, 30)
     #     return JsonResponse(response)
