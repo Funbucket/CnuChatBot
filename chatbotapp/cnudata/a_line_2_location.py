@@ -170,8 +170,8 @@ def get_a2_answer():
         return answer
     #현재시간이 배차가 없는시간이라면 다음차 남은시간을 알려준다
     elif who == how:
-        who = who.strftime("%H:%M:%S")
-        answer = "금일 A-2호차 운행종료 \n평일 첫차 {}".format(who)
+        who = who.strftime("%H:%M")
+        answer = "A-2호차 운행종료 \n평일 첫차 {}".format(who)
         return answer
     else:
         who = who.strftime("%H:%M:%S")

@@ -3,7 +3,7 @@ from chatbotapp.cnudata.a_line_location import get_a1_answer
 from chatbotapp.cnudata.a_line_2_location import get_a2_answer
 
 def get_aroot_answer():
-    text = get_a1_answer()
+    text = get_a1_answer() + "\n"
     text += get_a2_answer()
     answer = insert_text(text)
 
