@@ -143,11 +143,11 @@ def get_a2_answer():
         elif 105<=how<200:
             where_now = "학생생활관 3거리"
         elif 200<=how<360:
-            where_now = "농업생명과학대학 앞"
+            where_now = "농업생명과학대학 앞(동문주차장 방향)"
         elif 360<=how<405:
             where_now = "동문 주차장"
         elif 405<=how<495:
-            where_now = "농업생명과학대학 앞"
+            where_now = "농업생명과학대학 앞(도서관 앞 방향)"
         elif 495<=how<605:
             where_now = "도서관 앞(도서관 삼거리방향)"
         elif 605<=how<650:
