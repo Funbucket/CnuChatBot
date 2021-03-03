@@ -21,7 +21,7 @@ def get_make_time(hour, minute, second):
     # 현재 가장 최근 출발한 놈과 , 그 놈이 얼마만큼 시간경과했는지 알려줌
     # who 랑 how 16:07 분에 찍는다 그럼 who = 16:00  how = 00:07
 def get_a1_who_how():
-    now = get_departure_time(12,59,0)
+    now = datetime.now()
 
     start_time_1 = get_departure_time(8,30,0)
     start_time_2 = get_departure_time(9,00,0)
