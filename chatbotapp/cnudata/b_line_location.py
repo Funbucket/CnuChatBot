@@ -187,6 +187,7 @@ def get_b1_answer():
         return answer
     else:
         who = who.strftime("%H:%M:%S")
+        how = how.strftime("%H:%M")
         answer = "B-1호차현재운행차 없습니다. \n다음차 {} 까지 \n{}남았습니다.".format(who, how)
         return answer
 
