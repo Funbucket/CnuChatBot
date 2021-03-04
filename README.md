@@ -67,7 +67,7 @@
 
 ## 📝 License
 
-Copyright © 2021 [조해창,박찬혁](https://github.com/Funbucket).<br/>
+Copyright © 2021 [조해창](https://github.com/Funbucket) [박찬혁](https://github.com/ChanhyukPark-Tech).<br/>
 FeedBack ---- > https://open.kakao.com/o/sm0C6bZc
 This project is [MIT](https://github.com/Funbucket/cnuchatbot/blob/master/LICENSE) licensed.
 ***
