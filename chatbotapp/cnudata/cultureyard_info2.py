@@ -6,7 +6,7 @@ res = requests.get(url)
 res.raise_for_status()
 soup = BeautifulSoup(res.content, 'html.parser', from_encoding='utf-8')
 
-titles = soup.find("tbody").find_all("td", attrs={"class": re.compile("[^title nt]")})
+titles = soup.find("tbody").find_all("td", attrs={"class": "title"})
 # info_titles = soup.find("tbody").find_all("td", attrs={"class": "title nt"})
 
 print(len(titles))

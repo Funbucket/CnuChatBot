@@ -24,7 +24,7 @@ print(get_subtitles())
 def get_dates():
     dates = []
     str_dates = []
-    for tr in trs[1:]:
+    for tr in trs[2:]:
         dates.append(tr.find("td", attrs={"class": "date"}))
     for date in dates:
         str_dates.append(date.get_text()[:-1])
@@ -34,7 +34,7 @@ def get_dates():
 def get_urls():
     tds = []
     urls = []
-    for tr in trs[1:]:
+    for tr in trs[2:]:
         tds.append(tr.find("td", attrs={"class": "title"}))
     for td in tds:
         urls.append("https://plus.cnu.ac.kr/_prog/_board/" + td.a["href"])
