@@ -19,11 +19,12 @@ def get_cultureyard_answer():
 
     answer = list_card("충남대학교 문화마당", titles[0], dates[0], urls[0])
 
-    for i in range(4):
+    for i in range(1, 5):
         a = make_item(titles[i], dates[i], urls[i])
         answer['template']['outputs'][0]['listCard']['items'].append(a)
 
     return answer
+
 
 # import requests
 # from bs4 import BeautifulSoup
