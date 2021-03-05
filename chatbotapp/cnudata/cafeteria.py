@@ -142,6 +142,30 @@ def sunday_dorm():
     answer = sunday()
     return answer
 
+def today_dorm():
+    pass
+
+def day_of_week_dorm(the_day_of_week_number):
+
+    if Weekday.MONDAY.value == the_day_of_week_number:
+        answer = day_of_week("MONDAY")
+    if Weekday.TUESDAY.value == the_day_of_week_number:
+        answer = day_of_week("TUESDAY")
+    if Weekday.WEDNESDAY.value == the_day_of_week_number:
+        answer = day_of_week("WEDNESDAY")
+    if Weekday.THURSDAY.value == the_day_of_week_number:
+        answer = day_of_week("THURSDAY")
+    if Weekday.FRIDAY.value == the_day_of_week_number:
+        answer = day_of_week("FRIDAY")
+    if Weekday.SATURDAY.value == the_day_of_week_number:
+        answer = day_of_week("SATURDAY")
+    if Weekday.SUNDAY.value == the_day_of_week_number:
+        answer = day_of_week("SUNDAY")
+
+    return answer
+
+
+
 def get_monday_breakfast_menu():
     text = monday_dorm_menu("breakfast")
     answer = insert_text(text)
@@ -393,3 +417,4 @@ def get_sunday_dinner_menu():
     answer = insert_replies(answer, reply)
 
     return answer
+

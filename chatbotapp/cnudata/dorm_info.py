@@ -3,7 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 from chatbotapp.kakaojsonformat.response import *
-
+from enum import Enum
 # import datetime
 
 import re
@@ -12,6 +12,14 @@ req = requests.get(url)
 req.raise_for_status()
 soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
 
+class Weekday(Enum):
+    MONDAY = 1
+    TUESDAY = 2
+    WEDNESDAY = 3
+    THURSDAY = 4
+    FRIDAY = 5
+    SATURDAY = 6
+    SUNDAY = 7
 # today = dt.today()
 # year = today.year
 # month = today.month + 1
@@ -267,6 +275,8 @@ def dorm_time():
     term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
     text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n\n원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
     answer = insert_text(text)
+    reply = make_reply("오늘", "오늘기숙사식당")
+    answer = insert_replies(answer, reply)
     reply = make_reply("월", "월요일기숙사식당")
     answer = insert_replies(answer, reply)
     reply = make_reply("화", "화요일기숙사식당")
@@ -366,4 +376,76 @@ def sunday():
     answer = insert_replies(answer, reply)
 
     return answer
+
+
+def day_of_week(the_day_of_week):
+    text = "⏱️시간을 골라주세요⏱️"
+    answer = insert_text(text)
+
+    if Weekday.MONDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "월[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "월[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "월[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.TUESDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "화[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "화[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "화[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.WEDNESDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "수[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "수[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "수[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.THURSDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "목[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "목[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "목[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.FRIDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "금[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "금[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "금[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.SATURDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "토[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "토[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "토[저녁]")
+        answer = insert_replies(answer, reply)
+
+    elif Weekday.SUNDAY.name == the_day_of_week:
+
+        reply = make_reply("🌅아침", "일[아침]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("☀️점심", "일[점심]")
+        answer = insert_replies(answer, reply)
+        reply = make_reply("🌙저녁", "일[저녁]")
+        answer = insert_replies(answer, reply)
+
+    return answer
+
+
 

@@ -10,12 +10,13 @@ from chatbotapp.cnudata.arcademic_info import *
 from chatbotapp.cnudata.cultureyard_info import *
 from chatbotapp.cnudata.phonenumber import *
 from chatbotapp.cnudata.new_bus import *
+import datetime
+
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    print("return_str : {}".format(return_str))
 
     if return_str == "열람실" or return_str == "📚 열람실" :
         response = get_library_answer()
@@ -191,7 +192,7 @@ def get_cafeteria_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-
+    today_week_number = datetime.datetime.today().weekday() + 1
     if return_str == "학식" or return_str == "🍽 학식":
         response = get_entire_cafeteria_answer()
         return JsonResponse(response)
@@ -264,37 +265,40 @@ def get_cafeteria_info(request):
     elif return_str == "중식코너 운영 시간":
         response = get_china_time()
         return JsonResponse(response)
-
     elif return_str == "기숙사식당":
         response = get_entire_dorm()
         return JsonResponse(response)
 
+    elif return_str == "오늘기숙사식당":
+        response = day_of_week_dorm(today_week_number)
+        return JsonResponse(response)
+
     elif return_str == "월요일기숙사식당":
-        response = monday_dorm()
+        response = day_of_week_dorm(1)
         return JsonResponse(response)
 
     elif return_str == "화요일기숙사식당":
-        response = tuesday_dorm()
+        response = day_of_week_dorm(2)
         return JsonResponse(response)
 
     elif return_str == "수요일기숙사식당":
-        response = wednesday_dorm()
+        response = day_of_week_dorm(3)
         return JsonResponse(response)
 
     elif return_str == "목요일기숙사식당":
-        response = thursday_dorm()
+        response = day_of_week_dorm(4)
         return JsonResponse(response)
 
     elif return_str == "금요일기숙사식당":
-        response = friday_dorm()
+        response = day_of_week_dorm(5)
         return JsonResponse(response)
 
     elif return_str == "토요일기숙사식당":
-        response = saturday_dorm()
+        response = day_of_week_dorm(6)
         return JsonResponse(response)
 
     elif return_str == "일요일기숙사식당":
-        response = sunday_dorm()
+        response = day_of_week_dorm(7)
         return JsonResponse(response)
 
     elif return_str == "월[아침]":
