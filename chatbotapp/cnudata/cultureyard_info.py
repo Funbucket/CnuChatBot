@@ -8,16 +8,18 @@ soup = BeautifulSoup(res.content, 'html.parser', from_encoding='utf-8')
 
 trs = soup.find("tbody").find_all("tr")
 
+# with open("test.html", "w", encoding="utf-8") as f:
+#     f.write(soup.prettify())
 
 def get_subtitles():
     tds = []
     titles = []
-    for tr in trs[1:]:
+    for tr in trs[2:]:
         tds.append(tr.find("td", attrs={"class": "title"}))
     for td in tds:
         titles.append(td.get_text()[:-1])
     return titles
-
+print(get_subtitles())
 
 def get_dates():
     dates = []
@@ -38,7 +40,7 @@ def get_urls():
         urls.append("https://plus.cnu.ac.kr/_prog/_board/" + td.a["href"])
     return urls
 
-
+# print(get_subtitles()[0])
 def get_cultureyard_answer():
     answer = {
         "version": "2.0",
