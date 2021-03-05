@@ -71,21 +71,10 @@ def day_of_week_numbering(day_of_week):
     elif day_of_week == "일":
         return 6
 
-
-# when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
-def monday_dorm_menu(when , day_of_week ="월"):
+def dorm_menu(when, the_day_of_week_number):
     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
+
+    tr_tag = dates[the_day_of_week_number - 1]
     tds = tr_tag.find_all("td")
     index = when_numbering(when)
     menu = tds[index].get_text()
@@ -96,176 +85,222 @@ def monday_dorm_menu(when , day_of_week ="월"):
     menu = menu.replace("메인", "-------------\n메인")
     index = menu.find("메인A", 50)
     menu = menu[0:index]
+    # default "월" 로 선언
+
+    day_of_week = ""
+    if the_day_of_week_number == Weekday.MONDAY.value:
+        day_of_week = "월"
+    if the_day_of_week_number == Weekday.TUESDAY.value:
+        day_of_week = "화"
+    if the_day_of_week_number == Weekday.WEDNESDAY.value:
+        day_of_week = "수"
+    if the_day_of_week_number == Weekday.THURSDAY.value:
+        day_of_week = "목"
+    if the_day_of_week_number == Weekday.FRIDAY.value:
+        day_of_week = "금"
+    if the_day_of_week_number == Weekday.SATURDAY.value:
+        day_of_week = "토"
+    if the_day_of_week_number == Weekday.SUNDAY.value:
+        day_of_week = "일"
+
     answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
 
     return answer
 
-def tuesday_dorm_menu(when , day_of_week ="화"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A",50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+# # when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
+# def monday_dorm_menu(when , day_of_week ="월"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
+#
+#     return answer
 
-    return answer
-
-
-def wednesday_dorm_menu(when , day_of_week ="수"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
-
-    return answer
-
-
-def thursday_dorm_menu(when , day_of_week ="목"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
-
-    return answer
-
-
-
-def friday_dorm_menu(when , day_of_week ="금"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
-
-    return answer
-
-
-def saturday_dorm_menu(when , day_of_week ="토"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
-
-    return answer
-
-def sunday_dorm_menu(when , day_of_week ="일"):
-    dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
-    # today_form = "{0}({1})".format(day, getDay_c())
-    # count = 0
-    # for date in dates:
-    #     if date.find("td").get_text().strip() == today_form:
-    #         break
-    #     count += 1
-    count = day_of_week_numbering(day_of_week)
-    # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
-    # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
-    # count 0 번째놈 크롤링
-    tr_tag = dates[count]
-    tds = tr_tag.find_all("td")
-    index = when_numbering(when)
-    menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace(")", ")\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
-
-    return answer
+# def tuesday_dorm_menu(when , day_of_week ="화"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A",50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+#
+#     return answer
+#
+#
+# def wednesday_dorm_menu(when , day_of_week ="수"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+#
+#     return answer
+#
+#
+# def thursday_dorm_menu(when , day_of_week ="목"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
+#
+#     return answer
+#
+#
+#
+# def friday_dorm_menu(when , day_of_week ="금"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
+#
+#     return answer
+#
+#
+# def saturday_dorm_menu(when , day_of_week ="토"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+#
+#     return answer
+#
+# def sunday_dorm_menu(when , day_of_week ="일"):
+#     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
+#     # today_form = "{0}({1})".format(day, getDay_c())
+#     # count = 0
+#     # for date in dates:
+#     #     if date.find("td").get_text().strip() == today_form:
+#     #         break
+#     #     count += 1
+#     count = day_of_week_numbering(day_of_week)
+#     # Ex count 가 4라면 7개의 tr 중에 0,1,2,3,(4),5,6  예라는 것이다
+#     # 즉 현재기준 1(월) <== count 0 ,       3(수) <== count 2
+#     # count 0 번째놈 크롤링
+#     tr_tag = dates[count]
+#     tds = tr_tag.find_all("td")
+#     index = when_numbering(when)
+#     menu = tds[index].get_text()
+#     menu = ' '.join(menu.split())
+#     menu = menu.replace(")", ")\n")
+#     menu = menu.replace(" 메인", "\n메인")
+#     menu = menu.replace(" ", "\n")
+#     menu = menu.replace("메인", "-------------\n메인")
+#     index = menu.find("메인A", 50)
+#     menu = menu[0:index]
+#     answer = "{}요일 {} 식단입니다\n".format(day_of_week,english_to_korea_when(when)) + menu
+#
+#     return answer
 
 def dorm_time():
     url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
@@ -293,90 +328,6 @@ def dorm_time():
     answer = insert_replies(answer, reply)
 
     return answer
-def monday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "월[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "월[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "월[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def tuesday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "화[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "화[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "화[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def wednesday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "수[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "수[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "수[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def thursday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "목[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "목[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "목[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def friday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "금[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "금[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "금[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def saturday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "토[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "토[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "토[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-def sunday():
-    text = "⏱️시간을 골라주세요⏱️"
-    answer = insert_text(text)
-    reply = make_reply("🌅아침", "일[아침]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("☀️점심", "일[점심]")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("🌙저녁", "일[저녁]")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
 
 def day_of_week(the_day_of_week):
     text = "⏱️시간을 골라주세요⏱️"
@@ -449,3 +400,87 @@ def day_of_week(the_day_of_week):
 
 
 
+# def monday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "월[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "월[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "월[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def tuesday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "화[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "화[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "화[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def wednesday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "수[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "수[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "수[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def thursday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "목[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "목[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "목[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def friday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "금[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "금[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "금[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def saturday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "토[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "토[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "토[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
+# def sunday():
+#     text = "⏱️시간을 골라주세요⏱️"
+#     answer = insert_text(text)
+#     reply = make_reply("🌅아침", "일[아침]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("☀️점심", "일[점심]")
+#     answer = insert_replies(answer, reply)
+#     reply = make_reply("🌙저녁", "일[저녁]")
+#     answer = insert_replies(answer, reply)
+#
+#     return answer
+#
