@@ -66,31 +66,28 @@ def make_reply(label, message):
     return {'action': 'message', 'label': label, 'messageText': message}
 
 
-#카카오톡 채널 - ListCard 생성
-'''def list_card(title, sub_title, description, imageUrl=None, weburl=None, label=None, antion=None, action=None, webLinkUrl=None):
+def make_item(title, description, url):
+    items = {"title": title, "description": description, "imageUrl": None, "link": {"web": url}}
+    return items
+
+
+def list_card(title, subtitle, description, url):
     new_response = deepcopy(base_response)
     new_response['template']['outputs'] = [{"listCard": {
-                "header": {
-                    "title": title
-                },
-                "items": [
-                    {
-                        "title": sub_title,
-                        "description": description,
-                        "imageUrl": imageUrl,
-                        "link":{
-                            "web": weburl
-                        }
-                    }
-                ],
-                "buttons": [
-                    {
-                        "label": label,
-                        "action": action,
-                        "webLinkUrl": webLinkUrl
-                    }
-                ]
-            }
-        }
-    ]
-    return new_response'''
+        "header": {
+            "title": title
+        },
+        "items": [
+            {
+                "title": subtitle,
+                "description": description,
+                "imageUrl": None,
+                "link": {
+                    "web": url
+                }
+            },
+        ],
+        "buttons": None
+    }}]
+
+    return new_response
