@@ -4,7 +4,7 @@ from chatbotapp.kakaojsonformat.response import *
 from chatbotapp.cnudata.is_vacation import get_vacation
 # 제2학생회관 , 3학생회관을 받아서 메뉴를 return 해주는 함수
 def get_studenthall23_answer_info(name):
-    url = "http://localhost:63342/real_chatbot_project/weekmenu.html?_ijt=aubf9e16t1rgoisgr7457r6olt"
+    url = "http://cnuis.cnu.ac.kr/jsp/etc/toDayMenu.jsp"
     req = requests.get(url)
     req.raise_for_status()
     soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
