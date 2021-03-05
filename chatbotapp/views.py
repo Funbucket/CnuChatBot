@@ -406,11 +406,11 @@ def get_cnunews(request):
         return JsonResponse(response)
     elif return_str == "문화마당":
         response = get_cultureyard_answer()
+        # print(response)
         return JsonResponse(response)
     elif return_str == "각종전화번호":
         response = get_phone_number_answer()
         return JsonResponse(response)
-
 
 # @csrf_exempt
 # def get_bus_gui(request):
