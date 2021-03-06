@@ -78,32 +78,38 @@ def get_croot_pm_answer():
 
 def get_aroot_image():
     answer = insert_image("https://ifh.cc/g/ZPHixh.jpg","aroot")
-    reply = make_reply("A노선", "A노선")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B노선", "B노선")
-    answer = insert_replies(answer, reply)
+    # reply = make_reply("A노선", "A노선")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("B노선", "B노선")
+    # answer = insert_replies(answer, reply)
     reply = make_reply("B노선표", "B노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선표", "C노선표")
     answer = insert_replies(answer, reply)
     return answer
 
 
 def get_broot_image():
     answer = insert_image("https://ifh.cc/g/9jr8yk.jpg","broot")
-    reply = make_reply("A노선", "A노선")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B노선", "B노선")
-    answer = insert_replies(answer, reply)
+    # reply = make_reply("A노선", "A노선")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("B노선", "B노선")
+    # answer = insert_replies(answer, reply)
     reply = make_reply("A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선표", "C노선표")
     answer = insert_replies(answer, reply)
     return answer
 
 def get_croot_image():
     answer = insert_image("https://ifh.cc/g/LPadLj.jpg","broot")
-    reply = make_reply("A노선", "A노선")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B노선", "B노선")
-    answer = insert_replies(answer, reply)
+    # reply = make_reply("A노선", "A노선")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("B노선", "B노선")
+    # answer = insert_replies(answer, reply)
     reply = make_reply("A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선표", "B노선표")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -115,6 +121,8 @@ def get_holiday_bus_answer():
     reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선표", "B노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선표", "C노선표")
     answer = insert_replies(answer, reply)
     # reply = make_reply("C노선", "C노선")
     # answer = insert_replies(answer, reply)

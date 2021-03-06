@@ -8,8 +8,6 @@ from chatbotapp.cnudata.organized_information.arcademic_info import *
 from chatbotapp.cnudata.organized_information.cultureyard_info import *
 from chatbotapp.cnudata.organized_information.phonenumber import *
 from chatbotapp.cnudata.shuttlebus.bus import *
-
-
 from chatbotapp.cnudata.is_vacation import get_vacation
 import datetime
 
@@ -88,6 +86,9 @@ def get_bus_info(request):
         return JsonResponse(response)
     elif return_str == "B노선표":
         response = get_broot_image()
+        return JsonResponse(response)
+    elif return_str == "C노선표":
+        response = get_croot_image()
         return JsonResponse(response)
 
 
