@@ -1,4 +1,103 @@
-from datetime import date, datetime, timedelta
+from datetime import datetime, timedelta
+from chatbotapp.cnudata.shuttlebus.time import get_time
+
+
+def get_departure_time_and_gap():
+    now = datetime.now()
+    departure_times = []
+    time = get_time(8, 45, 0)
+    for i in range(4):
+        departure_times.append(time)
+        time += timedelta(minutes=30)
+    time += timedelta(minutes=30)
+    departure_times.append(time)
+    time += timedelta(hours=2)
+    departure_times.append(time)
+    time += timedelta(minutes=30)
+    departure_times.append(time)
+    time += timedelta(hours=1)
+    departure_times.append(time)
+    for i in range(5):
+        time += timedelta(minutes=30)
+        departure_times.append(time)
+    time += timedelta(minutes=40)
+    departure_times.append(time)
+
+    end_times = []
+    for i in range(14):
+        end_times.append(departure_times[i] + timedelta(minutes=16, seconds=20))
+
+    if departure_times[0] <= now <= end_times[0]:
+        return departure_times[0], (now - departure_times[0]).total_seconds()
+    if end_times[0] < now <= departure_times[1]:
+        return departure_times[1], departure_times[1] - now
+
+    for i in range(1, 13):
+        if departure_times[i] < now <= end_times[i]:
+            return departure_times[i], (now - departure_times[i]).total_seconds()
+        elif end_times[i] < now <= departure_times[i + 1]:
+            return departure_times[i + 1], departure_times[i + 1] - now
+
+    if departure_times[13] < now <= end_times[13]:
+        return departure_times[13], (now - departure_times[13]).total_seconds()
+    # 운행종료
+    if end_times[13] < now or now.strftime("%H:%M:%S") < departure_times[0].strftime("%H:%M:%S"):
+        return departure_times[0], departure_times[0]
+
+
+def get_a2_answer():
+    departure_time = get_departure_time_and_gap()[0]
+    gap = get_departure_time_and_gap()[1]
+    # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
+    where_now = ""
+    if type(gap) == float:
+        if 0 < gap < 30:
+            where_now = "정심화국제문화회관에서 출발"
+        elif 30 <= gap < 60:
+            where_now = "경상대학 앞"
+        elif 60 <= gap < 105:
+            where_now = "도서관 앞(농대 방향)"
+        elif 105 <= gap < 200:
+            where_now = "학생생활관 3거리"
+        elif 200 <= gap < 360:
+            where_now = "농업생명과학대학 앞(동문주차장 방향)"
+        elif 360 <= gap < 405:
+            where_now = "동문 주차장"
+        elif 405 <= gap < 495:
+            where_now = "농업생명과학대학 앞(도서관 앞 방향)"
+        elif 495 <= gap < 605:
+            where_now = "도서관 앞(도서관 삼거리방향)"
+        elif 605 <= gap < 650:
+            where_now = "예술대학 앞"
+        elif 650 <= gap < 715:
+            where_now = "음악2호관 앞"
+        elif 715 <= gap < 780:
+            where_now = "동물실험센터입구(회차)"
+        elif 780 <= gap < 870:
+            where_now = "체육관 입구"
+        elif 870 <= gap < 930:
+            where_now = "서문(공동실험실습관 앞)"
+        elif 930 <= gap < 970:
+            where_now = "사회과학대학입구"
+        elif gap >= 970:
+            where_now = "산학연구교육연구원 앞"
+
+        departure_time = departure_time.strftime("%H:%M:%S")
+        answer = "A-2호차\n[출발지]:정심화국제문화회관\n{}에 출발한 버스입니다\n[현재 예상위치]\n{}".format(departure_time, where_now)
+        return answer
+
+    elif departure_time == gap:
+        departure_time = departure_time.strftime("%H:%M")
+        answer = "A-2호차 운행종료 \n평일 첫차 {}".format(departure_time)
+        return answer
+    else:
+        departure_time = departure_time.strftime("%H:%M:%S")
+        gap = str(gap)[0:7]
+        # gap = how[0:7]
+        answer = "A-2호차현재운행차 없습니다. \n다음차 {} 까지 \n{}남았습니다.".format(departure_time, gap)
+        return answer
+
+'''from datetime import date, datetime, timedelta
 
 
 def get_departure_time(hour, minute, second):
@@ -21,8 +120,8 @@ def get_make_time(hour, minute, second):
     # 현재 가장 최근 출발한 놈과 , 그 놈이 얼마만큼 시간경과했는지 알려줌
     # who 랑 how 16:07 분에 찍는다 그럼 who = 16:00  how = 00:07
 def get_a2_who_how():
-    now = datetime.now()
-
+    # now = datetime.now()
+    now = datetime(year=2021, month=3, day=6, hour=8, minute=47)
     start_time_1 = get_departure_time(8,45,0)
     start_time_2 = get_departure_time(9,15,0)
     start_time_3 = get_departure_time(9,45,0)
@@ -178,5 +277,4 @@ def get_a2_answer():
         how = str(how)
         how = how[0:7]
         answer = "A-2호차현재운행차 없습니다. \n다음차 {} 까지 \n{}남았습니다.".format(who,how)
-        return answer
-
+        return answer'''
