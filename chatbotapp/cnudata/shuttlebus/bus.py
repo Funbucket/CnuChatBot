@@ -19,6 +19,8 @@ def get_root_answer():
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선표", "B노선표")
     answer = insert_replies(answer, reply)
+    reply = make_reply("C노선표", "C노선표")
+    answer = insert_replies(answer, reply)
     return answer
 
 
@@ -31,10 +33,12 @@ def get_aroot_answer():
     answer = insert_replies(answer, reply)
     reply = make_reply("C노선", "C노선")
     answer = insert_replies(answer, reply)
-    reply = make_reply("A노선표", "A노선표")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B노선표", "B노선표")
-    answer = insert_replies(answer, reply)
+    # reply = make_reply("A노선표", "A노선표")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("B노선표", "B노선표")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("C노선표", "C노선표")
+    # answer = insert_replies(answer, reply)
 
     return answer
 
@@ -49,11 +53,12 @@ def get_broot_answer():
     answer = insert_replies(answer, reply)
     reply = make_reply("C노선", "C노선")
     answer = insert_replies(answer, reply)
-    reply = make_reply("A노선표", "A노선표")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B노선표", "B노선표")
-    answer = insert_replies(answer, reply)
-
+    # reply = make_reply("A노선표", "A노선표")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("B노선표", "B노선표")
+    # answer = insert_replies(answer, reply)
+    # reply = make_reply("C노선표", "C노선표")
+    # answer = insert_replies(answer, reply)
     return answer
 
     
@@ -68,11 +73,19 @@ def get_croot_answer():
 
 def get_croot_am_answer():
     answer = insert_text("대덕캠퍼스 ➜ 보운캠퍼스: 8:10\n보운캠퍼스 ➜ 대덕캠퍼스: 8:40")
+    reply = make_reply("A노선", "A노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
     return answer
 
 
 def get_croot_pm_answer():
     answer = insert_text("대덕캠퍼스 ➜ 보운캠퍼스: 17:30\n보운캠퍼스 ➜ 대덕캠퍼스: 18:00")
+    reply = make_reply("A노선", "A노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
     return answer
 
 
