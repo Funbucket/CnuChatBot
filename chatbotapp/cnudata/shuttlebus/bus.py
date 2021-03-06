@@ -97,6 +97,16 @@ def get_broot_image():
     answer = insert_replies(answer, reply)
     return answer
 
+def get_croot_image():
+    answer = insert_image("https://ifh.cc/g/LPadLj.jpg","broot")
+    reply = make_reply("A노선", "A노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
+    return answer
+
 
 def get_holiday_bus_answer():
     text = "😋 충남대학교 셔틀 정보 😋\n\n주말 및 공휴일은 \n셔틀운행을 하지 않습니다.\n평일에 이용해주세요😆\n"

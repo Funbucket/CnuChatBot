@@ -1,8 +1,8 @@
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from chatbotapp.cnudata.library import *
-from chatbotapp.cnudata.cafeteria import *
+from chatbotapp.cnudata.library.library import *
+from chatbotapp.cnudata.cafeteria.cafeteria import *
 from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.organized_information.arcademic_info import *
 from chatbotapp.cnudata.organized_information.cultureyard_info import *
