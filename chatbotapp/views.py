@@ -10,6 +10,7 @@ from chatbotapp.cnudata.arcademic_info import *
 from chatbotapp.cnudata.cultureyard_info import *
 from chatbotapp.cnudata.phonenumber import *
 from chatbotapp.cnudata.new_bus import *
+from chatbotapp.cnudata.is_vacation import get_vacation
 import datetime
 
 @csrf_exempt
@@ -61,7 +62,10 @@ def get_bus_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     if return_str == "셔틀" or return_str == "🚌 셔틀":
-        response = get_root_answer()
+        if get_vacation():
+            response = get_holiday_bus_answer()
+        else:
+            response = get_root_answer()
         return JsonResponse(response)
     # elif return_str == "(A노선)다른정류장보기":
     #     response = get_aroot_stations_answer()

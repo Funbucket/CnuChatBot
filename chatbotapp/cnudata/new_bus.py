@@ -96,3 +96,15 @@ def get_broot_image():
     reply = make_reply("A노선표", "A노선표")
     answer = insert_replies(answer, reply)
     return answer
+
+def get_holiday_bus_answer():
+    text = "😋 충남대학교 셔틀 정보 😋\n\n주말 및 공휴일은 \n셔틀운행을 하지 않습니다.\n 평일에 이용해주세요😆\n"
+    text += "[A노선 평일첫차] : 08:30\n[B노선 평일첫차] : 08:30\n"
+    answer = insert_text(text)
+    reply = make_reply("A노선표", "A노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("B노선표", "B노선표")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
+    answer = insert_replies(answer, reply)
+    return answer
