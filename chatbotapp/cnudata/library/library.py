@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
 import requests, re
 from chatbotapp.kakaojsonformat.response import *
+from datetime import datetime
+from chatbotapp.cnudata.is_vacation import get_vacation
+
 
 def get_crawled_data():
     url = "https://clicker.cnu.ac.kr/Clicker/k/"
@@ -45,11 +48,21 @@ def library_json_format_each():
 def get_library_answer():
     name = []
     library_info = library_json_format_total()
-    response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
+    now_hour = datetime.now().hour
+    if get_vacation() or now_hour <= 6 or now_hour >= 22:
+        response_text = "😛 충남대학교도서관 개관시간 😛\n\n"
+        response_text += "[신문열람실]:07:00~22:00 토,일휴실\n\n"
+        response_text += "[전자정보실,제1자료실,제2자료실,대출실]\n"
+        response_text += "09:00~18:00 토,일휴실\n\n"
+        response_text += "[열람실]:07:00~22:00 토,일휴실\n"
+        for key in library_info:
+            name.append(key)
 
-    for key in library_info:
-        response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
-        name.append(key)
+    else:
+        response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
+        for key in library_info:
+            response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
+            name.append(key)
     answer = insert_text(response_text)
     reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
     answer = insert_replies(answer, reply)
@@ -58,7 +71,6 @@ def get_library_answer():
         answer = insert_replies(answer,reply)
     return answer
 
-
 # 한개씩 눌렀을때
 def each_get_library_answer(room):
     name = []
@@ -66,14 +78,6 @@ def each_get_library_answer(room):
     library_info = library_json_format_each()
     for key in library_info:
         name.append(key)
-    # if len(room) > 18 :
-    #     response_text += "\t" + room + "\n" + library_info[room] + "\n"
-    # elif len(room) > 16 :
-    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    # elif len(room) >= 14 :
-    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
-    # elif len(room) > 0 :
-    #     response_text += "\t\t" + room + "\n" + library_info[room] + "\n"
     if len(room) > 0:
         response_text += "\n" + room + "\n" + library_info[room]
 
