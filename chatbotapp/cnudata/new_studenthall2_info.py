@@ -6,11 +6,17 @@ from chatbotapp.cnudata.is_vacation import get_vacation
 
 
 def get_studenthall23_answer_info(name):
-    url = "http://cnuis.cnu.ac.kr/jsp/etc/toDayMenu.jsp"
-    req = requests.get(url)
-    req.raise_for_status()
-    soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
-
+    try:
+        url = "http://cnuis.cnu.ac.kr/jsp/etc/toDayMenu.jsp"
+        req = requests.get(url)
+        req.raise_for_status()
+        soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
+    except:
+        text = "현재 학교 홈페이지가 원활하지 않습니다\n잠시후 다시 이용해주세요 😚"
+        answer = insert_text(text)
+        reply = make_reply("다른 식당 메뉴보기", "학식")
+        answer = insert_replies(answer, reply)
+        return answer
 
     #주말이라면
     if get_vacation():
