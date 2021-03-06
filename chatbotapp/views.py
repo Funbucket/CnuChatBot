@@ -10,12 +10,13 @@ from chatbotapp.cnudata.arcademic_info import *
 from chatbotapp.cnudata.cultureyard_info import *
 from chatbotapp.cnudata.phonenumber import *
 from chatbotapp.cnudata.new_bus import *
+import datetime
+
 @csrf_exempt
 def get_library_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-    print("return_str : {}".format(return_str))
 
     if return_str == "열람실" or return_str == "📚 열람실" :
         response = get_library_answer()
@@ -191,7 +192,7 @@ def get_cafeteria_info(request):
     answer = request.body.decode('utf-8')
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
-
+    today_week_number = datetime.datetime.today().weekday() + 1
     if return_str == "학식" or return_str == "🍽 학식":
         response = get_entire_cafeteria_answer()
         return JsonResponse(response)
@@ -264,108 +265,110 @@ def get_cafeteria_info(request):
     elif return_str == "중식코너 운영 시간":
         response = get_china_time()
         return JsonResponse(response)
-
     elif return_str == "기숙사식당":
         response = get_entire_dorm()
         return JsonResponse(response)
 
+    elif return_str == "오늘기숙사식당":
+        response = day_of_week_dorm(today_week_number)
+        return JsonResponse(response)
+
     elif return_str == "월요일기숙사식당":
-        response = monday_dorm()
+        response = day_of_week_dorm(1)
         return JsonResponse(response)
 
     elif return_str == "화요일기숙사식당":
-        response = tuesday_dorm()
+        response = day_of_week_dorm(2)
         return JsonResponse(response)
 
     elif return_str == "수요일기숙사식당":
-        response = wednesday_dorm()
+        response = day_of_week_dorm(3)
         return JsonResponse(response)
 
     elif return_str == "목요일기숙사식당":
-        response = thursday_dorm()
+        response = day_of_week_dorm(4)
         return JsonResponse(response)
 
     elif return_str == "금요일기숙사식당":
-        response = friday_dorm()
+        response = day_of_week_dorm(5)
         return JsonResponse(response)
 
     elif return_str == "토요일기숙사식당":
-        response = saturday_dorm()
+        response = day_of_week_dorm(6)
         return JsonResponse(response)
 
     elif return_str == "일요일기숙사식당":
-        response = sunday_dorm()
+        response = day_of_week_dorm(7)
         return JsonResponse(response)
 
     elif return_str == "월[아침]":
-        response = get_monday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.MONDAY.value)
         return JsonResponse(response)
     elif return_str == "월[점심]":
-        response = get_monday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.MONDAY.value)
         return JsonResponse(response)
-
     elif return_str == "월[저녁]":
-        response = get_monday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.MONDAY.value)
         return JsonResponse(response)
 
     elif return_str == "화[아침]":
-        response = get_tuesday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.TUESDAY.value)
         return JsonResponse(response)
     elif return_str == "화[점심]":
-        response = get_tuesday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.TUESDAY.value)
         return JsonResponse(response)
     elif return_str == "화[저녁]":
-        response = get_tuesday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.TUESDAY.value)
         return JsonResponse(response)
 
     elif return_str == "수[아침]":
-        response = get_wednesday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.WEDNESDAY.value)
         return JsonResponse(response)
     elif return_str == "수[점심]":
-        response = get_wednesday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.WEDNESDAY.value)
         return JsonResponse(response)
     elif return_str == "수[저녁]":
-        response = get_wednesday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.WEDNESDAY.value)
         return JsonResponse(response)
 
     elif return_str == "목[아침]":
-        response = get_thursday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.THURSDAY.value)
         return JsonResponse(response)
     elif return_str == "목[점심]":
-        response = get_thursday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.THURSDAY.value)
         return JsonResponse(response)
     elif return_str == "목[저녁]":
-        response = get_thursday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.THURSDAY.value)
         return JsonResponse(response)
 
     elif return_str == "금[아침]":
-        response = get_friday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.FRIDAY.value)
         return JsonResponse(response)
     elif return_str == "금[점심]":
-        response = get_friday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.FRIDAY.value)
         return JsonResponse(response)
     elif return_str == "금[저녁]":
-        response = get_friday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.FRIDAY.value)
         return JsonResponse(response)
 
     elif return_str == "토[아침]":
-        response = get_saturday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.SATURDAY.value)
         return JsonResponse(response)
     elif return_str == "토[점심]":
-        response = get_saturday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.SATURDAY.value)
         return JsonResponse(response)
     elif return_str == "토[저녁]":
-        response = get_saturday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.SATURDAY.value)
         return JsonResponse(response)
 
     elif return_str == "일[아침]":
-        response = get_sunday_breakfast_menu()
+        response = get_entire_menu("breakfast",Weekday.SUNDAY.value)
         return JsonResponse(response)
     elif return_str == "일[점심]":
-        response = get_sunday_lunch_menu()
+        response = get_entire_menu("lunch",Weekday.SUNDAY.value)
         return JsonResponse(response)
     elif return_str == "일[저녁]":
-        response = get_sunday_dinner_menu()
+        response = get_entire_menu("dinner",Weekday.SUNDAY.value)
         return JsonResponse(response)
 
 
