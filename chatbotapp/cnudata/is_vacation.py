@@ -115,7 +115,7 @@ def get_vacation():
         # columnList.append(tdTags[3 * i + 2].text)
 
         # rowList.append(columnList)
-        # columnList = []
+        # columnList = []ro
 
     today = datetime.today()
     is_weekend_today = is_weekend(today)

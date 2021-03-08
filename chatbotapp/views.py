@@ -61,13 +61,13 @@ def get_bus_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     if return_str == "셔틀" or return_str == "🚌 셔틀":
-        response = get_root_answer()
+        '''response = get_root_answer()
+        return JsonResponse(response)'''
+        if get_vacation():
+            response = get_holiday_bus_answer()
+        else:
+            response = get_root_answer()
         return JsonResponse(response)
-        # if get_vacation():
-        #     response = get_holiday_bus_answer()
-        # else:
-        #     response = get_root_answer()
-        # return JsonResponse(response)
     elif return_str == "A노선":
         response = get_aroot_answer()
         return JsonResponse(response)
