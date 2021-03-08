@@ -7,10 +7,7 @@ from enum import Enum
 # import datetime
 
 import re
-url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
-req = requests.get(url)
-req.raise_for_status()
-soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
+
 
 class Weekday(Enum):
     MONDAY = 1
@@ -72,6 +69,10 @@ def day_of_week_numbering(day_of_week):
         return 6
 
 def dorm_menu(when, the_day_of_week_number):
+    url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
+    req = requests.get(url)
+    req.raise_for_status()
+    soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
     dates = soup.find("table", attrs={"class": "default_view diet_table"}).find("tbody").find_all("tr")
 
     tr_tag = dates[the_day_of_week_number - 1]
@@ -397,7 +398,6 @@ def day_of_week(the_day_of_week):
         answer = insert_replies(answer, reply)
 
     return answer
-
 
 
 # def monday():
