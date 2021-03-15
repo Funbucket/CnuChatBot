@@ -7,8 +7,11 @@ from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.organized_information.arcademic_info import *
 from chatbotapp.cnudata.organized_information.cultureyard_info import *
 from chatbotapp.cnudata.organized_information.phonenumber import *
+from chatbotapp.cnudata.organized_information.study_competition import get_study_competition_answer
+from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_answer
 from chatbotapp.cnudata.shuttlebus.bus import *
 from chatbotapp.cnudata.is_vacation import get_vacation
+
 import datetime
 
 
@@ -319,4 +322,10 @@ def get_cnunews(request):
         return JsonResponse(response)
     elif return_str == "각종전화번호":
         response = get_phone_number_answer()
+        return JsonResponse(response)
+    elif return_str == "스터디 및 공모전":
+        response = get_study_competition_answer()
+        return JsonResponse(response)
+    elif return_str == "CNU장터":
+        response = get_cnumarket_answer()
         return JsonResponse(response)
