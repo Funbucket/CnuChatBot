@@ -307,11 +307,15 @@ def get_cnunews(request):
     return_str = return_json_str['userRequest']['utterance']
     if return_str == "알뜰정보" or return_str == "📰 알뜰정보":
         response = insert_text("😋 충남대학교 알뜰 정보 😋")
-        reply = make_reply("🗣️학사정보", "학사정보")
+        reply = make_reply("학사정보", "학사정보")
         response = insert_replies(response, reply)
-        reply = make_reply("🤹문화마당", "문화마당")
+        reply = make_reply("문화마당", "문화마당")
         response = insert_replies(response, reply)
-        reply = make_reply("☎️각종전화번호", "각종전화번호")
+        reply = make_reply("CNU장터", "CNU장터")
+        response = insert_replies(response, reply)
+        reply = make_reply("스터디 및 공모전", "스터디 및 공모전")
+        response = insert_replies(response, reply)
+        reply = make_reply("각종전화번호", "각종전화번호")
         response = insert_replies(response, reply)
         return JsonResponse(response)
     elif return_str == "학사정보":
