@@ -130,13 +130,15 @@ def readingRoom_for_exam_week():
     answer = insert_replies(answer, reply)
     reply = make_reply("좌석정보", "좌석정보")
     answer = insert_replies(answer, reply)
+    reply = make_reply("층별지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)
 
     return answer
 
 
 def exam_week_information():
     answer = insert_text(
-        "중간고사기간 열람실 연장운영\n운영기간:4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
+        "중간고사기간 열람실 연장운영\n운영기간 : 4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
     reply = make_reply("층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
     reply = make_reply("좌석정보", "좌석정보")
