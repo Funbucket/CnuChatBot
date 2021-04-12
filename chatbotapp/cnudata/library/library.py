@@ -11,7 +11,7 @@ def get_crawled_data():
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
 
-    tds = soup.find("tbody").find_all("td", attrs={"class" : re.compile("^clicker")})
+    tds = soup.find("tbody").find_all("td", attrs={"class": re.compile("^clicker")})
     data = [i.get_text().strip() for i in tds]
     return data
 
@@ -49,6 +49,7 @@ def get_library_answer():
     name = []
     library_info = library_json_format_total()
     now_hour = datetime.now().hour
+
     if get_vacation() or now_hour <= 6 or now_hour >= 22:
         response_text = "😛 충남대학교도서관 개관시간 😛\n\n"
         response_text += "[신문열람실] : 07:00~22:00 토,일휴실\n\n"
@@ -64,12 +65,13 @@ def get_library_answer():
             response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
             name.append(key)
     answer = insert_text(response_text)
-    reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
+    reply = make_reply("층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
-    for room_name in name:
-        reply = make_reply(room_name,room_name)
-        answer = insert_replies(answer,reply)
+    # for room_name in name:
+    #     reply = make_reply(room_name,room_name)
+    #     answer = insert_replies(answer,reply)
     return answer
+
 
 # 한개씩 눌렀을때
 def each_get_library_answer(room):
@@ -83,7 +85,7 @@ def each_get_library_answer(room):
 
     answer = insert_text(response_text)
 
-    reply = make_reply("🗺️층별지도보기🗺️", "층별지도보기")
+    reply = make_reply("층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
     for room_name in name:
         reply = make_reply(room_name, room_name)
@@ -115,10 +117,53 @@ def entire_floor_image():
     reply = make_reply("별관1층", "별관1층 지도보기")
     answer = insert_replies(answer, reply)
 
-    for i in range(1,6):
+    for i in range(1, 6):
         reply = make_reply("{}층".format(i), "{}층 지도보기".format(i))
         answer = insert_replies(answer, reply)
 
     return answer
 
 
+def readingRoom_for_exam_week():
+    answer = insert_text("시험기간 입니다. 모두 원하시는 결과 얻으시기를 츠누봇은 항상 응원합니다.")
+    reply = make_reply("시험기간운영정보", "시험기간운영정보")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("좌석정보", "좌석정보")
+    answer = insert_replies(answer, reply)
+
+    return answer
+
+
+def exam_week_information():
+    answer = insert_text(
+        "중간고사기간 열람실 연장운영\n운영기간:4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
+    reply = make_reply("층별지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("좌석정보", "좌석정보")
+    answer = insert_replies(answer, reply)
+
+    return answer
+
+
+def exam_temp_get_library_answer():
+    name = []
+    library_info = library_json_format_total()
+    now_hour = datetime.now().hour
+
+    if now_hour <= 6 or now_hour > 23:
+        answer = insert_text(
+
+            "현재 운영시간이 아닙니다\n중간고사기간 열람실 연장운영\n운영기간:4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
+        return answer
+    else:
+        response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
+        for key in library_info:
+            response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
+            name.append(key)
+    answer = insert_text(response_text)
+    reply = make_reply("층별지도보기", "층별지도보기")
+    answer = insert_replies(answer, reply)
+    # for room_name in name:
+    #     reply = make_reply(room_name,room_name)
+    #     answer = insert_replies(answer,reply)
+    return answer
