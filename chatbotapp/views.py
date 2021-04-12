@@ -7,8 +7,11 @@ from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.organized_information.arcademic_info import *
 from chatbotapp.cnudata.organized_information.cultureyard_info import *
 from chatbotapp.cnudata.organized_information.phonenumber import *
+from chatbotapp.cnudata.organized_information.study_competition import get_study_competition_answer
+from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_answer
 from chatbotapp.cnudata.shuttlebus.bus import *
 from chatbotapp.cnudata.is_vacation import get_vacation
+
 import datetime
 
 
@@ -72,13 +75,13 @@ def get_bus_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     if return_str == "셔틀" or return_str == "🚌 셔틀":
-        response = get_root_answer()
+        '''response = get_root_answer()
+        return JsonResponse(response)'''
+        if get_vacation():
+            response = get_holiday_bus_answer()
+        else:
+            response = get_root_answer()
         return JsonResponse(response)
-        # if get_vacation():
-        #     response = get_holiday_bus_answer()
-        # else:
-        #     response = get_root_answer()
-        # return JsonResponse(response)
     elif return_str == "A노선":
         response = get_aroot_answer()
         return JsonResponse(response)
@@ -315,11 +318,15 @@ def get_cnunews(request):
     return_str = return_json_str['userRequest']['utterance']
     if return_str == "알뜰정보" or return_str == "📰 알뜰정보":
         response = insert_text("😋 충남대학교 알뜰 정보 😋")
-        reply = make_reply("🗣️학사정보", "학사정보")
+        reply = make_reply("학사정보", "학사정보")
         response = insert_replies(response, reply)
-        reply = make_reply("🤹문화마당", "문화마당")
+        reply = make_reply("문화마당", "문화마당")
         response = insert_replies(response, reply)
-        reply = make_reply("☎️각종전화번호", "각종전화번호")
+        reply = make_reply("CNU장터", "CNU장터")
+        response = insert_replies(response, reply)
+        reply = make_reply("스터디 및 공모전", "스터디 및 공모전")
+        response = insert_replies(response, reply)
+        reply = make_reply("각종전화번호", "각종전화번호")
         response = insert_replies(response, reply)
         return JsonResponse(response)
     elif return_str == "학사정보":
@@ -330,4 +337,10 @@ def get_cnunews(request):
         return JsonResponse(response)
     elif return_str == "각종전화번호":
         response = get_phone_number_answer()
+        return JsonResponse(response)
+    elif return_str == "스터디 및 공모전":
+        response = get_study_competition_answer()
+        return JsonResponse(response)
+    elif return_str == "CNU장터":
+        response = get_cnumarket_answer()
         return JsonResponse(response)
