@@ -21,36 +21,36 @@ def get_library_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
 
-    # if return_str == "열람실" or return_str == "📚 열람실" :
-    #     response = get_library_answer()
-    #     return JsonResponse(response)         // original
-
-    if return_str == "열람실" or return_str == "📚 열람실":
-        response = readingRoom_for_exam_week()
-        return JsonResponse(response)
-    elif return_str == "시험기간운영정보":
-        response = exam_week_information()
-        return JsonResponse(response)
-    elif return_str == "좌석정보":
-        response = exam_temp_get_library_answer()
+    if return_str == "열람실" or return_str == "📚 열람실" :
+        response = get_library_answer()
         return JsonResponse(response)
 
+    # if return_str == "열람실" or return_str == "📚 열람실":
+    #     response = readingRoom_for_exam_week()
+    #     return JsonResponse(response)
+    # elif return_str == "시험기간운영정보":
+    #     response = exam_week_information()
+    #     return JsonResponse(response)
+    # elif return_str == "좌석정보":
+    #     response = exam_temp_get_library_answer()
+    #     return JsonResponse(response)
 
-    elif return_str == "B2 Learning Commons" \
-        or return_str == "B2 Carrel Zone" \
-        or return_str == "1층 자유열람실" \
-        or return_str == "2층 제 1열람실 A"\
-        or return_str == "2층 제 1열람실 B"\
-        or return_str == "2층 제 2열람실 A"\
-        or return_str == "2층 제 2열람실 B"\
-        or return_str == "2층 제 2열람실 노트북석"\
-        or return_str == "2층 제 3열람실 A"\
-        or return_str == "2층 제 3열람실 B"\
-        or return_str == "2층 제 3열람실 노트북실":
 
-        response = each_get_library_answer(return_str)
-
-        return JsonResponse(response)
+    # elif return_str == "B2 Learning Commons" \
+    #     or return_str == "B2 Carrel Zone" \
+    #     or return_str == "1층 자유열람실" \
+    #     or return_str == "2층 제 1열람실 A"\
+    #     or return_str == "2층 제 1열람실 B"\
+    #     or return_str == "2층 제 2열람실 A"\
+    #     or return_str == "2층 제 2열람실 B"\
+    #     or return_str == "2층 제 2열람실 노트북석"\
+    #     or return_str == "2층 제 3열람실 A"\
+    #     or return_str == "2층 제 3열람실 B"\
+    #     or return_str == "2층 제 3열람실 노트북실":
+    #
+    #     response = each_get_library_answer(return_str)
+    #
+    #     return JsonResponse(response)
 
     elif return_str == "층별지도보기":
         response = entire_floor_image()
