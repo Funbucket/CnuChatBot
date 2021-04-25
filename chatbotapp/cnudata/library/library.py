@@ -48,8 +48,8 @@ def library_json_format_each():
 def get_library_answer():
     name = []
     library_info = library_json_format_total()
-    # now_hour = datetime.now().hour
-    now_hour = 10
+    now_hour = datetime.now().hour
+    # now_hour = 10
     if get_vacation() or now_hour <= 6 or now_hour >= 22:
         response_text = "😋 충남대학교도서관 개관시간 😋\n\n"
         response_text += "[신문열람실] : 07:00~22:00 토,일휴실\n\n"
