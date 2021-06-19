@@ -79,13 +79,13 @@ def dorm_menu(when, the_day_of_week_number):
     tds = tr_tag.find_all("td")
     index = when_numbering(when)
     menu = tds[index].get_text()
-    menu = ' '.join(menu.split())
-    menu = menu.replace("kcal)", "kcal)\n")
-    menu = menu.replace(" 메인", "\n메인")
-    menu = menu.replace(" ", "\n")
-    menu = menu.replace("메인", "-------------\n메인")
-    index = menu.find("메인A", 50)
-    menu = menu[0:index]
+    #menu = ' '.join(menu.split())
+    #menu = menu.replace("kcal)", " ")
+    #menu = menu.replace(" 메인", "\n메인")
+    #menu = menu.replace(" ", "\n")
+    'menu = menu.replace("메인", "-------------\n메인")'
+    #index = menu.find("메인A", 50)
+    #menu = menu[0:index]
     # default "월" 로 선언
 
     day_of_week = ""
@@ -104,11 +104,11 @@ def dorm_menu(when, the_day_of_week_number):
     if the_day_of_week_number == Weekday.SUNDAY.value:
         day_of_week = "일"
 
-    answer = "{}요일 {} 식단입니다\n".format(day_of_week, english_to_korea_when(when)) + menu
+    answer = "[{}]\n".format(english_to_korea_when(when)) + menu
 
     return answer
 
-# print(dorm_menu("breakfast",1))
+print(dorm_menu("breakfast",1))
 
 # # when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
 # def monday_dorm_menu(when , day_of_week ="월"):
