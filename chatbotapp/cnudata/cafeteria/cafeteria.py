@@ -5,7 +5,7 @@ from chatbotapp.cnudata.cafeteria.dorm_info import *
 from chatbotapp.cnudata.cafeteria.new_studenthall2_info import *
 
 def get_entire_cafeteria_answer():
-    response_text = "\n😋 충남대학교 학식 정보 😋   \n\t\t  원하시는 식당을 \n\t\t\t선택해주세요"
+    response_text = "\n충남대학교 학식 정보\n"
     answer = insert_text(response_text)
     reply = make_reply("기숙사식당", "기숙사식당")
     answer = insert_replies(answer, reply)
