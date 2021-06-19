@@ -83,7 +83,7 @@ def dorm_menu(when, the_day_of_week_number):
     index = menu.find("메인A", 20)        # 인덱스 50 뒤에 나오는 메인 A 는 영어다 그 이후는 영어니깐 다 짤라라
     menu = menu[0:index]
 
-    menu = menu.replace("메인", "--메인")
+    menu = menu.replace("메인", "\n--메인")
     menu = menu.replace(" ", "\n")
 
     # 이제 칼로리 없애는 작업
