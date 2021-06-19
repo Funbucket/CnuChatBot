@@ -3,8 +3,8 @@ from chatbotapp.cnudata.shuttlebus.time import get_time
 
 
 def get_departure_time_and_gap():
-    'now = datetime(2021, 6, 18, 9, 47)'
     now = datetime.now()
+    print(now)
     departure_times = []
     time = get_time(8, 30, 0)
     for i in range(4):
@@ -44,6 +44,7 @@ def get_departure_time_and_gap():
     if end_times[14] < now or now.strftime("%H:%M:%S") < departure_times[0].strftime("%H:%M:%S"):
         return departure_times[0], departure_times[0]
 
+get_departure_time_and_gap()
 
 def get_a1_answer():
     departure_time = get_departure_time_and_gap()[0]
@@ -51,17 +52,17 @@ def get_a1_answer():
     # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
     if type(gap) == float:
         departure_time = departure_time.strftime("%H:%M:%S")
-        answer = "A-1호차 [운행중]\n[출발지] 정심화국제문화회관\n[출발시간] {}".format(departure_time)
+        answer = "A-1호차 [운행중]\n출발지 : 정심화국제문화회관\n출발시간 : {}".format(departure_time)
         return answer
 
     elif departure_time == gap:
         departure_time = departure_time.strftime("%H:%M")
-        answer = "A-1호차 [운행종료]\n[첫차] {}".format(departure_time)
+        answer = "A-1호차 [운행종료]\n첫차 : {}".format(departure_time)
         return answer
     else:
         departure_time = departure_time.strftime("%H:%M:%S")
         gap = str(gap)[0:7]
-        answer = "A-1 [운행대기중]\n[남은시간] {}".format(gap)
+        answer = "A-1 [운행대기중]\n남은시간 : {}".format(gap)
         return answer
 
 
