@@ -119,7 +119,7 @@ def dorm_menu(when, the_day_of_week_number):
     if the_day_of_week_number == Weekday.SUNDAY.value:
         day_of_week = "일"
 
-    answer = "[{}]\n".format(english_to_korea_when(when)) + menu
+    answer = "[{}]".format(english_to_korea_when(when)) + menu
 
     return answer
 # print(dorm_menu("breakfast",7))
