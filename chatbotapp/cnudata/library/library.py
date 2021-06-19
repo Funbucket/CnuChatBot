@@ -63,7 +63,7 @@ def get_library_answer():
     else:
         response_text = "\n충남대학교 열람실 좌석 정보\n"
         for key in library_info:
-            response_text += "\n" + key + "\n\t" + library_info[key] + "\n"
+            response_text += "\n" + "[" + key + "]" + "\n" + library_info[key] + "\n"
             name.append(key)
     answer = insert_text(response_text)
     reply = make_reply("층별지도보기", "층별지도보기")
