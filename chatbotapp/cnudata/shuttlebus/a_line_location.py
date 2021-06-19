@@ -61,7 +61,7 @@ def get_a1_answer():
     else:
         departure_time = departure_time.strftime("%H:%M:%S")
         gap = str(gap)[0:7]
-        answer = "A-1 [대기중]\n[남은시간] {}".format(gap)
+        answer = "A-1 [운행대기중]\n[남은시간] {}".format(gap)
         return answer
 
 
