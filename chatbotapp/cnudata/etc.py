@@ -2,13 +2,13 @@
 from chatbotapp.kakaojsonformat.response import *
 
 def get_entire_etc_answer():
-    text = "🎸기타 페이지 입니다🎸"
+    text = "기타 페이지"
     answer = insert_text(text)
     # reply = make_reply("🏡홈으로", "홈")
     # answer = insert_replies(answer, reply)
-    reply = make_reply("ℹ️개발자 정보", "ℹ️개발자 정보")
+    reply = make_reply("개발자 정보", "ℹ️개발자 정보")
     answer = insert_replies(answer, reply)
-    reply = make_reply("📬오류 제보 / 기능 건의📬", "📬오류 제보 / 기능 건의📬")
+    reply = make_reply("오류 제보 / 기능 건의", "📬오류 제보 / 기능 건의📬")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -27,11 +27,11 @@ def get_error_answer():
 
 def get_information_answer():
 
-    our_information = "😎 \t\t 츠누봇 공동개발자  \t\t😎\n\n🥳  \t\t\t\t조해창\t\t\t\t\t🥳\n\t\t\touchc@icloud.com\t\n\n🤩  \t\t\t\t박찬혁\t\t\t\t\t🤩\n\tchanhyuk-tech@kakao.com\t\n"
+    our_information = " \t\t 츠누봇 공동개발자  \t\t\n\n  \t\t\t\t조해창\t\t\t\t\t\n\t\t\touchc@icloud.com\t\n\n  \t\t\t\t박찬혁\t\t\t\t\t\n\tchanhyuk-tech@kakao.com\t\n"
     answer = insert_text(our_information)
     # reply = make_reply("🏡홈으로", "홈")
     # answer = insert_replies(answer, reply)
-    reply = make_reply("📬오류 제보 / 기능 건의📬", "📬오류 제보 / 기능 건의📬")
+    reply = make_reply("오류 제보 / 기능 건의", "📬오류 제보 / 기능 건의📬")
     answer = insert_replies(answer, reply)
 
     return answer
