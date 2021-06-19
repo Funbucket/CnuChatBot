@@ -78,7 +78,8 @@ def get_bus_info(request):
         '''response = get_root_answer()
         return JsonResponse(response)'''
         if get_vacation():
-            response = get_holiday_bus_answer()
+            response = get_root_answer()
+            'response = get_holiday_bus_answer()'
         else:
             response = get_root_answer()
         return JsonResponse(response)
