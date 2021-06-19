@@ -21,7 +21,7 @@ def library_json_format_total():
     # value 값
     value = []
     for i in range(11):
-        value.append(" 잔여좌석:" + data[4 * i + 2])
+        value.append("잔여좌석:" + data[4 * i + 2])
 
     # dict 생성
     library_info = {}
@@ -49,20 +49,20 @@ def get_library_answer():
     name = []
     library_info = library_json_format_total()
     now_hour = datetime.now().hour
-
+    # now_hour = 10
     if get_vacation() or now_hour <= 6 or now_hour >= 22:
-        response_text = "😋 충남대학교도서관 개관시간 😋\n\n"
-        response_text += "[신문열람실] : 07:00~22:00 토,일휴실\n\n"
+        response_text = "충남대학교도서관 개관시간\n\n"
+        response_text += "[신문열람실]\n평일 : 07:00~22:00\n주말 및 공휴일 : 휴실\n\n"
         response_text += "[전자정보실,제1자료실,제2자료실,대출실]\n"
-        response_text += "09:00~18:00 토,일휴실\n\n"
-        response_text += "[열람실] : 07:00~22:00 토,일휴실\n"
+        response_text += "평일 : 09:00~18:00 \n주말 및 공휴일 : 휴실\n\n"
+        response_text += "[열람실]\n평일 : 07:00~22:00\n주말 및 공휴일 : 휴실\n"
         for key in library_info:
             name.append(key)
 
     else:
-        response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
+        response_text = "\n충남대학교 열람실 좌석 정보\n"
         for key in library_info:
-            response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
+            response_text += "\n" + "[" + key + "]" + "\n" + library_info[key] + "\n"
             name.append(key)
     answer = insert_text(response_text)
     reply = make_reply("층별지도보기", "층별지도보기")
@@ -109,7 +109,7 @@ def each_get_library_image(floor):
 
 
 def entire_floor_image():
-    answer = insert_text("🗺보고싶은 층을🗺 \n\t  선택해주세요\n")
+    answer = insert_text("충별 지도 정보\n")
     reply = make_reply("B2층", "B2층 지도보기")
     answer = insert_replies(answer, reply)
     reply = make_reply("B1층", "B1층 지도보기")
@@ -154,7 +154,6 @@ def exam_temp_get_library_answer():
 
     if now_hour <= 6 or now_hour > 23:
         answer = insert_text(
-
             "현재 운영시간이 아닙니다\n중간고사기간 열람실 연장운영\n운영기간:4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
         return answer
     else:

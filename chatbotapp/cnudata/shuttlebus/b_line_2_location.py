@@ -25,7 +25,7 @@ def get_departure_time_and_gap():
 
     end_times = []
     for i in range(15):
-        end_times.append(departure_times[i] + timedelta(minutes=15, seconds=25))
+        end_times.append(departure_times[i] + timedelta(minutes=17, seconds=00))
 
     if departure_times[0] <= now <= end_times[0]:
         return departure_times[0], (now - departure_times[0]).total_seconds()
@@ -46,6 +46,27 @@ def get_departure_time_and_gap():
 
 
 def get_b2_answer():
+    departure_time = get_departure_time_and_gap()[0]
+    gap = get_departure_time_and_gap()[1]
+    # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
+    if type(gap) == float:
+        departure_time = departure_time.strftime("%H:%M:%S")
+        answer = "B-2호차 [운행중]\n출발시간 : {}".format(departure_time)
+        return answer
+
+    elif departure_time == gap:
+        departure_time = departure_time.strftime("%H:%M")
+        answer = "B-2호차 [운행종료]\n첫차 : {}".format(departure_time)
+        return answer
+    else:
+        departure_time = departure_time.strftime("%H:%M:%S")
+        gap = str(gap)[0:7]
+        answer = "B-2호차 [운행대기중]\n남은시간 : {}".format(gap)
+        return answer
+
+
+
+'''def get_b2_answer():
     departure_time = get_departure_time_and_gap()[0]
     gap = get_departure_time_and_gap()[1]
     # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
@@ -95,7 +116,7 @@ def get_b2_answer():
         gap = str(gap)[0:7]
         answer = "B-2호차현재운행차 없습니다. \n다음차 {} 까지 \n{}남았습니다.".format(departure_time, gap)
         return answer
-
+'''
 '''from datetime import date, datetime, timedelta
 
 

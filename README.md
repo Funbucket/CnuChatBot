@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to CNU(츠누) Bot 👋</h1>
 <p align="center">
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-12.9.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/README.md" target="_blank">
   </a>
   <a href="https://github.com/PARKINHYO/corona-kakao-bot/blob/master/LICENSE" target="_blank">
