@@ -46,6 +46,7 @@ def get_departure_time_and_gap():
 
 get_departure_time_and_gap()
 
+
 def get_a1_answer():
     departure_time = get_departure_time_and_gap()[0]
     gap = get_departure_time_and_gap()[1]
