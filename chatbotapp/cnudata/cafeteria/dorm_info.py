@@ -77,15 +77,27 @@ def dorm_menu(when, the_day_of_week_number):
 
     tr_tag = dates[the_day_of_week_number - 1]
     tds = tr_tag.find_all("td")
-    index = when_numbering(when)
+    index = when_numbering(when)        # index는 아침 점심 저녁을 의미한다.
     menu = tds[index].get_text()
-    #menu = ' '.join(menu.split())
-    #menu = menu.replace("kcal)", " ")
-    #menu = menu.replace(" 메인", "\n메인")
-    #menu = menu.replace(" ", "\n")
-    'menu = menu.replace("메인", "-------------\n메인")'
-    #index = menu.find("메인A", 50)
-    #menu = menu[0:index]
+    menu = ' '.join(menu.split())
+    index = menu.find("메인A", 20)        # 인덱스 50 뒤에 나오는 메인 A 는 영어다 그 이후는 영어니깐 다 짤라라
+    menu = menu[0:index]
+
+    menu = menu.replace("메인", "\n--메인")
+    menu = menu.replace(" ", "\n")
+
+    # 이제 칼로리 없애는 작업
+
+    indexfirstopen = menu.find("A(")
+    indexfirstclose = menu.find("l)")
+    wantremove = menu[indexfirstopen+1:indexfirstclose+2]
+    menu = menu.replace(wantremove, "--")
+
+    indexsecondopen = menu.find("C(")
+    indexsecondclose = menu.find("l)",20)
+    wantremove2 = menu[indexsecondopen+1:indexsecondclose+2]
+    menu = menu.replace(wantremove2, "--")
+
     # default "월" 로 선언
 
     day_of_week = ""
@@ -108,7 +120,7 @@ def dorm_menu(when, the_day_of_week_number):
 
     return answer
 
-print(dorm_menu("breakfast",1))
+print(dorm_menu("dinner",2))
 
 # # when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
 # def monday_dorm_menu(when , day_of_week ="월"):
@@ -311,7 +323,7 @@ def dorm_time():
     req.raise_for_status()
     date_soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
     term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
-    text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n\n원하시는 요일을 선택해주세요\n그날 식단이없으면 표시되지 않습니다"
+    text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n"
     answer = insert_text(text)
     reply = make_reply("오늘", "오늘기숙사식당")
     answer = insert_replies(answer, reply)
