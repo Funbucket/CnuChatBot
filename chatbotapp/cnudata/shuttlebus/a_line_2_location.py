@@ -3,8 +3,8 @@ from chatbotapp.cnudata.shuttlebus.time import get_time
 
 
 def get_departure_time_and_gap():
-    now = datetime(2021, 6, 18, 9, 26)
-    'now = datetime.now()'
+    'now = datetime(2021, 6, 18, 9, 26)'
+    now = datetime.now()
     departure_times = []
     time = get_time(8, 45, 0)
     for i in range(4):
