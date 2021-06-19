@@ -201,29 +201,41 @@ def day_of_week_dorm(the_day_of_week_number):
 #     return answer
 
 def get_entire_menu(when, the_day_of_week_number):
-    if Weekday.MONDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "월요일기숙사식당")
-    if Weekday.TUESDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "화요일기숙사식당")
-    if Weekday.WEDNESDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "수요일기숙사식당")
-    if Weekday.THURSDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "목요일기숙사식당")
-    if Weekday.FRIDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "금요일기숙사식당")
-    if Weekday.SATURDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "토요일기숙사식당")
-    if Weekday.SUNDAY.value == the_day_of_week_number:
-        reply = make_reply("다른시간보기", "일요일기숙사식당")
+    # if Weekday.MONDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "월요일기숙사식당")
+    # if Weekday.TUESDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "화요일기숙사식당")
+    # if Weekday.WEDNESDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "수요일기숙사식당")
+    # if Weekday.THURSDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "목요일기숙사식당")
+    # if Weekday.FRIDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "금요일기숙사식당")
+    # if Weekday.SATURDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "토요일기숙사식당")
+    # if Weekday.SUNDAY.value == the_day_of_week_number:
+    #     reply = make_reply("다른시간보기", "일요일기숙사식당")
 
-    text = dorm_menu(when, the_day_of_week_number)
+    # text = dorm_menu(when, the_day_of_week_number) 원래 이거였는데 , 3가지 다 한꺼번에 나오도록
+    text = dorm_menu("breakfast",the_day_of_week_number)
+    text += dorm_menu("lunch", the_day_of_week_number)
+    text += dorm_menu("dinner", the_day_of_week_number)
+
     answer = insert_text(text)
-    answer = insert_replies(answer,reply)
+    # answer = insert_replies(answer,reply)
     reply = make_reply("다른식당보기", "학식")
     answer = insert_replies(answer, reply)
     reply = make_reply("다른요일보기", "기숙사식당")
     answer = insert_replies(answer, reply)
     return answer
+
+# print(get_entire_menu("breakfast",1))
+
+
+
+
+
+
 #
 # def get_monday_menu(when):
 #     text = monday_dorm_menu(when)

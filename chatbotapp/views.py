@@ -192,34 +192,45 @@ def get_cafeteria_info(request):
 
     elif return_str == "오늘기숙사식당":
         response = day_of_week_dorm(today_week_number)
+
+        # response = get_entire_menu("breakfast", Weekday.MONDAY.value)
+        response = get_entire_menu("whatever!", today_week_number)
         return JsonResponse(response)
 
     elif return_str == "월요일기숙사식당":
-        response = day_of_week_dorm(1)
+        # response = day_of_week_dorm(1)
+        response = get_entire_menu("whatever!", Weekday.MONDAY.value)
         return JsonResponse(response)
 
     elif return_str == "화요일기숙사식당":
-        response = day_of_week_dorm(2)
+        # response = day_of_week_dorm(2)
+        response = get_entire_menu("whatever!", Weekday.TUESDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "수요일기숙사식당":
-        response = day_of_week_dorm(3)
+        response = get_entire_menu("whatever!", Weekday.WEDNESDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "목요일기숙사식당":
-        response = day_of_week_dorm(4)
+        response = get_entire_menu("whatever!", Weekday.THURSDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "금요일기숙사식당":
-        response = day_of_week_dorm(5)
+        response = get_entire_menu("whatever!", Weekday.FRIDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "토요일기숙사식당":
-        response = day_of_week_dorm(6)
+        response = get_entire_menu("whatever!", Weekday.SATURDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "일요일기숙사식당":
-        response = day_of_week_dorm(7)
+        response = get_entire_menu("whatever!", Weekday.SUNDAY.value)
+
         return JsonResponse(response)
 
     elif return_str == "월[아침]":
@@ -344,3 +355,4 @@ def get_cnunews(request):
     elif return_str == "CNU장터":
         response = get_cnumarket_answer()
         return JsonResponse(response)
+
