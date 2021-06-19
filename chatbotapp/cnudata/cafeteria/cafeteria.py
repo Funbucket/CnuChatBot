@@ -218,8 +218,8 @@ def get_entire_menu(when, the_day_of_week_number):
 
     # text = dorm_menu(when, the_day_of_week_number) 원래 이거였는데 , 3가지 다 한꺼번에 나오도록
     text = dorm_menu("breakfast",the_day_of_week_number)
-    text += dorm_menu("lunch", the_day_of_week_number)
-    text += dorm_menu("dinner", the_day_of_week_number)
+    text += dorm_menu("\nlunch", the_day_of_week_number)
+    text += dorm_menu("\ndinner", the_day_of_week_number)
 
     answer = insert_text(text)
     # answer = insert_replies(answer,reply)
