@@ -7,7 +7,7 @@ from chatbotapp.cnudata.shuttlebus.b_line_3_location import get_b3_answer
 
 
 def get_root_answer():
-    answer = insert_text("😋 충남대학교 셔틀 정보 😋\n\n도착 시간은 노선별 운행표를 기반으로 제공하므로 미리 정류장에서 기다리는 것을 권장합니다😆\n")
+    answer = insert_text("충남대학교 셔틀 정보")
 
     reply = make_reply("A노선", "A노선")
     answer = insert_replies(answer, reply)
@@ -128,7 +128,7 @@ def get_croot_image():
 
 
 def get_holiday_bus_answer():
-    text = "😋 충남대학교 셔틀 정보 😋\n\n주말 및 공휴일은 \n셔틀운행을 하지 않습니다.\n평일에 이용해주세요😆\n"
+    text = "충남대학교 셔틀 정보\n\n주말 및 공휴일은 \n셔틀운행을 하지 않습니다.\n"
     # text += "[A노선 평일첫차] : 08:30\n[B노선 평일첫차] : 08:30"
     answer = insert_text(text)
     reply = make_reply("A노선표", "A노선표")
