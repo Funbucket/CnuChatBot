@@ -20,7 +20,7 @@ def get_studenthall23_answer_info(name):
 
     #주말이라면
     if get_vacation():
-        response_text = f"주말 및 공휴일에는\n{name}식당을 \n운영하지 않습니다\n평일에 방문해주세요😚\n"
+        response_text = f"주말 및 공휴일에는\n{name}식당을 \n운영하지 않습니다"
         answer = insert_text(response_text)
         reply = make_reply("다른 식당 메뉴보기", "학식")
         answer = insert_replies(answer, reply)
