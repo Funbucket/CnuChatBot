@@ -63,7 +63,7 @@ def get_library_answer():
     else:
         response_text = "\n충남대학교 열람실 좌석 정보\n"
         for key in library_info:
-            response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
+            response_text += "\n" + key + "\n\t" + library_info[key] + "\n"
             name.append(key)
     answer = insert_text(response_text)
     reply = make_reply("층별지도보기", "층별지도보기")
@@ -110,7 +110,7 @@ def each_get_library_image(floor):
 
 
 def entire_floor_image():
-    answer = insert_text("🗺보고싶은 층을🗺 \n\t  선택해주세요\n")
+    answer = insert_text("충별 지도 정보\n")
     reply = make_reply("B2층", "B2층 지도보기")
     answer = insert_replies(answer, reply)
     reply = make_reply("B1층", "B1층 지도보기")
