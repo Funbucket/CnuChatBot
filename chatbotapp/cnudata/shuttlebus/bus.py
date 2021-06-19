@@ -29,6 +29,8 @@ def get_aroot_answer():
     text += get_a2_answer()
     answer = insert_text(text)
 
+    reply = make_reply("A노선", "A노선")
+    answer = insert_replies(answer, reply)
     reply = make_reply("B노선","B노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("C노선", "C노선")
@@ -51,6 +53,8 @@ def get_broot_answer():
 
     reply = make_reply("A노선","A노선")
     answer = insert_replies(answer, reply)
+    reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
     reply = make_reply("C노선", "C노선")
     answer = insert_replies(answer, reply)
     # reply = make_reply("A노선표", "A노선표")
@@ -63,10 +67,10 @@ def get_broot_answer():
 
     
 def get_croot_answer():
-    answer = insert_text("🚌 1일 왕복 2회 운행(오전, 오후) 🚌\n\n노선표: 대덕캠퍼스 골프연습장 주차장 ➜ 보운캠퍼스(문화동) ➜ 대덕캠퍼스 골프연습장 주차장")
-    reply = make_reply("☀오전", "오전")
+    answer = insert_text("1일 왕복 2회 운행(오전, 오후)\n\n노선 : 대덕캠퍼스 골프연습장 주차장 ➜ 보운캠퍼스(문화동) ➜ 대덕캠퍼스 골프연습장 주차장")
+    reply = make_reply("오전", "오전")
     answer = insert_replies(answer, reply)
-    reply = make_reply("🌙오후", "오후")
+    reply = make_reply("오후", "오후")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -77,6 +81,8 @@ def get_croot_am_answer():
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")
     answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
+    answer = insert_replies(answer, reply)
     return answer
 
 
@@ -85,6 +91,8 @@ def get_croot_pm_answer():
     reply = make_reply("A노선", "A노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("C노선", "C노선")
     answer = insert_replies(answer, reply)
     return answer
 
@@ -113,6 +121,7 @@ def get_broot_image():
     reply = make_reply("C노선표", "C노선표")
     answer = insert_replies(answer, reply)
     return answer
+
 
 def get_croot_image():
     answer = insert_image("https://ifh.cc/g/LPadLj.jpg","broot")
