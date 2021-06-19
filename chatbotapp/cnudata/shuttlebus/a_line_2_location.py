@@ -51,7 +51,7 @@ def get_a2_answer():
     # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
     if type(gap) == float:
         departure_time = departure_time.strftime("%H:%M:%S")
-        answer = "A-2호차 [운행중]\n출발지 : 정심화국제문화회관\n출발시간 : {}".format(departure_time)
+        answer = "A-2호차 [운행중]\n출발시간 : {}".format(departure_time)
         return answer
 
     elif departure_time == gap:
@@ -62,7 +62,7 @@ def get_a2_answer():
         departure_time = departure_time.strftime("%H:%M:%S")
         gap = str(gap)[0:7]
         # gap = how[0:7]
-        answer = "A-2 [운행대기중]\n남은시간 : {}".format(gap)
+        answer = "A-2호차 [운행대기중]\n남은시간 : {}".format(gap)
         return answer
 
 
