@@ -168,7 +168,7 @@ def get_croot_image():
 
 
 def get_holiday_bus_answer():
-    text = "충남대학교 셔틀 정보\n\n주말 및 공휴일은 \n셔틀운행을 하지 않습니다.\n"
+    text = "주말 및 공휴일은\n셔틀운행을 하지 않습니다.\n"
     # text += "[A노선 평일첫차] : 08:30\n[B노선 평일첫차] : 08:30"
     answer = insert_text(text)
     '''reply = make_reply("A노선표", "A노선표")
