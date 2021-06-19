@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-import datetime
 from chatbotapp.cnudata.shuttlebus.time import get_time
 
 
@@ -47,7 +46,7 @@ def get_departure_time_and_gap():
 
 def get_a1_answer():
     'departure_time = get_departure_time_and_gap()[0]'
-    departure_time = datetime.datetime(2021, 6, 18, 9, 47)
+    departure_time = datetime(2021, 6, 18, 9, 47)
     gap = get_departure_time_and_gap()[1]
     # 현재 시간 now 가 배차가 있는 시간이라면 아래 실행
     if type(gap) == float:
