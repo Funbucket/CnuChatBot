@@ -7,6 +7,8 @@ is_vacation = get_vacation()
 def entire_time():
     response_text = "[라면코너]\n10:00 ~ 15:00\n\n[간식코너]\n10:00 ~ 15:00\n\n[스낵코너]\n11:00 ~ 14:30\n\n[한식코너]\n11:00 ~ 14:00\n\n[일식코너]\n11:00 ~ 14:00\n\n[중식코너]\n11:00 ~ 14:30"
     answer = insert_text(response_text)
+    reply = make_reply("메뉴보기", "제1학생회관")
+    answer = insert_replies(answer, reply)
     '''reply = make_reply("🍜라면", "라면코너 운영 시간")
     answer = insert_replies(answer, reply)
     reply = make_reply("🍙간식", "간식코너 운영 시간")
