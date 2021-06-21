@@ -5,7 +5,7 @@ is_vacation = get_vacation()
 
 
 def entire_time():
-    response_text = "⏰\t푸드코트 운영 시간 안내\t⏰\n\t\t\t토요일은 사정에 따라 \n코너별 운영이 변동 될 수 있습니다"
+    response_text = "[라면코너]\n10:00 ~ 15:00\n[간식코너]\n10:00 ~ 15:00\n[스낵코너]\n11:00 ~ 14:30\n[한식코너]\n11:00 ~ 14:00\n[일식코너]\n11:00 ~ 14:00\n[중식코너]\n11:00 ~ 14:30"
     answer = insert_text(response_text)
     reply = make_reply("🍜라면", "라면코너 운영 시간")
     answer = insert_replies(answer, reply)
@@ -23,6 +23,28 @@ def entire_time():
     answer = insert_replies(answer, reply)
 
     return answer
+
+
+'''def entire_time():
+    response_text = "⏰\t푸드코트 운영 시간 안내\t\n\t\t\t토요일은 사정에 따라 \n코너별 운영이 변동 될 수 있습니다"
+    answer = insert_text(response_text)
+    reply = make_reply("🍜라면", "라면코너 운영 시간")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🍙간식", "간식코너 운영 시간")
+    answer = insert_replies(answer, reply)
+    # reply = make_reply("🍝양식", "양식코너 운영 시간")
+    # answer = insert_replies(answer, reply)
+    reply = make_reply("🍔스낵", "스낵코너 운영 시간")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🥘한식", "한식코너 운영 시간")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🍣일식", "일식코너 운영 시간")
+    answer = insert_replies(answer, reply)
+    reply = make_reply("🥟중식", "중식코너 운영 시간")
+    answer = insert_replies(answer, reply)
+
+    return answer
+'''
 
 
 def ramen_time():
@@ -65,6 +87,7 @@ def gansik_time():
     answer = insert_replies(answer, reply)
 
     return answer
+
 
 def america_time():
 

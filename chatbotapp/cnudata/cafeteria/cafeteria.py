@@ -4,6 +4,7 @@ from chatbotapp.cnudata.cafeteria.food_court_time import *
 from chatbotapp.cnudata.cafeteria.dorm_info import *
 from chatbotapp.cnudata.cafeteria.new_studenthall2_info import *
 
+
 def get_entire_cafeteria_answer():
     response_text = "\n충남대학교 학식 정보\n"
     answer = insert_text(response_text)
@@ -19,8 +20,6 @@ def get_entire_cafeteria_answer():
     # answer = insert_replies(answer, reply)
     # reply = make_reply("🌼 생활과학대학", "생활과학대학")
     # answer = insert_replies(answer, reply)
-
-
     return answer
 
 
@@ -77,37 +76,46 @@ def get_studenthall23_answer(name):
     answer = get_studenthall23_answer_info(name)
     return answer
 
+
 def get_entire_time():
     answer = entire_time()
     return answer
+
 
 def get_ramen_time():
     answer = ramen_time()
     return answer
 
+
 def get_gansik_time():
     answer = gansik_time()
     return answer
+
 
 def get_america_time():
     answer = america_time()
     return answer
 
+
 def get_snack_time():
     answer = snack_time()
     return answer
+
 
 def get_korea_time():
     answer = korea_time()
     return answer
 
+
 def get_japan_time():
     answer = japan_time()
     return answer
 
+
 def get_china_time():
     answer = china_time()
     return answer
+
 
 def get_entire_dorm():
     answer = dorm_time()
@@ -143,6 +151,7 @@ def get_entire_dorm():
 #
 # def today_dorm():
 #     pass
+
 
 def day_of_week_dorm(the_day_of_week_number):
 

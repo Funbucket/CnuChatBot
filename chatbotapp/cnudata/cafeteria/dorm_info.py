@@ -50,8 +50,6 @@ def english_to_korea_when(when):
     return answer
 
 
-
-
 def day_of_week_numbering(day_of_week):
     if day_of_week == "월":
         return 0
@@ -67,6 +65,7 @@ def day_of_week_numbering(day_of_week):
         return 5
     elif day_of_week == "일":
         return 6
+
 
 def dorm_menu(when, the_day_of_week_number):
     url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
@@ -92,7 +91,6 @@ def dorm_menu(when, the_day_of_week_number):
     indexfirstclose = menu.find("l)")
     wantremove = menu[indexfirstopen+1:indexfirstclose+2]
     menu = menu.replace(wantremove, "--")
-
 
     indexsecondopen = menu.find("C(")
     indexsecondclose = menu.find("l)",20)
@@ -321,13 +319,14 @@ def dorm_menu(when, the_day_of_week_number):
 #
 #     return answer
 
+
 def dorm_time():
     url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
     req = requests.get(url)
     req.raise_for_status()
     date_soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
     term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
-    text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30~13:30\n\n[저녁]\n17:00~19:00\n(토/일요일 및 공휴일은 17:30~19:00)\n"
+    text = f"[{term}]\n\n[아침]\n07:30~09:00\n\n[점심]\n11:30 ~ 13:30\n\n[저녁]\n17:00 ~ 19:00\n(주말 및 공휴일은 17:30 ~ 19:00)\n"
     answer = insert_text(text)
     reply = make_reply("오늘", "오늘기숙사식당")
     answer = insert_replies(answer, reply)
