@@ -55,10 +55,10 @@ def get_studenthall23_answer_info(name):
         teacher_menu = ' '.join(teacher_menu.split()).replace(" ", "\n")
         student_special_menu = ' '.join(student_special_menu.split()).replace(" ", "\n")
 
-        response_text = f"😚{name} 중식메뉴😚\n\n"
-        response_text += "👉학생식당" + student_price + "\n" + student_menu + "\n"
-        response_text += "\n👉교직원식당" + teacher_price + "\n" + teacher_menu + "\n"
-        response_text += "\n👉학생식당(일품)" + student_special_price + "\n" + student_special_menu
+        # response_text = f"{name} 중식메뉴\n\n"
+        response_text = "[학생식당]\n" + student_menu + "\n"
+        response_text += "\n[교직원식당]\n" + teacher_menu + "\n"
+        response_text += "\n[학생식당(일품)]\n" + student_special_menu
         # print(response_text)
         answer = insert_text(response_text)
         reply = make_reply("다른 식당 메뉴보기", "학식")
