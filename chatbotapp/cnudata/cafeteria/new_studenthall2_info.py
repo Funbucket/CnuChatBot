@@ -56,7 +56,7 @@ def get_studenthall23_answer_info(name):
         student_special_menu = ' '.join(student_special_menu.split()).replace(" ", "\n")
 
         # response_text = f"{name} 중식메뉴\n\n"
-        response_text = "[학생식당]\n" + student_menu + "\n"
+        response_text = "[학생식당]\n\n" + student_menu + "\n"
         response_text += "\n[교직원식당]\n" + teacher_menu + "\n"
         response_text += "\n[학생식당(일품)]\n" + student_special_menu
         # print(response_text)

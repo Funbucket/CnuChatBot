@@ -7,3 +7,4 @@ chatbotapp/cnudata/cafeteria/studenthall2_info.py
 */__pycache__/*
 *.pyc
 __pycache__/
+cnuchatbot.pem
