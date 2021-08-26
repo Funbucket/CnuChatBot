@@ -87,13 +87,13 @@ def dorm_menu(when, the_day_of_week_number):
 
     # 이제 칼로리 없애는 작업
 
-    indexfirstopen = menu.find("A[")
-    indexfirstclose = menu.find("l]")
+    indexfirstopen = menu.find("A(")
+    indexfirstclose = menu.find("l)")
     wantremove = menu[indexfirstopen+1:indexfirstclose+2]
     menu = menu.replace(wantremove, "--")
 
-    indexsecondopen = menu.find("C[")
-    indexsecondclose = menu.find("l]",20)
+    indexsecondopen = menu.find("C(")
+    indexsecondclose = menu.find("l)",20)
 
     wantremove2 = menu[indexsecondopen+1:indexsecondclose+2]
     if(indexsecondopen != -1):
