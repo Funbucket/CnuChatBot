@@ -51,11 +51,10 @@ def get_library_answer():
     now_hour = datetime.now().hour
     # now_hour = 10
     if get_vacation() or now_hour <= 6 or now_hour >= 22:
-        response_text = "충남대학교도서관 개관시간\n\n"
-        response_text += "[신문열람실]\n평일 : 07:00~22:00\n주말 및 공휴일 : 휴실\n\n"
-        response_text += "[전자정보실,제1자료실,제2자료실,대출실]\n"
-        response_text += "평일 : 09:00~18:00 \n주말 및 공휴일 : 휴실\n\n"
-        response_text += "[열람실]\n평일 : 07:00~22:00\n주말 및 공휴일 : 휴실\n"
+        response_text = "충남대학교 도서관 개관시간\n\n"
+        response_text += "[자료실]\n평일 : 09:00~18:00 \n주말 및 공휴일 : 휴실\n\n"
+        response_text += "[크리에이티브존]\n평일 및 주말 : 07:00~22:00\n공휴일 : 휴실\n\n"
+        response_text += "[열람실]\n평일 및 주말 : 07:00~22:00\n공휴일 : 휴실\n"
         for key in library_info:
             name.append(key)
 
@@ -67,6 +66,9 @@ def get_library_answer():
     answer = insert_text(response_text)
     reply = make_reply("층별지도보기", "층별지도보기")
     answer = insert_replies(answer, reply)
+
+
+
     # for room_name in name:
     #     reply = make_reply(room_name,room_name)
     #     answer = insert_replies(answer,reply)
