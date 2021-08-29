@@ -126,7 +126,7 @@ def get_vacation():
         if i == temp_today:
             is_holiday_today = True
             break
-    if is_weekend_today:
+    if is_holiday_today:
         is_vacation_today = True
 
     return is_vacation_today
