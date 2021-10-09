@@ -16,7 +16,6 @@ def get_arcademic_answer():
     urls = [front_url + tr.find("td", attrs={"class": "title"}).a["href"] for tr in trs]
 
     answer = list_card("충남대학교 학사정보", titles[0], dates[0], urls[0])
-
     for i in range(1, 5):
         a = make_item(titles[i], dates[i], urls[i])
         answer['template']['outputs'][0]['listCard']['items'].append(a)
