@@ -83,9 +83,9 @@ def dorm_menu(when, the_day_of_week_number):
     firstmainA = menu.find("메인A")
     secondMainA = menu.find("메인A",firstmainA+1)
     thirdMainA = menu.find("메인A",secondMainA+1) # after thirdMain that menu is english
-    print("firstmainA",firstmainA)
-    print("secondMainA",secondMainA)
-    print("thirdMainA",thirdMainA)
+
+    if (thirdMainA == -1):
+        menu = menu[0:secondMainA]
 
     menu = menu[0:thirdMainA]       # 첨부터 영어 전까지 짜릅니다.
     menu = menu.replace("메", "\n--메")
@@ -102,7 +102,6 @@ def dorm_menu(when, the_day_of_week_number):
     wantremove2 = menu[indexsecondopen+1:indexsecondclose+2]
     if(indexsecondopen != -1):
         menu = menu.replace(wantremove2, "--")
-
 
     day_of_week = ""
     if the_day_of_week_number == Weekday.MONDAY.value:
@@ -123,7 +122,6 @@ def dorm_menu(when, the_day_of_week_number):
     answer = "[{}]\n".format(english_to_korea_when(when)) + menu
 
     return answer
-
 # print(dorm_menu("breakfast",7))
 # print(dorm_menu("lunch",7))
 # print(dorm_menu("dinner",7))
