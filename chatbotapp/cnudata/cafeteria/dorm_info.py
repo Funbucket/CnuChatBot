@@ -119,11 +119,9 @@ def dorm_menu(when, the_day_of_week_number):
     if the_day_of_week_number == Weekday.SUNDAY.value:
         day_of_week = "일"
 
-    answer = "[{}]\n".format(english_to_korea_when(when)) + menu
+    answer = "\n[{}]\n".format(english_to_korea_when(when)) + menu
 
     return answer
-# print(dorm_menu("breakfast",7))
-# print(dorm_menu("lunch",7))
 # print(dorm_menu("dinner",7))
 
 # # when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
