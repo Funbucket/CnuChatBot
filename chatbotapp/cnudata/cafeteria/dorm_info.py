@@ -321,6 +321,7 @@ def dorm_menu(when, the_day_of_week_number):
 #
 #     return answer
 
+# dorm_menu(2, )
 
 def dorm_time():
     url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
