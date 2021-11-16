@@ -127,7 +127,7 @@ def get_croot_pm_answer():
 
 
 def get_aroot_image():
-    answer = insert_image("https://ifh.cc/g/ZPHixh.jpg","aroot")
+    answer = insert_image("https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810851/KakaoTalk_20210912_215636605_amglsv.jpg","aroot")
     reply = make_reply("A노선", "A노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")
@@ -144,7 +144,7 @@ def get_aroot_image():
 
 
 def get_broot_image():
-    answer = insert_image("https://ifh.cc/g/9jr8yk.jpg","broot")
+    answer = insert_image("https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810851/KakaoTalk_20210904_200707497_hvhm8n.jpg","broot")
     reply = make_reply("A노선", "A노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")
@@ -161,7 +161,7 @@ def get_broot_image():
 
 
 def get_croot_image():
-    answer = insert_image("https://ifh.cc/g/LPadLj.jpg","broot")
+    answer = insert_image("https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810888/KakaoTalk_20211010_051327589_t0alks.jpg","broot")
     reply = make_reply("A노선", "A노선")
     answer = insert_replies(answer, reply)
     reply = make_reply("B노선", "B노선")

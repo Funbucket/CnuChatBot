@@ -79,29 +79,29 @@ def dorm_menu(when, the_day_of_week_number):
     index = when_numbering(when)        # index는 아침 점심 저녁을 의미한다.
     menu = tds[index].get_text()
     menu = ' '.join(menu.split())
-    index = menu.find("메인A", 20)        # 인덱스 50 뒤에 나오는 메인 A 는 영어다 그 이후는 영어니깐 다 짤라라
-    menu = menu[0:index]
+    index = menu.find("메인A", 20)
+    firstmainA = menu.find("메인A")
+    secondMainA = menu.find("메인A",firstmainA+1)
+    thirdMainA = menu.find("메인A",secondMainA+1) # after thirdMain that menu is english
 
+    if (thirdMainA == -1):
+        menu = menu[0:secondMainA]
+
+    menu = menu[0:thirdMainA]       # 첨부터 영어 전까지 짜릅니다.
     menu = menu.replace("메", "\n--메")
     menu = menu.replace(" ", "\n")
-
-    # 이제 칼로리 없애는 작업
 
     indexfirstopen = menu.find("A(")
     indexfirstclose = menu.find("l)")
     wantremove = menu[indexfirstopen+1:indexfirstclose+2]
     menu = menu.replace(wantremove, "--")
 
-    indexsecondopen = menu.find("C(")
+    indexsecondopen = menu.find("A(",firstmainA + 1)
     indexsecondclose = menu.find("l)",20)
 
     wantremove2 = menu[indexsecondopen+1:indexsecondclose+2]
     if(indexsecondopen != -1):
         menu = menu.replace(wantremove2, "--")
-
-    menu = menu.replace("메인\nC", "메인C")         # 오륜인가 메인 이랑 C랑 메인 C 로 되어있길래
-
-    # default "월" 로 선언
 
     day_of_week = ""
     if the_day_of_week_number == Weekday.MONDAY.value:
@@ -119,11 +119,9 @@ def dorm_menu(when, the_day_of_week_number):
     if the_day_of_week_number == Weekday.SUNDAY.value:
         day_of_week = "일"
 
-    answer = "[{}]\n".format(english_to_korea_when(when)) + menu
+    answer = "\n[{}]\n".format(english_to_korea_when(when)) + menu
 
     return answer
-# print(dorm_menu("breakfast",7))
-# print(dorm_menu("lunch",7))
 # print(dorm_menu("dinner",7))
 
 # # when 은 아침점심저녁을 뜻한다 count 가 날짜를 뜻해준다
