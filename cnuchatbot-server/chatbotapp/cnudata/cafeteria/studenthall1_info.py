@@ -1,4 +1,4 @@
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 
 
 def category():
