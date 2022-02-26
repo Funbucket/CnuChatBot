@@ -1,0 +1,10 @@
+/venv/*
+.idea/*
+chromedriver.exe
+chromedriver
+/chatbotapp/cnudata/cafeteria/studenthall2_info.py
+chatbotapp/cnudata/cafeteria/studenthall2_info.py
+*/__pycache__/*
+*.pyc
+__pycache__/
+cnuchatbot.pem
