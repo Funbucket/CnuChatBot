@@ -1,0 +1,9 @@
+version: 0.0
+os: linux
+files:
+  - source:  /
+    destination: /home/ubuntu/CnuChatBot/
+hooks:
+  AfterInstall:
+    - location: scripts/execute-deploy.sh
+      timeout: 180
