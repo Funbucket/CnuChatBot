@@ -1,0 +1,12 @@
+version: '3'
+services:
+  django:
+    build:
+      context: ./cnuchatbot
+      dockerfile: Dockerfile
+    command: uwsgi --http :8002 uwsgi.ini
+    volumes:
+      - ./cnuchatbot:/srv/cnuchatbot
+      - ./log:/var/log/uwsgi
+    ports:
+      - "8002:8000"
