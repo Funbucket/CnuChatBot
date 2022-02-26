@@ -1,0 +1,20 @@
+version: '3'
+services:
+  django:
+    build:
+      context: ./cnuchatbot
+    command: uwsgi --http :8000 uwsgi.ini
+    volumes:
+      - ./cnuchatbot:/srv/cnuchatbot
+      - ./log:/var/log/uwsgi
+    ports:
+      - "8000:8000"
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./cnuchatbot:/srv/cnuchatbot 
+      - ./log:/var/log/nginx
