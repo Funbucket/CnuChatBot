@@ -1,0 +1,11 @@
+version: '3'
+services:
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./cnuchatbot:/srv/cnuchatbot
+      - ./log:/var/log/nginx
