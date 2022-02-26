@@ -15,3 +15,5 @@ pip~=21.0.1
 six~=1.10.0
 selenium~=3.141.0
 setuptools~=49.2.1
+
+uwsgi
