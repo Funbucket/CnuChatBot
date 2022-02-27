@@ -1,4 +1,4 @@
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 from chatbotapp.cnudata.shuttlebus.a_line_location import get_a1_answer
 from chatbotapp.cnudata.shuttlebus.a_line_2_location import get_a2_answer
 from chatbotapp.cnudata.shuttlebus.b_line_location import get_b1_answer

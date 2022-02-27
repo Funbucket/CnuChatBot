@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 
 
 def get_arcademic_answer():
