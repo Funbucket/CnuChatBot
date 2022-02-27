@@ -1,7 +1,7 @@
 from pytimekr import pytimekr
 from datetime import date
 import datetime
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 
 holiday_list = pytimekr.holidays()  # holidays메소드는 리스트 형태로 관련값 반환
 

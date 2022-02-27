@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 from chatbotapp.cnudata.is_vacation import get_vacation
 # 제2학생회관 , 3학생회관을 받아서 메뉴를 return 해주는 함수
 
