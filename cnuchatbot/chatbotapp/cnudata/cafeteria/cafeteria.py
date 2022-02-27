@@ -1,78 +1,62 @@
 from chatbotapp.cnudata.cafeteria.studenthall1_info import *
-# from chatbotapp.cnudata.studenthall2_info import make_answer_food_menu
 from chatbotapp.cnudata.cafeteria.food_court_time import *
 from chatbotapp.cnudata.cafeteria.dorm_info import *
 from chatbotapp.cnudata.cafeteria.new_studenthall2_info import *
+from chatbotapp.common.variables.cafeteria import *
+from chatbotapp.common.functions import *
+from GrabzIt import GrabzItImageOptions
+from GrabzIt import GrabzItClient
+from datetime import datetime
+import requests
+import schedule
 
-
-def get_entire_cafeteria_answer():
-    response_text = "\n충남대학교 학식 정보\n"
+def get_entire_cafeteria_info():
+    response_text = "충남대학교 학식 정보"
     answer = insert_text(response_text)
-    reply = make_reply("기숙사식당", "기숙사식당")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("제1학생회관", "제1학생회관")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("제2학생회관", "제2학생회관")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("제3학생회관", "제3학생회관")
-    answer = insert_replies(answer, reply)
-    # reply = make_reply("🌼 제4학생회관", "제4학생회관")
-    # answer = insert_replies(answer, reply)
-    # reply = make_reply("🌼 생활과학대학", "생활과학대학")
-    # answer = insert_replies(answer, reply)
+    answer = insert_multiple_reply(answer,cafeteriaNormalReplies)
     return answer
-
 
 def get_studenthall1_answer():
-    answer = category()
+    answer = insert_image(studenthall1Image_BASE_URL,"img")
+    answer = insert_multiple_reply(answer,cafeteriaNormalReplies)  
     return answer
 
 
-def get_ramen_answer():
-    answer = ramen()
+def get_variousCafeteria_info():
+    text = "보고 싶은 식당을 선택해주세요"
+    answer = insert_text(text)
+    answer = insert_multiple_reply(answer,[["학생","학생"],["교직원","교직원"]])
     return answer
 
-
-def get_gansik_answer():
-    answer = gansik()
-    return answer
+def get_variousCafeteria_answer():
+    return insert_card("조식","조식이다","http://127.0.0.1:8000/cnuchatbot/media/savedImage/123.png",50,50)
 
 
-def get_america_answer():
-    answer = america()
-    return answer
+
+ 
+def get_variousCafeteria_images():
+    # jsp 사진 보내주는 로직
+    grabzIt = GrabzItClient.GrabzItClient("N2Y5Yjg1ZTY5NGIzNDE5ZmIzYmM4OGQ0MGQwMDk1N2Y=", "Qz9LP1lkPz8GPz8QTDk/TGU/Pz8/PyQ/IC4xNT8EVD8=")
+    options = GrabzItImageOptions.GrabzItImageOptions()
+    options.format = "png"
+    options.browserHeight = -1
+    options.width = -1
+    options.height = -1
+
+    for person in personCategory:
+        for meal in mealCategory:
+            data = {'cafe_div_cd': person, 'food_div_cd': meal,'langType':'1'}
+            r = requests.post(variousCafeteria_BASE_URL, data=data, headers={'Content-Type': 'application/x-www-form-urlencoded'})
+            grabzIt.HTMLToImage(r.text, options)
+            # Then call the Save or SaveTo method
+            grabzIt.SaveTo("media/savedImage/{0}-{1}-{2}.png".format(person,meal,datetime.today().strftime('%Y-%m-%d')))
+
+#매주 월요일에 동작
+schedule.every().monday.do(get_variousCafeteria_images)
 
 
-def get_snack_answer():
-    answer = snack()
-    return answer
 
-
-def get_korea_answer():
-    answer = korea()
-    return answer
-
-
-def get_japan_answer():
-    answer = japan()
-    return answer
-
-
-def get_china_answer():
-    answer = china()
-    return answer
-
-
-# def get_studenthall2345_answer(name):
-#     response_text = f"\n😋 충남대학교 {name} 메뉴 😋    \n"
-#     response_text += make_answer_food_menu(name)
-#     answer = insert_text(response_text)
-#     reply = make_reply("다른 식당 메뉴보기", "학식")
-#     answer = insert_replies(answer, reply)
-#
-#     return answer
-
-def get_studenthall23_answer(name):
+def get_studenthall23_answer(name): 
     answer = get_studenthall23_answer_info(name)
     return answer
 
@@ -81,76 +65,6 @@ def get_entire_time():
     answer = entire_time()
     return answer
 
-
-def get_ramen_time():
-    answer = ramen_time()
-    return answer
-
-
-def get_gansik_time():
-    answer = gansik_time()
-    return answer
-
-
-def get_america_time():
-    answer = america_time()
-    return answer
-
-
-def get_snack_time():
-    answer = snack_time()
-    return answer
-
-
-def get_korea_time():
-    answer = korea_time()
-    return answer
-
-
-def get_japan_time():
-    answer = japan_time()
-    return answer
-
-
-def get_china_time():
-    answer = china_time()
-    return answer
-
-
-def get_entire_dorm():
-    answer = dorm_time()
-    return answer
-
-# def monday_dorm():
-#     answer = monday()
-#     return answer
-#
-# def tuesday_dorm():
-#     answer = tuesday()
-#     return answer
-#
-# def wednesday_dorm():
-#     answer = wednesday()
-#     return answer
-#
-# def thursday_dorm():
-#     answer = thursday()
-#     return answer
-#
-# def friday_dorm():
-#     answer = friday()
-#     return answer
-#
-# def saturday_dorm():
-#     answer = saturday()
-#     return answer
-#
-# def sunday_dorm():
-#     answer = sunday()
-#     return answer
-#
-# def today_dorm():
-#     pass
 
 
 def day_of_week_dorm(the_day_of_week_number):

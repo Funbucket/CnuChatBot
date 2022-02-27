@@ -12,6 +12,7 @@ from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_ans
 from chatbotapp.cnudata.shuttlebus.bus import *
 from chatbotapp.cnudata.is_vacation import get_vacation
 from chatbotapp.common.variables.library import *
+from chatbotapp.common.variables.cafeteria import *
 import datetime
 
 
@@ -79,83 +80,29 @@ def get_cafeteria_info(request):
     return_json_str = json.loads(answer)
     return_str = return_json_str['userRequest']['utterance']
     today_week_number = datetime.datetime.today().weekday() + 1
-    if return_str == "학식" or return_str == "🍽 학식":
-        response = get_entire_cafeteria_answer()
+    if return_str in cafeteriaKoreans:
+        response = get_entire_cafeteria_info()
         return JsonResponse(response)
 
     elif return_str == "제1학생회관":
         response = get_studenthall1_answer()
         return JsonResponse(response)
 
-    elif return_str == "라면&우동":
-        response = get_ramen_answer()
+
+    elif return_str in variousCafeteria:
+        response = get_variousCafeteria_info()
         return JsonResponse(response)
 
-    elif return_str == "간식":
-        response = get_gansik_answer()
+    elif return_str == "학생" or return_str == "교직원":
+        response = get_variousCafeteria_answer()
         return JsonResponse(response)
 
-    elif return_str == "양식":
-        response = get_america_answer()
-        return JsonResponse(response)
 
-    elif return_str == "스낵":
-        response = get_snack_answer()
-        return JsonResponse(response)
-
-    elif return_str == "한식":
-        response = get_korea_answer()
-        return JsonResponse(response)
-
-    elif return_str == "일식":
-        response = get_japan_answer()
-        return JsonResponse(response)
-
-    elif return_str == "중식":
-        response = get_china_answer()
-        return JsonResponse(response)
-
-    elif return_str == "제2학생회관" \
-            or return_str == "제3학생회관":
-        response = get_studenthall23_answer(return_str)
-        return JsonResponse(response)
-
-    elif return_str == "운영시간":
-        response = get_entire_time()
-        return JsonResponse(response)
-
-    elif return_str == "라면코너 운영 시간":
-        response = get_ramen_time()
-        return JsonResponse(response)
-
-    elif return_str == "간식코너 운영 시간":
-        response = get_gansik_time()
-        return JsonResponse(response)
-
-    elif return_str == "양식코너 운영 시간":
-        response = get_america_time()
-        return JsonResponse(response)
-
-    elif return_str == "스낵코너 운영 시간":
-        response = get_snack_time()
-        return JsonResponse(response)
-
-    elif return_str == "한식코너 운영 시간":
-        response = get_korea_time()
-        return JsonResponse(response)
-
-    elif return_str == "일식코너 운영 시간":
-        response = get_japan_time()
-        return JsonResponse(response)
-
-    elif return_str == "중식코너 운영 시간":
-        response = get_china_time()
-        return JsonResponse(response)
     elif return_str == "기숙사식당":
         response = get_entire_dorm()
         return JsonResponse(response)
 
-    elif return_str == "오늘기숙사식당":
+    elif return_str == "오늘기숙사식당": 
         response = day_of_week_dorm(today_week_number)
 
         # response = get_entire_menu("breakfast", Weekday.MONDAY.value)
