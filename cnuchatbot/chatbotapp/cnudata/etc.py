@@ -1,5 +1,5 @@
 # 기타에 대한 정보
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 
 def get_entire_etc_answer():
     text = "기타 페이지"

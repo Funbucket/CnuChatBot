@@ -1,19 +1,21 @@
 from bs4 import BeautifulSoup
 import requests, re
-from chatbotapp.kakaojsonformat.response import *
+from chatbotapp.common.kakaojsonformat import *
 from datetime import datetime
 from chatbotapp.cnudata.is_vacation import get_vacation
+from chatbotapp.common.variables.library import *
+from chatbotapp.models import *
+from chatbotapp.common.functions import *
 
 
 def get_crawled_data():
-    url = "https://clicker.cnu.ac.kr/Clicker/k/"
+    url = library_BASE_URL
     res = requests.get(url)
     res.raise_for_status()
     soup = BeautifulSoup(res.text, "lxml")
 
     tds = soup.find("tbody").find_all("td", attrs={"class": re.compile("^clicker")})
     data = [i.get_text().strip() for i in tds]
-    print(data)
     return data
 
 
@@ -30,22 +32,21 @@ def library_json_format_total():
         library_info[data[4 * i]] = value[i]
     return library_info
 
+
 # 열람실처음 눌럿을때
 def get_library_answer():
     name = []
     library_info = library_json_format_total()
-    now_hour = datetime.now().hour
-    # now_hour = 10
-    if get_vacation() or now_hour < 6 or now_hour > 24:
-        response_text = "충남대학교 도서관 개관시간\n\n"
-        response_text += "[자료실]\n평일 : 09:00~18:00 \n주말 및 공휴일 : 휴실\n\n"
-        response_text += "[크리에이티브존]\n평일 및 주말 : 06:00~23:00\n공휴일 : 휴실\n\n"
-        response_text += "[열람실]\n평일 및 주말 : 06:00~23:00\n공휴일 : 휴실\n"
+    now_hour = datetime.datetime.now().hour
+
+    # db 에서 library 에 대한 정보를 가져와줍니다
+    db = Library.objects.all()[0]
+    if is_holiday() or now_hour < db.normalStartTime or now_hour > db.normalEndTime:
+        response_text = db.closedNotice
         for key in library_info:
             name.append(key)
-
     else:
-        response_text = "\n충남대학교 열람실 좌석 정보\n"
+        response_text = db.normalNotice
         for key in library_info:
             response_text += "\n" + "[" + key + "]" + "\n" + library_info[key] + "\n"
             name.append(key)
@@ -55,77 +56,23 @@ def get_library_answer():
 
     return answer
 
+
 def each_get_library_image(floor):
     floor = floor[:-6]  # 뒤에 층별지도보기 글씨 자름 url 에 넣기위해
     if len(floor) > 2:
         floor = int(floor[2]) - 1
 
-    answer = insert_image("https://library.cnu.ac.kr/image/ko/local/guide/floor{}.png".format(floor), floor)
-    reply = make_reply("열람실 좌석보기", "열람실")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("다른층 지도보기", "층별지도보기")
-    answer = insert_replies(answer, reply)
+    answer = insert_image("{0}{1}.png".format(libraryImage_BASE_URL, floor), floor)
+    answer = insert_multiple_reply(answer, [["열람실 좌석보기", "열람실"], ["다른층 지도보기", "층별지도보기"]])
 
     return answer
 
 
 def entire_floor_image():
-    answer = insert_text("충별 지도 정보\n")
-    reply = make_reply("B2층", "B2층 지도보기")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("B1층", "B1층 지도보기")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("별관1층", "별관1층 지도보기")
-    answer = insert_replies(answer, reply)
+    answer = insert_text("층별 지도 정보\n")
 
-    for i in range(1, 6):
-        reply = make_reply("{}층".format(i), "{}층 지도보기".format(i))
+    for floor in floorImages:
+        reply = make_reply(floor[:-5], floor)
         answer = insert_replies(answer, reply)
 
-    return answer
-
-
-def readingRoom_for_exam_week():
-    answer = insert_text("시험기간 입니다. 모두 원하시는 결과 얻으시기를 츠누봇은 항상 응원합니다.")
-    reply = make_reply("시험기간운영정보", "시험기간운영정보")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("좌석정보", "좌석정보")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("층별지도보기", "층별지도보기")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-
-def exam_week_information():
-    answer = insert_text(
-        "중간고사기간 열람실 연장운영\n운영기간 : 4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
-    reply = make_reply("층별지도보기", "층별지도보기")
-    answer = insert_replies(answer, reply)
-    reply = make_reply("좌석정보", "좌석정보")
-    answer = insert_replies(answer, reply)
-
-    return answer
-
-
-def exam_temp_get_library_answer():
-    name = []
-    library_info = library_json_format_total()
-    now_hour = datetime.now().hour
-
-    if now_hour <= 6 or now_hour > 23:
-        answer = insert_text(
-            "현재 운영시간이 아닙니다\n중간고사기간 열람실 연장운영\n운영기간:4.12(월)~4.23(금)\n월~금 : 07:00 ~ 23:00\n토~일 : 09:00 ~ 23:00\n이용방법 : 마스크 착용, 발열체크 ,출입관리시스템이용")
-        return answer
-    else:
-        response_text = "\n😋 충남대학교 열람실 좌석 정보 😋    \n"
-        for key in library_info:
-            response_text += "\n👉" + key + "\n\t" + library_info[key] + "\n"
-            name.append(key)
-    answer = insert_text(response_text)
-    reply = make_reply("층별지도보기", "층별지도보기")
-    answer = insert_replies(answer, reply)
-    # for room_name in name:
-    #     reply = make_reply(room_name,room_name)
-    #     answer = insert_replies(answer,reply)
     return answer
