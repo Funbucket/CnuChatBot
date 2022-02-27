@@ -7,7 +7,9 @@ from chatbotapp.cnudata.etc import *
 from chatbotapp.cnudata.organized_information.arcademic_info import *
 from chatbotapp.cnudata.organized_information.cultureyard_info import *
 from chatbotapp.cnudata.organized_information.phonenumber import *
-from chatbotapp.cnudata.organized_information.study_competition import get_study_competition_answer
+from chatbotapp.cnudata.organized_information.study_competition import (
+    get_study_competition_answer,
+)
 from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_answer
 from chatbotapp.cnudata.shuttlebus.bus import *
 from chatbotapp.cnudata.is_vacation import get_vacation
@@ -18,9 +20,9 @@ import datetime
 
 @csrf_exempt
 def get_library_info(request):
-    answer = request.body.decode('utf-8')
+    answer = request.body.decode("utf-8")
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+    return_str = return_json_str["userRequest"]["utterance"]
 
     if return_str in libraryKoreans:
         response = get_library_answer()
@@ -37,12 +39,12 @@ def get_library_info(request):
 
 @csrf_exempt
 def get_bus_info(request):
-    answer = request.body.decode('utf-8')
+    answer = request.body.decode("utf-8")
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+    return_str = return_json_str["userRequest"]["utterance"]
     if return_str == "셔틀" or return_str == "🚌 셔틀":
-        '''response = get_root_answer()
-        return JsonResponse(response)'''
+        """response = get_root_answer()
+        return JsonResponse(response)"""
         if get_vacation():
             response = get_holiday_bus_answer()
         else:
@@ -76,9 +78,9 @@ def get_bus_info(request):
 
 @csrf_exempt
 def get_cafeteria_info(request):
-    answer = request.body.decode('utf-8')
+    answer = request.body.decode("utf-8")
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+    return_str = return_json_str["userRequest"]["utterance"]
     today_week_number = datetime.datetime.today().weekday() + 1
     if return_str in cafeteriaKoreans:
         response = get_entire_cafeteria_info()
@@ -88,21 +90,22 @@ def get_cafeteria_info(request):
         response = get_studenthall1_answer()
         return JsonResponse(response)
 
-
     elif return_str in variousCafeteria:
         response = get_variousCafeteria_info()
         return JsonResponse(response)
 
     elif return_str == "학생" or return_str == "교직원":
-        response = get_variousCafeteria_answer()
+        response = get_variousCafeteria_answer(return_str)
         return JsonResponse(response)
-
+    elif return_str == "사진다운":
+        response = get_variousCafeteria_images()
+        return JsonResponse(response)
 
     elif return_str == "기숙사식당":
         response = get_entire_dorm()
         return JsonResponse(response)
 
-    elif return_str == "오늘기숙사식당": 
+    elif return_str == "오늘기숙사식당":
         response = day_of_week_dorm(today_week_number)
 
         # response = get_entire_menu("breakfast", Weekday.MONDAY.value)
@@ -218,9 +221,9 @@ def get_cafeteria_info(request):
 
 @csrf_exempt
 def get_etc_info(request):
-    answer = request.body.decode('utf-8')
+    answer = request.body.decode("utf-8")
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+    return_str = return_json_str["userRequest"]["utterance"]
     if return_str == "기타" or return_str == "🎸 기타":
         response = get_entire_etc_answer()
         return JsonResponse(response)
@@ -236,9 +239,9 @@ def get_etc_info(request):
 
 @csrf_exempt
 def get_cnunews(request):
-    answer = request.body.decode('utf-8')
+    answer = request.body.decode("utf-8")
     return_json_str = json.loads(answer)
-    return_str = return_json_str['userRequest']['utterance']
+    return_str = return_json_str["userRequest"]["utterance"]
     if return_str == "알뜰정보" or return_str == "📰 알뜰정보":
         response = insert_text("충남대학교 알뜰 정보")
         reply = make_reply("학사정보", "학사정보")
