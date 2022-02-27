@@ -67,8 +67,9 @@ def get_variousCafeteria_images():
         "Qz9LP1lkPz8GPz8QTDk/TGU/Pz8/PyQ/IC4xNT8EVD8=",
     )
     options = GrabzItImageOptions.GrabzItImageOptions()
-    options.format = "png"
     options.browserHeight = -1
+
+    options.format = "png"
     options.width = -1
     options.height = -1
 
