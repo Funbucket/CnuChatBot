@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from chatbotapp import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('cnunews/', views.get_cnunews),
@@ -24,4 +26,7 @@ urlpatterns = [
     path('bus/', views.get_bus_info),
     path('cafeteria/', views.get_cafeteria_info),
     path('etc/', views.get_etc_info)
-]
+
+] 
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
