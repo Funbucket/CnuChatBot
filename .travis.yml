@@ -1,0 +1,34 @@
+language: generic
+
+sudo: required
+
+before_deploy:
+  - zip -r CnuChatBot *
+  - mkdir -p deploy
+  - mv CnuChatBot.zip deploy/CnuChatBot.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: cnuchatbot-bucket
+    region: ap-northeast-2
+    skip_cleanup: true
+    local_dir: deploy
+    wait-until-deployed: true
+    on:
+      repo: Funbucket/CnuChatBot
+      branch: master
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: cnuchatbot-bucket
+    key: CnuChatBot.zip
+    bundle_type: zip
+    application: cnuchatbot-codeDeploy-service
+    deployment_group: cnuchatbot-codeDeploy-group
+    region: ap-northeast-2
+    wait-until-deployed: true
+    on:
+      repo: Funbucket/CnuChatBot
+      branch: master
