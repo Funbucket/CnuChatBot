@@ -1,11 +1,7 @@
-# from urllib.request import urlopen
-# from datetime import datetime as dt
 import requests
 from bs4 import BeautifulSoup
 from chatbotapp.common.kakaojsonformat import *
 from enum import Enum
-# import datetime
-
 import re
 
 
