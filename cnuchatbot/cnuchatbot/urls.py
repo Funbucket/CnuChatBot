@@ -24,6 +24,7 @@ urlpatterns = [
     path('library/', views.get_library_info),
     path('admin/', admin.site.urls),
     path('bus/', views.get_bus_info),
+    path('shuttle/', views.get_shuttle_info),
     path('cafeteria/', views.get_cafeteria_info),
     path('etc/', views.get_etc_info)
 
