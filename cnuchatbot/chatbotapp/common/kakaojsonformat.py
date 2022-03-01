@@ -105,3 +105,41 @@ def list_card(title, subtitle, description, url):
     ]
 
     return new_response
+
+
+def carousel_basic_card(title, description):
+    result = {
+        "version": "2.0",
+        "template": {
+            "outputs": [
+                {
+                    "carousel": {
+                        "type": "basicCard",
+                        "items": [
+                            {
+                                "title": title,
+                                "description": description,
+                            },
+                            {
+                                "title": "보물상자2",
+                                "description": "보물상자2 안에는 뭐가 있을까",
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+
+    return result
+
+
+def insert_time(origin, title, description):
+    new = origin["template"]["output"][0]["carousel"]["items"].append(
+        {
+            "title": title,
+            "description": description
+        }
+    )
+
+    return new
