@@ -1,5 +1,5 @@
 from pytimekr import pytimekr
-from datetime import date
+from datetime import date, datetime
 import datetime
 from chatbotapp.common.kakaojsonformat import *
 

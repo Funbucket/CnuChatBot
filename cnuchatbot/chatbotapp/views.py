@@ -11,8 +11,11 @@ from chatbotapp.cnudata.organized_information.study_competition import get_study
 from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_answer
 from chatbotapp.cnudata.shuttlebus.bus import *
 from chatbotapp.cnudata.is_vacation import get_vacation
+
 from chatbotapp.common.variables.library import *
 import datetime
+
+from chatbotapp.cnudata.shuttlebus.shuttle import get_shuttle_answer
 
 
 @csrf_exempt
@@ -71,6 +74,12 @@ def get_bus_info(request):
     elif return_str == "C노선표":
         response = get_croot_image()
         return JsonResponse(response)
+
+
+@csrf_exempt
+def get_shuttle_info(request):
+    response = get_shuttle_answer()
+    return JsonResponse(response)
 
 
 @csrf_exempt
