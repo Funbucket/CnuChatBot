@@ -123,7 +123,8 @@ def carousel_basic_card(title, description):
                         ]
                     }
                 }
-            ]
+            ],
+            "quickReplies": []
         }
     }
 

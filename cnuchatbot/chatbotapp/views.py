@@ -1,4 +1,3 @@
-import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from chatbotapp.cnudata.library.library import *
@@ -11,14 +10,13 @@ from chatbotapp.cnudata.organized_information.study_competition import (
     get_study_competition_answer,
 )
 from chatbotapp.cnudata.organized_information.cnumarket import get_cnumarket_answer
-from chatbotapp.cnudata.shuttlebus.bus import *
-from chatbotapp.cnudata.is_vacation import get_vacation
 
 from chatbotapp.common.variables.library import *
 from chatbotapp.common.variables.cafeteria import *
 import datetime
 
-from chatbotapp.cnudata.shuttlebus.shuttle import get_shuttle_answer
+from chatbotapp.cnudata.shuttlebus.shuttle import get_shuttle_answer, get_line_image
+from chatbotapp.common.functions import get_req
 
 
 @csrf_exempt
@@ -41,47 +39,16 @@ def get_library_info(request):
 
 
 @csrf_exempt
-def get_bus_info(request):
-    answer = request.body.decode("utf-8")
-    return_json_str = json.loads(answer)
-    return_str = return_json_str["userRequest"]["utterance"]
-    if return_str == "셔틀" or return_str == "🚌 셔틀":
-        """response = get_root_answer()
-        return JsonResponse(response)"""
-        if get_vacation():
-            response = get_holiday_bus_answer()
-        else:
-            response = get_root_answer()
-        return JsonResponse(response)
-    elif return_str == "A노선":
-        response = get_aroot_answer()
-        return JsonResponse(response)
-    elif return_str == "B노선":
-        response = get_broot_answer()
-        return JsonResponse(response)
-    elif return_str == "C노선":
-        response = get_croot_answer()
-        return JsonResponse(response)
-    elif return_str == "오전":
-        response = get_croot_am_answer()
-        return JsonResponse(response)
-    elif return_str == "오후":
-        response = get_croot_pm_answer()
-        return JsonResponse(response)
-    elif return_str == "A노선표":
-        response = get_aroot_image()
-        return JsonResponse(response)
-    elif return_str == "B노선표":
-        response = get_broot_image()
-        return JsonResponse(response)
-    elif return_str == "C노선표":
-        response = get_croot_image()
-        return JsonResponse(response)
-
-
-@csrf_exempt
 def get_shuttle_info(request):
-    response = get_shuttle_answer()
+    req = get_req(request)
+    if req == "셔틀" or req == "🚌 셔틀":
+        response = get_shuttle_answer()
+    elif req == "A노선표":
+        response = get_line_image("A")
+    elif req == "B노선표":
+        response = get_line_image("B")
+    elif req == "C노선표":
+        response = get_line_image("C")
     return JsonResponse(response)
 
 

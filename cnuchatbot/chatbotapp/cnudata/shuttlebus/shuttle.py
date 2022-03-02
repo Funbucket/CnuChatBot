@@ -2,7 +2,13 @@ from chatbotapp.common.kakaojsonformat import *
 from chatbotapp.models import ShuttleA, ShuttleB, ShuttleC
 from datetime import datetime, timedelta, time, date
 from typing import NamedTuple
+from chatbotapp.common.functions import insert_multiple_reply
 
+IMAGE_URL = {
+   "A": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810851/KakaoTalk_20210912_215636605_amglsv.jpg",
+   "B": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810851/KakaoTalk_20210904_200707497_hvhm8n.jpg",
+   "C": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810888/KakaoTalk_20211010_051327589_t0alks.jpg"
+}
 
 """
 A : A노선 시간을 담은 배열
@@ -69,7 +75,7 @@ def find_adjacent_times(line_name, cur_time):
     """
     if get_datetime(time(0)) < cur_time < get_datetime(line_times[0]) - timedelta(minutes=30) or \
        get_datetime(line_times[last_index]) + timedelta(minutes=30) < cur_time < get_datetime(time(23, 59, 59)):
-        return AdjTimes(line_name, 0, 0, [line_times[0]])
+        return AdjTimes(line_name, 0, 0, [line_times[0], line_times[last_index]])
 
     elif get_datetime(line_times[0]) - timedelta(minutes=30) <= cur_time <= get_datetime(line_times[0]):
         return AdjTimes(line_name, 0, 2, [line_times[0], line_times[1]])
@@ -100,7 +106,8 @@ def get_str_time_info(adj_time, cur_time):
     # case 1
     if adj_time.prev_ == 0 and adj_time.next_ == 0:
         ret = "운행종료" + \
-              "\n첫차" + str_time(adj_time.times_[0])
+              "\n첫차 " + str_time(adj_time.times_[0]) + \
+              "\n믹차 " + str_time(adj_time.times_[1])
         return ret
     # case 2
     elif adj_time.prev_ == 0 and adj_time.next_ == 2:
@@ -192,6 +199,22 @@ def get_shuttle_answer():
         cd_str
     )
 
+    # 노선표 replies 추가
+    answer = insert_multiple_reply(
+        answer,
+        [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
+    )
     return answer
 
 
+"""
+인자로 받은 노선에 대한 image kakao json format 반환
+"""
+def get_line_image(line):
+    url = IMAGE_URL[line]
+    answer = insert_image(url, line)
+    answer = insert_multiple_reply(
+        answer,
+        [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
+    )
+    return answer
