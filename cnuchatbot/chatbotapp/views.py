@@ -81,7 +81,7 @@ def get_bus_info(request):
 
 @csrf_exempt
 def get_shuttle_info(request):
-    response =
+    response = get_shuttle_answer()
     return JsonResponse(response)
 
 

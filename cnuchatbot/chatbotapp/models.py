@@ -15,3 +15,8 @@ class ShuttleA(models.Model):
 
 class ShuttleB(models.Model):
     departureTime = models.TimeField(verbose_name="b노선 출발시간", null=True)
+
+
+class ShuttleC(models.Model):
+    direction = models.CharField(max_length=30, verbose_name="방향", null=True)
+    departureTime = models.TimeField(max_length=30, verbose_name="c노선 출발시간", null=True)

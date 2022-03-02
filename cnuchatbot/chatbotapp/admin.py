@@ -5,3 +5,4 @@ from .models import *
 admin.site.register(Library)
 admin.site.register(ShuttleA)
 admin.site.register(ShuttleB)
+admin.site.register(ShuttleC)
