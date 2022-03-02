@@ -106,7 +106,7 @@ def get_str_time_info(adj_time, cur_time):
     # case 1
     if adj_time.prev_ == 0 and adj_time.next_ == 0:
         ret = "운행종료" + \
-              "\n첫차 " + str_time(adj_time.times_[0]) + \
+              "\n첫차 " + str_time(adj_time.times_[0]) + " (월평역 출발)" + \
               "\n믹차 " + str_time(adj_time.times_[1])
         return ret
     # case 2
