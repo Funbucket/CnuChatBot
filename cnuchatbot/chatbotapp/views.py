@@ -78,7 +78,7 @@ def get_cafeteria_info(request):
         return JsonResponse(response)
 
     elif return_str == "기숙사식당":
-        response = get_entire_dorm()
+        response = dorm_time()
         return JsonResponse(response)
 
     elif return_str == "오늘기숙사식당":

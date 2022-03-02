@@ -317,13 +317,14 @@ def dorm_menu(when, the_day_of_week_number):
 
 # dorm_menu(2, )
 
+
 def dorm_time():
     url = "https://dorm.cnu.ac.kr/html/kr/sub03/sub03_0304.html"
     req = requests.get(url)
     req.raise_for_status()
     date_soup = BeautifulSoup(req.content.decode('utf8', 'replace'), 'html.parser')
-    term = date_soup.find("div",attrs={"class":"diet_table_top"}).get_text().strip()
-    text = f"[{term}]\n\n[아침]\n07:30 ~ 09:00\n\n[점심]\n11:30 ~ 13:30\n\n[저녁]\n17:00 ~ 19:00\n(주말 및 공휴일은 17:30 ~ 19:00)\n"
+    term = date_soup.find("div", attrs={"class": "diet_table_top"}).get_text().strip()
+    text = f"[{term}]\n\n[아침]\n07:30 ~ 09:00\n\n[점심]\n11:30 ~ 13:30\n\n[저녁]\n17:00 ~ 19:30\n(주말 및 공휴일은 17:30 ~ 19:00)\n"
     answer = insert_text(text)
     reply = make_reply("오늘", "오늘기숙사식당")
     answer = insert_replies(answer, reply)
