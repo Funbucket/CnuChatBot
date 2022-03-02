@@ -15,7 +15,7 @@ from chatbotapp.common.variables.library import *
 from chatbotapp.common.variables.cafeteria import *
 import datetime
 
-from chatbotapp.cnudata.shuttlebus.shuttle import get_shuttle_answer, get_line_image
+from chatbotapp.cnudata.shuttle.shuttle import get_shuttle_answer, get_line_image
 from chatbotapp.common.functions import get_req
 
 
