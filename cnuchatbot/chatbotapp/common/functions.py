@@ -22,7 +22,6 @@ def insert_multiple_reply(answer, replies):
     for label, real in replies:
         tempReply = make_reply(label, real)
         answer = insert_replies(answer, tempReply)
-
     return answer
 
 
