@@ -169,7 +169,7 @@ def get_str_time_info(adj_time, cur_time):
         ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
               "\n\n" + \
               "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[2]) + "(" + str(get_time_diff(adj_time.times_[2], cur_time)) + "분후)"
+              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분후)"
         return ret
 
     elif adj_time.prev_ == 1 and adj_time.next_ == 1:
@@ -177,7 +177,7 @@ def get_str_time_info(adj_time, cur_time):
               "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
               "\n\n" + \
               "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[2]) + "(" + str(get_time_diff(adj_time.times_[2], cur_time)) + "분후)"
+              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분후)"
         return ret
 
     elif adj_time.prev_ == 2 and adj_time.next_ == 1:
@@ -223,8 +223,8 @@ def get_str_time_info(adj_time, cur_time):
 """
 def get_shuttle_answer():
     global CURRENT_TIME
-    CURRENT_TIME = datetime.now()
-    # CURRENT_TIME = get_datetime(time(17, 31))  # test code
+    # CURRENT_TIME = datetime.now()
+    CURRENT_TIME = get_datetime(time(17, 44))  # test code
 
     a = find_adjacent_times("A", CURRENT_TIME)
     a_str = get_str_time_info(a, CURRENT_TIME)
