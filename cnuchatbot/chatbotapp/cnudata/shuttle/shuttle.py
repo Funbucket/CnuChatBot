@@ -223,8 +223,8 @@ def get_str_time_info(adj_time, cur_time):
 """
 def get_shuttle_answer():
     global CURRENT_TIME
-    # CURRENT_TIME = datetime.now()
-    CURRENT_TIME = get_datetime(time(17, 44))  # test code
+    CURRENT_TIME = datetime.now()
+    # CURRENT_TIME = get_datetime(time(17, 44))  # test code
 
     a = find_adjacent_times("A", CURRENT_TIME)
     a_str = get_str_time_info(a, CURRENT_TIME)
