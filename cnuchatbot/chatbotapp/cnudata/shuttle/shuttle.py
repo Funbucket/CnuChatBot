@@ -13,64 +13,78 @@ IMAGE_URL = {
    "B": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810851/KakaoTalk_20210904_200707497_hvhm8n.jpg",
    "C": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810888/KakaoTalk_20211010_051327589_t0alks.jpg"
 }
-"""
-A : A노선 시간을 담은 배열
-B : B노선 시간을 담은 배열 
-CB : C노선 보운행 시간을 담은 배열
-CD : C노선 대덕행 시간을 담은 배열
-"""
+
 LINE_TIME = {
+    """
+    A : A노선 시간을 담은 배열
+    B : B노선 시간을 담은 배열 
+    CB : C노선 보운행 시간을 담은 배열
+    CD : C노선 대덕행 시간을 담은 배열
+    """
     "A": ShuttleA.objects.values_list('departureTime', flat=True).distinct(),
     "B": ShuttleB.objects.values_list('departureTime', flat=True).distinct(),
     "CB": ShuttleC.objects.filter(direction="보운행").values_list('departureTime', flat=True).distinct(),
     "CD": ShuttleC.objects.filter(direction="대덕행").values_list('departureTime', flat=True).distinct()
 }
-"""
-line_name : 노선명
-prev : 직전 차량 수
-next : 직후 차량 수
-times : 전, 후 차량 시간
-"""
+
+
 class AdjTimes(NamedTuple):
+    """
+    AdjTimes struct
+    line_name : 노선명
+    prev : 직전 차량 수
+    next : 직후 차량 수
+    times : 전, 후 차량 시간
+    """
     line_name_: str
     prev_: int
     next_: int
     times_: list
 
 
-"""
-get_datetime
-time object를 인자로 받아서 오늘의 datetime object 반환
-"""
 def get_datetime(time):
+    """
+    get_datetime
+    time object를 인자로 받아서
+    오늘의 datetime object 반환
+    """
     return datetime.combine(date.today(), time)
 
 
-"""
-time object를 인자로 받으면 H:M 형식의 string 반환
-"""
 def get_str_time(time):
+    """
+    get_str_time
+    time object를 인자로 받아서
+    H:M 형식의 string 반환
+    """
     return time.strftime("%H:%M")
 
-"""
-두개의 time object를 인자로 받아서 차이값(절대값)을 분 단위로 반환한다.
-"""
+
 def get_time_diff(x, y):
+    """
+    get_time_diff
+    두개의 time object를 인자로 받아서
+    차이값(절대값)을 분 단위로 반환한다.
+    """
     return abs(int((get_datetime(x) - get_datetime(y)).total_seconds() / 60))
 
 
-"""
-time object를 인자로 받아서 인자로 받은 시간의 차량이 현재 운행중인지 여부 반환
-"""
+
 def is_running(time):
+    """
+    is_running
+    time object를 인자로 받아서
+    인자로 받은 시간의 차량이 현재 운행중인지 여부 반환
+    """
     return get_datetime(time) < CURRENT_TIME < get_datetime(time) + timedelta(minutes=AVG_TIME)
 
 
-"""
-find_adjacent_times
-노선의 이름(A, B)과 현재 시간을 인자로 받아서 AdjTimes type을 반환한다.
-"""
 def find_adjacent_times(line_name, cur_time):
+    """
+    find_adjacent_times
+    노선의 이름(A, B)과 현재 시간을 인자로 받아서
+    AdjTimes type을 반환한다.
+    """
     line_times = LINE_TIME[line_name]
     last_index = len(line_times) - 1
     """
@@ -134,12 +148,12 @@ def find_adjacent_times(line_name, cur_time):
                 return AdjTimes(line_name, 0, 2, [line_times[index], line_times[index + 1]])
 
 
-
-"""
-AdjTimes struct와 current time을 인자로 받아서 
-조건에 맞는 전, 후 차량의 시간을 string type으로 반환한다.
-"""
 def get_str_time_info(adj_time, cur_time):
+    """
+    get_str_time_info
+    AdjTimes struct와 current time을 인자로 받아서
+    조건에 맞는 전, 후 차량의 시간을 string type으로 반환한다.
+    """
     cur_time = cur_time.time()  # datetime object -> time object
 
     # case 1
@@ -218,14 +232,16 @@ def get_str_time_info(adj_time, cur_time):
         return ret
 
 
-"""
-인접 시간의 배열을 kakao json format으로 반환한다.
-"""
 def get_shuttle_answer():
+    """
+    get_shuttle_answer
+    인접 시간의 배열을 kakao json format으로 반환한다.
+    """
     global CURRENT_TIME
     CURRENT_TIME = datetime.now()
     # CURRENT_TIME = get_datetime(time(17, 44))  # test code
 
+    # a노선
     a = find_adjacent_times("A", CURRENT_TIME)
     a_str = get_str_time_info(a, CURRENT_TIME)
     answer = carousel_basic_card(
@@ -233,6 +249,7 @@ def get_shuttle_answer():
         a_str
     )
 
+    # b노선
     b = find_adjacent_times("B", CURRENT_TIME)
     b_str = get_str_time_info(b, CURRENT_TIME)
     answer = insert_item(
@@ -241,6 +258,7 @@ def get_shuttle_answer():
         b_str
     )
 
+    # c노선 보운행
     cb_str = ""
     for t in LINE_TIME["CB"]:
         cb_str += get_str_time(t)
@@ -252,6 +270,7 @@ def get_shuttle_answer():
         cb_str
     )
 
+    # c노선 대덕행
     cd_str = ""
     for t in LINE_TIME["CD"]:
         cd_str += get_str_time(t)
@@ -271,10 +290,12 @@ def get_shuttle_answer():
     return answer
 
 
-"""
-인자로 받은 노선에 대한 image kakao json format 반환
-"""
 def get_line_image(line):
+    """
+    get_line_image
+    char A, B, C 중 하나를 인자로 받아서
+    해당 노선 image를 kakao json format 로 반환
+    """
     url = IMAGE_URL[line]
     answer = insert_image(url, line)
     answer = insert_multiple_reply(
