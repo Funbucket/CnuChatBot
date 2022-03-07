@@ -14,13 +14,13 @@ IMAGE_URL = {
    "C": "https://res.cloudinary.com/dvrcr0hkb/image/upload/v1633810888/KakaoTalk_20211010_051327589_t0alks.jpg"
 }
 
+"""
+A : A노선 시간을 담은 배열
+B : B노선 시간을 담은 배열 
+CB : C노선 보운행 시간을 담은 배열
+CD : C노선 대덕행 시간을 담은 배열
+"""
 LINE_TIME = {
-    """
-    A : A노선 시간을 담은 배열
-    B : B노선 시간을 담은 배열 
-    CB : C노선 보운행 시간을 담은 배열
-    CD : C노선 대덕행 시간을 담은 배열
-    """
     "A": ShuttleA.objects.values_list('departureTime', flat=True).distinct(),
     "B": ShuttleB.objects.values_list('departureTime', flat=True).distinct(),
     "CB": ShuttleC.objects.filter(direction="보운행").values_list('departureTime', flat=True).distinct(),
@@ -69,7 +69,6 @@ def get_time_diff(x, y):
     return abs(int((get_datetime(x) - get_datetime(y)).total_seconds() / 60))
 
 
-
 def is_running(time):
     """
     is_running
@@ -84,18 +83,17 @@ def find_adjacent_times(line_name, cur_time):
     find_adjacent_times
     노선의 이름(A, B)과 현재 시간을 인자로 받아서
     AdjTimes type을 반환한다.
-    """
-    line_times = LINE_TIME[line_name]
-    last_index = len(line_times) - 1
-    """
+
     case 1 : 운행종료, 00시 이후 첫차 출발 30 분전 or 마지막 차량 30분 이후 24시 이전
     case 2 : 직전 0개 직후 2개, (첫차 - 30분) 이후 첫차 직전 (out of index 예외 처리)
     case 3 : 직전 1개 직후 2개, 첫차 출발 직후 두번째차 출발 직전 (out of index 예외 처리)
-    
+
     case 4 : 대기중 0대, 운행중 0, 1, 2대
     case 5 : 대기중 1대, 운행중 0, 1, 2대
     case 6 : 대기중 2대, 운행중 0, 1, 2대
     """
+    line_times = LINE_TIME[line_name]
+    last_index = len(line_times) - 1
 
     # case 1
     if get_datetime(time(0)) < cur_time < get_datetime(line_times[0]) - timedelta(minutes=30) or \
@@ -148,114 +146,60 @@ def find_adjacent_times(line_name, cur_time):
                 return AdjTimes(line_name, 0, 2, [line_times[index], line_times[index + 1]])
 
 
-def get_str_time_info(adj_time, cur_time):
+def get_str_info(adj_time, cur_time):
     """
-    get_str_time_info
+    get_str_info
     AdjTimes struct와 current time을 인자로 받아서
     조건에 맞는 전, 후 차량의 시간을 string type으로 반환한다.
     """
     cur_time = cur_time.time()  # datetime object -> time object
 
-    # case 1
-    if adj_time.prev_ == 0 and adj_time.next_ == 0:
-        ret = "운행종료" + \
-              "\n첫차 " + get_str_time(adj_time.times_[0]) + " (월평역 출발)" + \
-              "\n막차 " + get_str_time(adj_time.times_[1])
-        return ret
+    def get_info(prev, next):
+        if prev == 0 and next == 0:
+            info = "운행종료" + \
+                   "\n첫차 " + get_str_time(adj_time.times_[0]) + " (월평역 출발)" + \
+                   "\n막차 " + get_str_time(adj_time.times_[1])
+        else:
+            info = "[" + str(adj_time.prev_) + "대 운행중]"
+            for i in range(prev):
+                info += "\n" + get_str_time(adj_time.times_[i]) + "(" +str(get_time_diff(adj_time.times_[i], cur_time)) + "분전)"
 
-    elif adj_time.prev_ == 1 and adj_time.next_ == 0:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]"
-        return ret
+            info += "\n\n"
 
-    elif adj_time.prev_ == 2 and adj_time.next_ == 0:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]"
-        return ret
+            info += "[" + str(adj_time.next_) + "대 대기중]"
+            for j in range(prev, prev + next):
+                info += "\n" + get_str_time(adj_time.times_[j]) + "(" + str(get_time_diff(adj_time.times_[j], cur_time)) + "분전)"
+        return info
 
-    # case 2
-    elif adj_time.prev_ == 0 and adj_time.next_ == 1:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분후)"
-        return ret
-
-    elif adj_time.prev_ == 1 and adj_time.next_ == 1:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분후)"
-        return ret
-
-    elif adj_time.prev_ == 2 and adj_time.next_ == 1:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[2]) + "(" + str(get_time_diff(adj_time.times_[2], cur_time)) + "분후)"
-        return ret
-
-    # case 3
-    elif adj_time.prev_ == 0 and adj_time.next_ == 2:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분후)" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분후)"
-        return ret
-
-    elif adj_time.prev_ == 1 and adj_time.next_ == 2:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분후)" + \
-              "\n" + get_str_time(adj_time.times_[2]) + "(" + str(get_time_diff(adj_time.times_[2], cur_time)) + "분후)"
-        return ret
-
-    elif adj_time.prev_ == 2 and adj_time.next_ == 2:
-        ret = "[" + str(adj_time.prev_) + "대 운행중]" + \
-              "\n" + get_str_time(adj_time.times_[0]) + "(" + str(get_time_diff(adj_time.times_[0], cur_time)) + "분전)" + \
-              "\n" + get_str_time(adj_time.times_[1]) + "(" + str(get_time_diff(adj_time.times_[1], cur_time)) + "분전)" + \
-              "\n\n" + \
-              "[" + str(adj_time.next_) + "대 대기중]" + \
-              "\n" + get_str_time(adj_time.times_[2]) + "(" + str(get_time_diff(adj_time.times_[2], cur_time)) + "분후)" + \
-              "\n" + get_str_time(adj_time.times_[3]) + "(" + str(get_time_diff(adj_time.times_[3], cur_time)) + "분후)"
-        return ret
+    return get_info(adj_time.prev_, adj_time.next_)
 
 
 def get_shuttle_answer():
     """
     get_shuttle_answer
-    인접 시간의 배열을 kakao json format으로 반환한다.
+    get_str_info를 통해 얻은 각 노선의 정보
+    kakao json format으로 반환한다.
+    views에서 최종적으로 사용된다.
     """
     global CURRENT_TIME
-    CURRENT_TIME = datetime.now()
-    # CURRENT_TIME = get_datetime(time(17, 44))  # test code
+    # CURRENT_TIME = datetime.now()
+    CURRENT_TIME = get_datetime(time(14, 46))  # test code
 
     # a노선
     a = find_adjacent_times("A", CURRENT_TIME)
-    a_str = get_str_time_info(a, CURRENT_TIME)
+    a_str_info = get_str_info(a, CURRENT_TIME)
     answer = carousel_basic_card(
         a.line_name_ + "노선(순환)",
-        a_str
+        a_str_info
     )
 
     # b노선
     b = find_adjacent_times("B", CURRENT_TIME)
-    b_str = get_str_time_info(b, CURRENT_TIME)
+    b_str_info = get_str_info(b, CURRENT_TIME)
     answer = insert_item(
         answer,
         b.line_name_ + "노선(순환)",
-        b_str
+        b_str_info
     )
 
     # c노선 보운행
