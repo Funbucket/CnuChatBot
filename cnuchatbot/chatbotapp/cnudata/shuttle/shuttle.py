@@ -78,7 +78,7 @@ def is_running(time):
     return get_datetime(time) < CURRENT_TIME < get_datetime(time) + timedelta(minutes=AVG_TIME)
 
 
-def find_adjacent_times(line_name, cur_time):
+def find_adjacent_times(line, cur_time):
     """
     find_adjacent_times
     노선의 이름(A, B)과 현재 시간을 인자로 받아서
@@ -92,58 +92,58 @@ def find_adjacent_times(line_name, cur_time):
     case 5 : 대기중 1대, 운행중 0, 1, 2대
     case 6 : 대기중 2대, 운행중 0, 1, 2대
     """
-    line_times = LINE_TIME[line_name]
+    line_times = LINE_TIME[line]
     last_index = len(line_times) - 1
 
     # case 1
     if get_datetime(time(0)) < cur_time < get_datetime(line_times[0]) - timedelta(minutes=30) or \
        get_datetime(line_times[last_index]) + timedelta(minutes=30) < cur_time < get_datetime(time(23, 59, 59)):
-        return AdjTimes(line_name, 0, 0, [line_times[0], line_times[last_index]])
+        return AdjTimes(line, 0, 0, [line_times[0], line_times[last_index]])
 
     # case 2
     elif get_datetime(line_times[0]) - timedelta(minutes=30) <= cur_time <= get_datetime(line_times[0]):
-        return AdjTimes(line_name, 0, 2, [line_times[0], line_times[1]])
+        return AdjTimes(line, 0, 2, [line_times[0], line_times[1]])
 
     # case 3
     elif get_datetime(line_times[0]) < cur_time <= get_datetime(line_times[1]):
-        return AdjTimes(line_name, 1, 2, [line_times[0], line_times[1], line_times[2]])
+        return AdjTimes(line, 1, 2, [line_times[0], line_times[1], line_times[2]])
 
     # case 4
     elif get_datetime(line_times[last_index]) < cur_time:
         # 운행중 2대, 대기중 0대
         if is_running(line_times[last_index - 1]):
-            return AdjTimes(line_name, 2, 0, [line_times[last_index - 1], line_times[last_index]])
+            return AdjTimes(line, 2, 0, [line_times[last_index - 1], line_times[last_index]])
         # 운행중 1대, 대기중 0대
         elif is_running(line_times[last_index]):
-            return AdjTimes(line_name, 1, 0, [line_times[last_index]])
+            return AdjTimes(line, 1, 0, [line_times[last_index]])
         # 운행중 0대, 대기중 0대
         elif not is_running(line_times[last_index]):
-            return AdjTimes(line_name, 0, 0, [line_times[0], line_times[last_index]])
+            return AdjTimes(line, 0, 0, [line_times[0], line_times[last_index]])
 
     # case 5
     elif get_datetime(line_times[last_index - 1]) < cur_time <= get_datetime(line_times[last_index]):
         # 운행중 2대, 대기중 1대
         if is_running(line_times[last_index - 2]):
-            return AdjTimes(line_name, 2, 1, [line_times[last_index - 2], line_times[last_index - 1], line_times[last_index]])
+            return AdjTimes(line, 2, 1, [line_times[last_index - 2], line_times[last_index - 1], line_times[last_index]])
         # 운행중 1대, 대기중 1대
         elif is_running(line_times[last_index - 1]):
-            return AdjTimes(line_name, 1, 1, [line_times[last_index - 1], line_times[last_index]])
+            return AdjTimes(line, 1, 1, [line_times[last_index - 1], line_times[last_index]])
         # 운행중 0대, 대기중 1대
         elif not is_running(line_times[last_index - 1]):
-            return AdjTimes(line_name, 0, 1, [line_times[last_index - 1], line_times[last_index]])
+            return AdjTimes(line, 0, 1, [line_times[last_index - 1], line_times[last_index]])
 
     # case 6
     else:
         for index, line_time in enumerate(line_times):
             # 운행중 2대, 대기중 2대
             if cur_time < get_datetime(line_time) and is_running(line_times[index - 2]):
-                return AdjTimes(line_name, 2, 2, [line_times[index - 2], line_times[index - 1], line_times[index], line_times[index + 1]])
+                return AdjTimes(line, 2, 2, [line_times[index - 2], line_times[index - 1], line_times[index], line_times[index + 1]])
             # 운행중 1대, 대기중 2대
             elif cur_time < get_datetime(line_time) and is_running(line_times[index - 1]):
-                return AdjTimes(line_name, 1, 2, [line_times[index - 1], line_times[index], line_times[index + 1]])
+                return AdjTimes(line, 1, 2, [line_times[index - 1], line_times[index], line_times[index + 1]])
             # 운행중 0대, 대기중 2대
             elif cur_time < get_datetime(line_time) and not is_running(line_times[index - 1]):
-                return AdjTimes(line_name, 0, 2, [line_times[index], line_times[index + 1]])
+                return AdjTimes(line, 0, 2, [line_times[index], line_times[index + 1]])
 
 
 def get_str_info(adj_time, cur_time):
@@ -172,6 +172,21 @@ def get_str_info(adj_time, cur_time):
         return info
 
     return get_info(adj_time.prev_, adj_time.next_)
+
+
+def get_line_image(line):
+    """
+    get_line_image
+    char A, B, C 중 하나를 인자로 받아서
+    해당 노선 image를 kakao json format 로 반환
+    """
+    url = IMAGE_URL[line]
+    answer = insert_image(url, line)
+    answer = insert_multiple_reply(
+        answer,
+        [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
+    )
+    return answer
 
 
 def get_shuttle_answer():
@@ -227,21 +242,6 @@ def get_shuttle_answer():
     )
 
     # 노선표 replies 추가
-    answer = insert_multiple_reply(
-        answer,
-        [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
-    )
-    return answer
-
-
-def get_line_image(line):
-    """
-    get_line_image
-    char A, B, C 중 하나를 인자로 받아서
-    해당 노선 image를 kakao json format 로 반환
-    """
-    url = IMAGE_URL[line]
-    answer = insert_image(url, line)
     answer = insert_multiple_reply(
         answer,
         [["A노선표", "A노선표"], ["B노선표", "B노선표"], ["C노선표", "C노선표"]]
