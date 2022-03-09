@@ -1,4 +1,5 @@
 from chatbotapp.common.kakaojsonformat import *
+from chatbotapp.common.functions import is_holiday
 from chatbotapp.models import ShuttleA, ShuttleB, ShuttleC
 from datetime import datetime, timedelta, time, date
 from typing import NamedTuple
@@ -84,7 +85,7 @@ def find_adjacent_times(line, cur_time):
     노선의 이름(A, B)과 현재 시간을 인자로 받아서
     AdjTimes type을 반환한다.
 
-    case 1 : 운행종료, 00시 이후 첫차 출발 30 분전 or 마지막 차량 30분 이후 24시 이전
+    case 1 : 주말, 운행종료, 00시 이후 첫차 출발 30 분전 or 마지막 차량 30분 이후 24시 이전
     case 2 : 직전 0개 직후 2개, (첫차 - 30분) 이후 첫차 직전 (out of index 예외 처리)
     case 3 : 직전 1개 직후 2개, 첫차 출발 직후 두번째차 출발 직전 (out of index 예외 처리)
 
@@ -96,7 +97,7 @@ def find_adjacent_times(line, cur_time):
     last_index = len(line_times) - 1
 
     # case 1
-    if get_datetime(time(0)) < cur_time < get_datetime(line_times[0]) - timedelta(minutes=30) or \
+    if is_holiday() or get_datetime(time(0)) < cur_time < get_datetime(line_times[0]) - timedelta(minutes=30) or \
        get_datetime(line_times[last_index]) + timedelta(minutes=30) < cur_time < get_datetime(time(23, 59, 59)):
         return AdjTimes(line, 0, 0, [line_times[0], line_times[last_index]])
 
@@ -197,8 +198,8 @@ def get_shuttle_answer():
     views에서 최종적으로 사용된다.
     """
     global CURRENT_TIME
-    # CURRENT_TIME = datetime.now()
-    CURRENT_TIME = get_datetime(time(14, 46))  # test code
+    CURRENT_TIME = datetime.now()
+    # CURRENT_TIME = get_datetime(time(14, 46))  # test code
 
     # a노선
     a = find_adjacent_times("A", CURRENT_TIME)
