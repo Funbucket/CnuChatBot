@@ -63,8 +63,8 @@ def get_variousCafeteria_answer(person):
 def get_variousCafeteria_images():
     # jsp 사진 보내주는 로직
     grabzIt = GrabzItClient.GrabzItClient(
-        "N2Y5Yjg1ZTY5NGIzNDE5ZmIzYmM4OGQ0MGQwMDk1N2Y=",
-        "Qz9LP1lkPz8GPz8QTDk/TGU/Pz8/PyQ/IC4xNT8EVD8=",
+        "MDNjNzQ2NzcxMzRmNDJkMjkxMTRlOWE3MDk3YzdlY2Q=",
+        "P3Y/cj8pP3JhPxs/Pww3Lns/Pz8fHx9cP2NpNCBPP1g=",
     )
     options = GrabzItImageOptions.GrabzItImageOptions()
     options.browserHeight = -1
@@ -72,7 +72,7 @@ def get_variousCafeteria_images():
     options.format = "png"
     options.width = -1
     options.height = -1
-
+ 
     for person in personCategory:
         for meal in mealCategory:
             data = {"cafe_div_cd": person, "food_div_cd": meal, "langType": "1"}
@@ -88,7 +88,7 @@ def get_variousCafeteria_images():
             )
     return insert_text("sad")
 
-
+# get_variousCafeteria_images()
 # 매주 월요일에 동작
 schedule.every().monday.do(get_variousCafeteria_images)
 
