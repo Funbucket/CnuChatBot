@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-<img alt="character" width="300" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/bot_image.jpg" />
+<img alt="character" width="300" src="https://github.com/Funbucket/CnuChatBot/blob/master/cnuchatbot/image/bot_image.jpg" />
 
 </p>
 
@@ -18,13 +18,13 @@
 
 ### 📷 Qr 코드
 
-<img alt="Qr코드" width="200" height="200" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/qrcode.png"/>
+<img alt="Qr코드" width="200" height="200" src="https://github.com/Funbucket/CnuChatBot/blob/master/cnuchatbot/image/qrcode.png"/>
 
 <br><br>
 
 ## 📜 사용방법
 
-<img alt="사용방법" height="500" src="https://github.com/Funbucket/cnuchatbot/blob/master/image/KakaoTalk_20210301_223747528.gif"/>
+<img alt="사용방법" height="500" src="https://github.com/Funbucket/CnuChatBot/blob/master/cnuchatbot/image/KakaoTalk_20210301_223747528.gif"/>
 
 
 
