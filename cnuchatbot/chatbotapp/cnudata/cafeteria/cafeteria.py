@@ -63,8 +63,8 @@ def get_variousCafeteria_answer(person):
 def get_variousCafeteria_images():
     # jsp 사진 보내주는 로직
     grabzIt = GrabzItClient.GrabzItClient(
-        "MDJhMWJlOGY4MWFiNDJiNWExYzU2NTVjMmFmZTAzYTk=",
-        "QDo/VFwJPz8KHyd8K2RCRz9NPz8/EBY/fFU/anw/fz8=",
+        "ZjQyYTIyZTgyZWE0NGZjMDk3NDdlZTQ0ZWQyNTdkN2I=",
+        "P2cOP3Q/AD8/FQ8MP3c/P3MDH0U5Dgw/Px0/OD8/Txs=",
     )
     options = GrabzItImageOptions.GrabzItImageOptions()
     options.browserHeight = -1
